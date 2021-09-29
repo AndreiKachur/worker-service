@@ -1,0 +1,75 @@
+{
+  "name": "testapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "web": "react-scripts start",
+    "test": "cd node_modules/@ff/e2e-testing && yarn test",
+    "lint": "ff-lint",
+    "generate": "ff-generate"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "lodash": "^4.17.20",
+    "mobx": "^6.0.4",
+    "mobx-react": "^7.0.5",
+    "moment": "^2.29.1",
+    "react": "17.0.1",
+    "react-dom": "^17.0.1",
+    "react-native": "0.64.0",
+    "react-native-web": "^0.15.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/runtime": "^7.8.4",
+    "@ff/e2e-testing": "^1.0.10",
+    "@ff/generator": "^1.1.1",
+    "@ff/linting": "^1.1.6",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "@types/jest": "^25.2.3",
+    "@types/react-native": "^0.63.2",
+    "@types/react-test-renderer": "^17.0.1",
+    "husky": "^4.3.5",
+    "lint-staged": "^10.5.3",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "react-scripts": "^4.0.1",
+    "react-test-renderer": "17.0.1",
+    "typescript": "^3.8.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "ff-lint"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
