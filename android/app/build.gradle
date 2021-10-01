@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.testapp"
+        applicationId "com.workservice"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

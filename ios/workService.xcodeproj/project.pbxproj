@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* testAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* testAppTests.m */; };
-		09FDB9428139FC0961C3F446 /* libPods-testApp-testAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D29955D7832C00993CD75BCC /* libPods-testApp-testAppTests.a */; };
-		0A7711EC40A98A17DECA2FCA /* libPods-testApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09ECFEA5328DA6B012369663 /* libPods-testApp-tvOS.a */; };
+		00E356F31AD99517003FC87E /* workServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* workServiceTests.m */; };
+		09FDB9428139FC0961C3F446 /* libPods-workService-workServiceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D29955D7832C00993CD75BCC /* libPods-workService-workServiceTests.a */; };
+		0A7711EC40A98A17DECA2FCA /* libPods-workService-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09ECFEA5328DA6B012369663 /* libPods-workService-tvOS.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* testAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* testAppTests.m */; };
-		687B3381C726FA8038560A57 /* libPods-testApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4894D2961035C10D60EF6138 /* libPods-testApp-tvOSTests.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* workServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* workServiceTests.m */; };
+		687B3381C726FA8038560A57 /* libPods-workService-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4894D2961035C10D60EF6138 /* libPods-workService-tvOSTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		F8279232C18995B9E3907A15 /* libPods-testApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E4FFB0CFC1A30DE3393B33A /* libPods-testApp.a */; };
+		F8279232C18995B9E3907A15 /* libPods-workService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E4FFB0CFC1A30DE3393B33A /* libPods-workService.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,43 +28,43 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = testApp;
+			remoteInfo = workService;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "testApp-tvOS";
+			remoteInfo = "workService-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* testAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* workServiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = workServiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* testAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testAppTests.m; sourceTree = "<group>"; };
-		09ECFEA5328DA6B012369663 /* libPods-testApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A65F0F19331EB6FEC0DE729 /* Pods-testApp-testAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testApp-testAppTests.debug.xcconfig"; path = "Target Support Files/Pods-testApp-testAppTests/Pods-testApp-testAppTests.debug.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* testApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = testApp/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = testApp/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = testApp/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = testApp/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = testApp/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* testApp-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "testApp-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* testApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "testApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4894D2961035C10D60EF6138 /* libPods-testApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7158A742BBF703F3661443F2 /* Pods-testApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-testApp-tvOS/Pods-testApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = testApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8639072045B8C1A37C20E878 /* Pods-testApp-testAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testApp-testAppTests.release.xcconfig"; path = "Target Support Files/Pods-testApp-testAppTests/Pods-testApp-testAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		8E4FFB0CFC1A30DE3393B33A /* libPods-testApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		930E7675E8356FE9B5115459 /* Pods-testApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-testApp-tvOSTests/Pods-testApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		9B5FA70CC44E4D5C982A26E6 /* Pods-testApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testApp.release.xcconfig"; path = "Target Support Files/Pods-testApp/Pods-testApp.release.xcconfig"; sourceTree = "<group>"; };
-		C06E553EB1C8270FC1C5A321 /* Pods-testApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testApp.debug.xcconfig"; path = "Target Support Files/Pods-testApp/Pods-testApp.debug.xcconfig"; sourceTree = "<group>"; };
-		D29955D7832C00993CD75BCC /* libPods-testApp-testAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testApp-testAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8BE4B77BECFB9A10945E396 /* Pods-testApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-testApp-tvOSTests/Pods-testApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EA7A9D29773A89694C2C5AF6 /* Pods-testApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-testApp-tvOS/Pods-testApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* workServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = workServiceTests.m; sourceTree = "<group>"; };
+		09ECFEA5328DA6B012369663 /* libPods-workService-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-workService-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A65F0F19331EB6FEC0DE729 /* Pods-workService-workServiceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workService-workServiceTests.debug.xcconfig"; path = "Target Support Files/Pods-workService-workServiceTests/Pods-workService-workServiceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* workService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workService.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = workService/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = workService/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = workService/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = workService/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = workService/main.m; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* workService-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "workService-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* workService-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "workService-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4894D2961035C10D60EF6138 /* libPods-workService-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-workService-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7158A742BBF703F3661443F2 /* Pods-workService-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workService-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-workService-tvOS/Pods-workService-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = workService/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8639072045B8C1A37C20E878 /* Pods-workService-workServiceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workService-workServiceTests.release.xcconfig"; path = "Target Support Files/Pods-workService-workServiceTests/Pods-workService-workServiceTests.release.xcconfig"; sourceTree = "<group>"; };
+		8E4FFB0CFC1A30DE3393B33A /* libPods-workService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-workService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		930E7675E8356FE9B5115459 /* Pods-workService-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workService-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-workService-tvOSTests/Pods-workService-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B5FA70CC44E4D5C982A26E6 /* Pods-workService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workService.release.xcconfig"; path = "Target Support Files/Pods-workService/Pods-workService.release.xcconfig"; sourceTree = "<group>"; };
+		C06E553EB1C8270FC1C5A321 /* Pods-workService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workService.debug.xcconfig"; path = "Target Support Files/Pods-workService/Pods-workService.debug.xcconfig"; sourceTree = "<group>"; };
+		D29955D7832C00993CD75BCC /* libPods-workService-workServiceTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-workService-workServiceTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8BE4B77BECFB9A10945E396 /* Pods-workService-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workService-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-workService-tvOSTests/Pods-workService-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA7A9D29773A89694C2C5AF6 /* Pods-workService-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workService-tvOS.release.xcconfig"; path = "Target Support Files/Pods-workService-tvOS/Pods-workService-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09FDB9428139FC0961C3F446 /* libPods-testApp-testAppTests.a in Frameworks */,
+				09FDB9428139FC0961C3F446 /* libPods-workService-workServiceTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8279232C18995B9E3907A15 /* libPods-testApp.a in Frameworks */,
+				F8279232C18995B9E3907A15 /* libPods-workService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A7711EC40A98A17DECA2FCA /* libPods-testApp-tvOS.a in Frameworks */,
+				0A7711EC40A98A17DECA2FCA /* libPods-workService-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,20 +98,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				687B3381C726FA8038560A57 /* libPods-testApp-tvOSTests.a in Frameworks */,
+				687B3381C726FA8038560A57 /* libPods-workService-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* testAppTests */ = {
+		00E356EF1AD99517003FC87E /* workServiceTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* testAppTests.m */,
+				00E356F21AD99517003FC87E /* workServiceTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = testAppTests;
+			path = workServiceTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -122,7 +122,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* testApp */ = {
+		13B07FAE1A68108700A75B9A /* workService */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -133,20 +133,20 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = testApp;
+			name = workService;
 			sourceTree = "<group>";
 		};
 		2AB28197BC7211B5FA523733 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C06E553EB1C8270FC1C5A321 /* Pods-testApp.debug.xcconfig */,
-				9B5FA70CC44E4D5C982A26E6 /* Pods-testApp.release.xcconfig */,
-				0A65F0F19331EB6FEC0DE729 /* Pods-testApp-testAppTests.debug.xcconfig */,
-				8639072045B8C1A37C20E878 /* Pods-testApp-testAppTests.release.xcconfig */,
-				7158A742BBF703F3661443F2 /* Pods-testApp-tvOS.debug.xcconfig */,
-				EA7A9D29773A89694C2C5AF6 /* Pods-testApp-tvOS.release.xcconfig */,
-				E8BE4B77BECFB9A10945E396 /* Pods-testApp-tvOSTests.debug.xcconfig */,
-				930E7675E8356FE9B5115459 /* Pods-testApp-tvOSTests.release.xcconfig */,
+				C06E553EB1C8270FC1C5A321 /* Pods-workService.debug.xcconfig */,
+				9B5FA70CC44E4D5C982A26E6 /* Pods-workService.release.xcconfig */,
+				0A65F0F19331EB6FEC0DE729 /* Pods-workService-workServiceTests.debug.xcconfig */,
+				8639072045B8C1A37C20E878 /* Pods-workService-workServiceTests.release.xcconfig */,
+				7158A742BBF703F3661443F2 /* Pods-workService-tvOS.debug.xcconfig */,
+				EA7A9D29773A89694C2C5AF6 /* Pods-workService-tvOS.release.xcconfig */,
+				E8BE4B77BECFB9A10945E396 /* Pods-workService-tvOSTests.debug.xcconfig */,
+				930E7675E8356FE9B5115459 /* Pods-workService-tvOSTests.release.xcconfig */,
 			);
 			name = Pods;
 			path = Pods;
@@ -157,10 +157,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				8E4FFB0CFC1A30DE3393B33A /* libPods-testApp.a */,
-				D29955D7832C00993CD75BCC /* libPods-testApp-testAppTests.a */,
-				09ECFEA5328DA6B012369663 /* libPods-testApp-tvOS.a */,
-				4894D2961035C10D60EF6138 /* libPods-testApp-tvOSTests.a */,
+				8E4FFB0CFC1A30DE3393B33A /* libPods-workService.a */,
+				D29955D7832C00993CD75BCC /* libPods-workService-workServiceTests.a */,
+				09ECFEA5328DA6B012369663 /* libPods-workService-tvOS.a */,
+				4894D2961035C10D60EF6138 /* libPods-workService-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -175,9 +175,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* testApp */,
+				13B07FAE1A68108700A75B9A /* workService */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* testAppTests */,
+				00E356EF1AD99517003FC87E /* workServiceTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				2AB28197BC7211B5FA523733 /* Pods */,
@@ -190,10 +190,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* testApp.app */,
-				00E356EE1AD99517003FC87E /* testAppTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* testApp-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* testApp-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* workService.app */,
+				00E356EE1AD99517003FC87E /* workServiceTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* workService-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* workService-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,9 +201,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* testAppTests */ = {
+		00E356ED1AD99517003FC87E /* workServiceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "testAppTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "workServiceTests" */;
 			buildPhases = (
 				EFB694882E39AA9B7A596049 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -216,14 +216,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = testAppTests;
-			productName = testAppTests;
-			productReference = 00E356EE1AD99517003FC87E /* testAppTests.xctest */;
+			name = workServiceTests;
+			productName = workServiceTests;
+			productReference = 00E356EE1AD99517003FC87E /* workServiceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* testApp */ = {
+		13B07F861A680F5B00A75B9A /* workService */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "testApp" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "workService" */;
 			buildPhases = (
 				E3C5EF604FD858AD88948796 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -237,14 +237,14 @@
 			);
 			dependencies = (
 			);
-			name = testApp;
-			productName = testApp;
-			productReference = 13B07F961A680F5B00A75B9A /* testApp.app */;
+			name = workService;
+			productName = workService;
+			productReference = 13B07F961A680F5B00A75B9A /* workService.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* testApp-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* workService-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "testApp-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "workService-tvOS" */;
 			buildPhases = (
 				368A38014FB7A4F8C89E0763 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
@@ -257,14 +257,14 @@
 			);
 			dependencies = (
 			);
-			name = "testApp-tvOS";
-			productName = "testApp-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* testApp-tvOS.app */;
+			name = "workService-tvOS";
+			productName = "workService-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* workService-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* testApp-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* workService-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "testApp-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "workService-tvOSTests" */;
 			buildPhases = (
 				D24E583E498DBFA73B2B8A66 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -276,9 +276,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "testApp-tvOSTests";
-			productName = "testApp-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* testApp-tvOSTests.xctest */;
+			name = "workService-tvOSTests";
+			productName = "workService-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* workService-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -307,7 +307,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "testApp" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "workService" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -320,10 +320,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* testApp */,
-				00E356ED1AD99517003FC87E /* testAppTests */,
-				2D02E47A1E0B4A5D006451C7 /* testApp-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* testApp-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* workService */,
+				00E356ED1AD99517003FC87E /* workServiceTests */,
+				2D02E47A1E0B4A5D006451C7 /* workService-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* workService-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -383,7 +383,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-testApp-testAppTests/Pods-testApp-testAppTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-workService-workServiceTests/Pods-workService-workServiceTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -392,7 +392,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-testApp-testAppTests/Pods-testApp-testAppTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-workService-workServiceTests/Pods-workService-workServiceTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
@@ -424,7 +424,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-testApp-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-workService-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -437,7 +437,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-testApp/Pods-testApp-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-workService/Pods-workService-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -446,7 +446,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-testApp/Pods-testApp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-workService/Pods-workService-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D24E583E498DBFA73B2B8A66 /* [CP] Check Pods Manifest.lock */ = {
@@ -464,7 +464,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-testApp-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-workService-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -486,7 +486,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-testApp-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-workService-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -508,7 +508,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-testApp-testAppTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-workService-workServiceTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -560,7 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* testAppTests.m in Sources */,
+				00E356F31AD99517003FC87E /* workServiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,7 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* testAppTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* workServiceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,12 +595,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* testApp */;
+			target = 13B07F861A680F5B00A75B9A /* workService */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* testApp-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* workService-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -608,14 +608,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A65F0F19331EB6FEC0DE729 /* Pods-testApp-testAppTests.debug.xcconfig */;
+			baseConfigurationReference = 0A65F0F19331EB6FEC0DE729 /* Pods-workService-workServiceTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = testAppTests/Info.plist;
+				INFOPLIST_FILE = workServiceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -625,17 +625,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testApp.app/testApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/workService.app/workService";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8639072045B8C1A37C20E878 /* Pods-testApp-testAppTests.release.xcconfig */;
+			baseConfigurationReference = 8639072045B8C1A37C20E878 /* Pods-workService-workServiceTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = testAppTests/Info.plist;
+				INFOPLIST_FILE = workServiceTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -645,19 +645,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testApp.app/testApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/workService.app/workService";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C06E553EB1C8270FC1C5A321 /* Pods-testApp.debug.xcconfig */;
+			baseConfigurationReference = C06E553EB1C8270FC1C5A321 /* Pods-workService.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = testApp/Info.plist;
+				INFOPLIST_FILE = workService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -665,7 +665,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = testApp;
+				PRODUCT_NAME = workService;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -674,12 +674,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B5FA70CC44E4D5C982A26E6 /* Pods-testApp.release.xcconfig */;
+			baseConfigurationReference = 9B5FA70CC44E4D5C982A26E6 /* Pods-workService.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = testApp/Info.plist;
+				INFOPLIST_FILE = workService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -687,7 +687,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = testApp;
+				PRODUCT_NAME = workService;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -695,7 +695,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7158A742BBF703F3661443F2 /* Pods-testApp-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 7158A742BBF703F3661443F2 /* Pods-workService-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -706,14 +706,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "testApp-tvOS/Info.plist";
+				INFOPLIST_FILE = "workService-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.testApp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.workService-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -723,7 +723,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA7A9D29773A89694C2C5AF6 /* Pods-testApp-tvOS.release.xcconfig */;
+			baseConfigurationReference = EA7A9D29773A89694C2C5AF6 /* Pods-workService-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -734,14 +734,14 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "testApp-tvOS/Info.plist";
+				INFOPLIST_FILE = "workService-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.testApp-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.workService-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -751,7 +751,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8BE4B77BECFB9A10945E396 /* Pods-testApp-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = E8BE4B77BECFB9A10945E396 /* Pods-workService-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -761,24 +761,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "testApp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "workService-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.testApp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.workService-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testApp-tvOS.app/testApp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/workService-tvOS.app/workService-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 930E7675E8356FE9B5115459 /* Pods-testApp-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 930E7675E8356FE9B5115459 /* Pods-workService-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -788,17 +788,17 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "testApp-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "workService-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.testApp-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.workService-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testApp-tvOS.app/testApp-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/workService-tvOS.app/workService-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -919,7 +919,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "testAppTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "workServiceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -928,7 +928,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "testApp" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "workService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -937,7 +937,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "testApp-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "workService-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -946,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "testApp-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "workService-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -955,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "testApp" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "workService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
