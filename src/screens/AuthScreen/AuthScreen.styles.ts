@@ -5,7 +5,7 @@ export default StyleSheet.create({
   component: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   input: {
     marginBottom: 20,
@@ -13,6 +13,6 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     width: '60%',
-    height: 40
+    height: 40,
   },
 });
