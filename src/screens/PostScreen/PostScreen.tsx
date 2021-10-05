@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 import styles from './PostScreen.styles';
 
-type  PostScreenProps = {};
+type PostScreenProps = {};
 
 const PostScreen: React.FC< PostScreenProps> = (props) => (
   <View style={styles.component}>
