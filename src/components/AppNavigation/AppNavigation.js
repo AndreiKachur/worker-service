@@ -5,16 +5,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Button } from 'react-native';
 
-import StartScreen from '../../screens/StartScreen';
-import AuthScreen from '../../screens/AuthScreen/AuthScreen';
-import NewsScreen from '../../screens/NewsScreen';
-import ServicesScreen from '../../screens/ServicesScreen';
-import ProfileScreen from '../../screens/ProfileScreen';
-import ServiceScreen from '../../screens/ServiceScreen';
-import EditProfileScreen from '../../screens/EditProfileScreen';
-import PostScreen from '../../screens/PostScreen';
-import PublicNewsScreen from '../../screens/PublicNewsScreen';
-import CorparateNewsScreen from '../../screens/CorparateNewsScreen';
+import StartScreen from '../StartScreen/StartScreen';
+import AuthScreen from  '../../module/Profile/components/AuthScreen/AuthScreen';
+import NewsScreen from '../../module/News/components/NewsScreen/NewsScreen';
+import ServicesScreen from '../../module/Service/components/ServicesScreen/ServicesScreen';
+import ProfileScreen from '../../module/Profile/components/ProfileScreen/ProfileScreen';
+import ServiceScreen from '../../module/Service/components/ServiceScreen';
+import EditProfileScreen from '../../module/Profile/components/EditProfileScreen/EditProfileScreen';
+import PostScreen from '../../module/News/components/PostScreen/PostScreen';
+import PublicNewsScreen from '../../module/News/components/PublicNewsScreen/PublicNewsScreen';
+import CorparateNewsScreen from '../../module/News/components/CorparateNewsScreen/CorparateNewsScreen';
 
 
 const Stack = createStackNavigator();
