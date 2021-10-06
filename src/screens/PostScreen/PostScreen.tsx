@@ -12,7 +12,7 @@ const PostScreen: React.FC<PostScreenProps> = (props) => {
     <View style={styles.component}>
       <ScrollView style={styles.post}>
         <View style={styles.titleBox}>
-          <Text style={styles.titleText}>{DATA.title.repeat(10)}</Text>
+          <Text style={styles.titleText}>{DATA.title}</Text>
         </View>
         <Image style={styles.image} source={{ uri: DATA.image }}/>
       </ScrollView>
