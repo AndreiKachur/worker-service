@@ -75,9 +75,9 @@ const MyStack = () => (
 )
 
 const AppNavigation = (props) => (
-    <NavigationContainer>
-      <MyStack />
-    </NavigationContainer>
-  );
-  
-  export default AppNavigation;
+  <NavigationContainer>
+    <MyStack />
+  </NavigationContainer>
+);
+
+export default AppNavigation;

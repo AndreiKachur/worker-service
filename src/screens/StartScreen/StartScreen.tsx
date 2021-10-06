@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, ScrollView, ImageBackground, Alert } from 'react-native'
+import { View, Text, ScrollView, ImageBackground, Alert, Pressable } from 'react-native'
 import { publicNewsData } from '../../data'
 
 import styles from './StartScreen.styles'
@@ -12,9 +12,10 @@ const StartScreen: React.FC<StartScreenProps> = ({ navigation }) => (
   <View style={styles.component}>
     <ScrollView style={styles.posts}>
       {
-        DATA.map((post) =>{
+        DATA.map((post) => {
           return (
-              <ImageBackground key={post.id} style={styles.post} source={{uri: post.image}}>
+            <Pressable key={post.id} onPress={() => { navigation.navigate('Post', post) }}>
+              <ImageBackground style={styles.post} source={{ uri: post.image }}>
                 <View style={styles.headerBox}>
                   <Text style={styles.date}>{post.publicDate}</Text>
                 </View>
@@ -22,12 +23,13 @@ const StartScreen: React.FC<StartScreenProps> = ({ navigation }) => (
                   <Text style={styles.titleText}>{post.title}</Text>
                 </View>
               </ImageBackground>
+            </Pressable>
           )
         })
-    }
-    </ScrollView> 
+      }
+    </ScrollView>
   </View>
-  
+
 )
 
 export default StartScreen;

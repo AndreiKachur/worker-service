@@ -7,14 +7,16 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   posts: {
+    marginTop: 10,
+    marginBottom: 10,
     width: '100%',
   },
   post: {
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 5,
+    marginBottom: 5,
     width: "100%",
     height: 200,
-    
+
   },
   titleBox: {
     marginRight: 0,
