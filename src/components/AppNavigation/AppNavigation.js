@@ -55,6 +55,7 @@ const MyStack = () => (
       name="Start"
       component={StartScreen}
       options={({ navigation }) => ({
+        headerTitle: "Публичные новости",
         headerRight: () => (
           <Button
             onPress={() => navigation.navigate('Auth')}
