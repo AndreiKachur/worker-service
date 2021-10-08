@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "server": "cd server && yarn run dev",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "web": "react-scripts start",
+    "web": "set HTTP=true&&react-scripts start",
     "test": "cd node_modules/@ff/e2e-testing && yarn test",
     "lint": "ff-lint",
     "generate": "ff-generate"
@@ -27,6 +28,7 @@
     "react-dom": "^17.0.2",
     "react-native": "0.66.0",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-network-info": "^5.2.1",
     "react-native-pager-view": "^5.4.6",
     "react-native-paper": "^4.9.2",
     "react-native-safe-area-context": "^3.3.2",
@@ -90,5 +92,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
