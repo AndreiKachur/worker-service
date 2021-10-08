@@ -1,12 +1,13 @@
 const express = require('express')
 const data = require('./data.js')
 const fs = require('fs')
-const https = require('https')
 const http = require('http')
+//const https = require('https')
 
 const app = express()
 
-const PORT = process.env.PORT || 80
+const PORTHTTP = process.env.PORT || 5000
+//const PORTHTTPS = process.env.PORT || 5001
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -24,14 +25,14 @@ const httpsOptions = {
   cert: fs.readFileSync('./security/cert.pem')
 }
 
-//http.createServer(app).listen(80)
-
-//https.createServer(httpsOptions, app).listen(8080)
-
 async function start() {
-  https.createServer(httpsOptions, app)
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+  http.createServer(app)
+  app.listen(PORTHTTP, () => {
+    console.log(`(HTTP) Server is running on port ${PORTHTTP}`)
   })
+  // https.createServer(httpsOptions, app)
+  // app.listen(PORTHTTPS, () => {
+  //   console.log(`(HTTPS) Server is running on port ${PORTHTTPS}`)
+  // })
 }
 start()
