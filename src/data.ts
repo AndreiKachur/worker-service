@@ -25,7 +25,6 @@ export type News = {
     author?: string
 }
 
-
 export const publicNewsData: News[] = [
     {
         id: '1',

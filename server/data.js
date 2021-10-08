@@ -136,7 +136,7 @@ module.exports = {
         {
             id: '7',
             private: true,
-            title: 'private post 3',
+            title: 'private post 9999',
             content: 'text for private post 3',
             image: 'https://im0-tub-ru.yandex.net/i?id=0b370045de8a09479e81da4869d1618c&n=13',
             createdAt:

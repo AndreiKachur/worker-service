@@ -12,7 +12,7 @@ type AppProps = any;
 const App: React.FC<AppProps> = (props) => {
 
   useEffect(() => {
-    axios('/api')
+    axios('http://192.168.43.197:80/api') //через локал хост не хочет
       .then((res => {
         const data: any = res.data
         userStore.setUser(data.usersData[0])
