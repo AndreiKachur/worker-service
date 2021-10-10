@@ -20,6 +20,28 @@ app.get('/', (req, res) => {
   res.send("IT'S WORKING!!!!")
 })
 
+app.post('/login',(req,res)=>{
+  const data = req.body.data
+  console.log(data)
+  const jwt = "adadaasda"
+  const name = "artem"
+  return res.json({jwt,name})
+})
+
+app.post('/getInfo',(req,res)=>{
+  //const data = req.body
+  console.log("req.body.name",req.body.name)
+  console.log("data.usersData",data.usersData)
+  let result = {}
+  data.usersData.map(item => {
+    if(item.name==req.body.name){
+      result = item
+    }
+  })
+  const name = "artem"
+  return res.json(result)
+})
+
 const httpsOptions = {
   key: fs.readFileSync('./security/cert.key'),
   cert: fs.readFileSync('./security/cert.pem')
