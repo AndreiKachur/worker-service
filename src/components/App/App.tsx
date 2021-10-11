@@ -1,46 +1,33 @@
-import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import { View, Text, Button } from 'react-native'
-import StartScreen from '../../screens/StartScreen'
-import AuthScreen from '../../screens/AuthScreen/AuthScreen'
-import MainScreen from '../../screens/MainScreen'
-import NewsScreen from '../../screens/NewsScreen'
-import ServiceScreen from '../../screens/ServiceScreen'
-import EditPrifileScreen from '../../screens/EditProfileScreen'
+import React, { useEffect } from 'react';
+import axios from 'axios'
+import { Alert, Platform } from 'react-native';
+import AppNavigation from '../AppNavigation/AppNavigation'
+import userStore from '../../stores/userStore'
+import newsStore from '../../stores/newsStore'
 
 import styles from './App.styles';
 
 type AppProps = any;
 
-const Stack = createStackNavigator()
-
-const App: React.FC<AppProps> = (props) => {
+const serverIP = 'http://threesby.com:5000'//адрес удаленного сервера, если сервер запускаете локально, то нужно получить свой ip в консоли(ipconfig) => вписать в переменную serverIP
   
-  return (
-    <NavigationContainer>
-      <Stack.Navigator >
-        <Stack.Screen 
-        name="Start" 
-        component={StartScreen} 
-        options={({ navigation }) => ({
-          headerRight: () => (
-            <Button
-              onPress={() => navigation.navigate('Auth')}
-              title="Auth"
-            
-            /> )
-        })}
-        />
-        <Stack.Screen name="Auth" component={AuthScreen} />
-        <Stack.Screen name="Main" component={MainScreen} />
-        <Stack.Screen name="News" component={NewsScreen} />
-        <Stack.Screen name="Services" component={ServiceScreen} />
-        <Stack.Screen name="EditProfile" component={EditPrifileScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>  
-  ) 
-} 
+const App: React.FC<AppProps> = (props) => {
+  useEffect(() => {
+    axios(Platform.OS === 'web'? '/api' : serverIP+'/api') 
+      .then((res => {
+        const data: any = res.data
+        userStore.setUser(data.usersData[0])
+        newsStore.setNews(data.newsData)
+      }))
+      .catch((error) => {
+        Alert.alert('Network error')
+        console.log(`Api call error: ${error}`);
+      })
+  }, [])
 
+  return (
+    <AppNavigation />
+  )
+};
 
 export default App;
