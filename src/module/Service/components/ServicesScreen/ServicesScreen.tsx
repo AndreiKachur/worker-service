@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, SafeAreaView } from 'react-native';
 
 import styles from './ServicesScreen.styles';
 
@@ -7,42 +7,43 @@ type ServicesScreenProps = any;
 const services = [
   {
     id: 1,
-    title: 'service 1',
+    title: 'МОЙ РАБОЧИЙ ДЕНЬ',
+    description: `Посмотреть или внести данные о затраченном рабочем времени`
   },
   {
     id: 2,
-    title: 'service 2',
-  },
-  {
-    id: 3,
-    title: 'service 3',
-  },
-  {
-    id: 4,
-    title: 'service 4',
-  },
-  {
-    id: 5,
-    title: 'service 5',
-  },
-  {
-    id: 6,
-    title: 'service 6',
-  },
-
+    title: 'МОЙ ОТПУСК',
+    description: `Посмотреть или выбрать даты отпусков`
+  }
 ];
-const ServicesScreen: React.FC<ServicesScreenProps> = ({ navigation }) => (
 
-  <View style={styles.component}>
-    <Text>ServicesScreen</Text>
-    {services.map((servis) => (
-      <Button
-        key={servis.id}
-        onPress={() => navigation.navigate('Service')}
-        title={servis.title}
-      />
-    ))}
-  </View>
+const Separator = () => (
+  <View style={styles.separator} />
+);
+
+const ServicesScreen: React.FC<ServicesScreenProps> = ({ navigation }) => (
+  <SafeAreaView style={styles.androidSafeArea}>
+    <View style={styles.component}>
+      {services.map((service) => (
+        <View style={styles.card}>
+          <Text style={styles.title}>
+            {service.title}
+          </Text>
+          <Separator />
+          <Text style={styles.description}>
+            {service.description}
+          </Text>
+          <View style={styles.btn}>
+            <Button
+              key={service.id}
+              onPress={() => navigation.navigate('Service')}
+              title='Перейти'
+            />
+          </View>
+        </View>
+      ))}
+    </View>
+  </SafeAreaView>
 );
 
 export default ServicesScreen;
