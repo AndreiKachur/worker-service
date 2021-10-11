@@ -1,14 +1,28 @@
-import React from 'react'
-import { View, Text, ScrollView, ImageBackground, Alert, Pressable } from 'react-native'
-import { observer } from "mobx-react-lite";
-import newsStore from '../../stores/newsStore'
+import React, { useLayoutEffect } from 'react'
+import { View, Text, ScrollView, ImageBackground, Alert, Pressable, Button } from 'react-native'
+import { observer } from 'mobx-react-lite'
 
+import newsStore from '../../stores/newsStore'
 import styles from './StartScreen.styles'
+
 
 type StartScreenProps = any
 
 const StartScreen: React.FC<StartScreenProps> = observer(({ navigation }) => {
-
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: "Публичные новости",
+      headerRight: () => (
+        <View style={styles.authButton}>
+          <Button
+            onPress={() => navigation.navigate('Auth')}
+            title="Auth"
+            color="rgb(200, 200, 200)"
+          />
+        </View>
+      ),
+    })
+  }, [navigation])
 
   const publicNews = newsStore.news.filter(post => !post.private)
 
