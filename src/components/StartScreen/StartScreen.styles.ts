@@ -49,5 +49,8 @@ export default StyleSheet.create({
   },
   views: {
 
+  },
+  authButton: {
+    marginRight: 20
   }
 });

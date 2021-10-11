@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import axios from 'axios'
-import { Alert, Platform } from 'react-native';
+import { Alert, Platform, View } from 'react-native';
+
 import AppNavigation from '../AppNavigation/AppNavigation'
 import userStore from '../../stores/userStore'
 import newsStore from '../../stores/newsStore'
-
 import styles from './App.styles';
+
 
 type AppProps = any;
 
@@ -26,7 +27,9 @@ const App: React.FC<AppProps> = (props) => {
   }, [])
 
   return (
-    <AppNavigation />
+    <>
+      <AppNavigation />
+    </>
   )
 };
 

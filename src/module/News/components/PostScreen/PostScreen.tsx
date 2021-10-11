@@ -3,6 +3,7 @@ import { View, Text, ScrollView, Image } from 'react-native';
 
 import styles from './PostScreen.styles';
 
+
 type PostScreenProps = any;
 
 const PostScreen: React.FC<PostScreenProps> = (props) => {
@@ -19,6 +20,5 @@ const PostScreen: React.FC<PostScreenProps> = (props) => {
     </View>
   )
 }
-
 
 export default PostScreen

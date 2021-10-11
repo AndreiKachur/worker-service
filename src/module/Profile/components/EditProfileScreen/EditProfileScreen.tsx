@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 
 import styles from './EditProfileScreen.styles';
 
+
 type EditProfileScreenProps = {};
 
 const EditProfileScreen: React.FC<EditProfileScreenProps> = (props) => (

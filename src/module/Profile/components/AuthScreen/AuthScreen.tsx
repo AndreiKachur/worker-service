@@ -1,9 +1,8 @@
 import React from 'react';
-import {
-  View, Text, Button, TextInput,
-} from 'react-native';
+import {View, Text, Button, TextInput,} from 'react-native';
 
 import styles from './AuthScreen.styles';
+
 
 type AuthScreenProps = any;
 
