@@ -15,4 +15,6 @@ export default StyleSheet.create({
     width: '60%',
     height: 40,
   },
+  img:{
+  }
 });
