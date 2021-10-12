@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "server": "cd ../server && yarn run dev",
+    "server": "cd ../backend && yarn run dev",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
