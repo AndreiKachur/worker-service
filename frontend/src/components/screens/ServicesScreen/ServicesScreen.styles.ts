@@ -1,40 +1,26 @@
 import { StyleSheet, Platform } from 'react-native';
 
 export default StyleSheet.create({
-  androidSafeArea: {
-    flex: 1,
-    alignItems: 'center',
-    paddingTop: Platform.OS === 'android' ? 25 : 0,
-  },
   component: {
-    flex: 1,
+    flexDirection: 'row',
     justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   card: {
-    margin: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 15,
     padding: 20,
-    height: 200,
-    backgroundColor: '#F4F9F9',
-    borderRadius: 14,
-  },
-  separator: {
-    marginVertical: 4,
-    borderBottomColor: '#AAAAAA',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  btn: {
-    marginVertical: 12,
+    height: 120,
+    width: 120,
+    backgroundColor: '#318CE7',
+    color: '#F4F9F9',
+    borderRadius: 22,
   },
   title: {
     textAlign: 'center',
-    marginVertical: 8,
-    fontSize: 24,
-    color: '#318CE7',
-  },
-  description: {
-    textAlign: 'center',
-    marginVertical: 8,
-    fontSize: 12,
-    color: '#AAAAAA',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#F4F9F9',
   },
 });

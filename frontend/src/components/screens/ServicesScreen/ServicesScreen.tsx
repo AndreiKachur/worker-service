@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  View, Text, Button, SafeAreaView,
-} from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import styles from './ServicesScreen.styles';
 
@@ -9,7 +7,7 @@ type ServicesScreenProps = any;
 const services = [
   {
     id: 1,
-    title: 'МОЙ РАБОЧИЙ ДЕНЬ',
+    title: 'МОЙ ДЕНЬ',
     description: 'Посмотреть или внести данные о затраченном рабочем времени',
   },
   {
@@ -19,33 +17,21 @@ const services = [
   },
 ];
 
-const Separator = () => (
-  <View style={styles.separator} />
-);
-
 const ServicesScreen: React.FC<ServicesScreenProps> = ({ navigation }) => (
-  <SafeAreaView style={styles.androidSafeArea}>
-    <View style={styles.component}>
-      {services.map((service) => (
-        <View key={service.id} style={styles.card}>
-          <Text style={styles.title}>
-            {service.title}
-          </Text>
-          <Separator />
-          <Text style={styles.description}>
-            {service.description}
-          </Text>
-          <View style={styles.btn}>
-            <Button
-              key={service.id}
-              onPress={() => navigation.navigate('Service')}
-              title="Перейти"
-            />
-          </View>
+
+  <View style={styles.component}>
+    {services.map((service) => (
+      <TouchableOpacity
+        activeOpacity={0.85}
+        onPress={() => navigation.navigate('Service')}
+        key={service.id}
+      >
+        <View style={styles.card}>
+          <Text style={styles.title}>{service.title}</Text>
         </View>
-      ))}
-    </View>
-  </SafeAreaView>
+      </TouchableOpacity>
+    ))}
+  </View>
 );
 
 export default ServicesScreen;
