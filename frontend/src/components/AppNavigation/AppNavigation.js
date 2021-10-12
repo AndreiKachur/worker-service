@@ -8,7 +8,8 @@ import AuthScreen from '../screens/AuthScreen';
 import NewsScreen from '../screens/NewsScreen';
 import ServicesScreen from '../screens/ServicesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import ServiceScreen from '../screens/ServiceScreen';
+import ServiceVacationScreen from '../screens/ServiceVacationScreen';
+import ServiceWorkDayScreen from '../screens/ServiceWorkDayScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import PostScreen from '../screens/PostScreen';
 
@@ -18,7 +19,7 @@ const BottomTab = createBottomTabNavigator();
 const MyBottomTabs = (props) => (
   <BottomTab.Navigator>
     <BottomTab.Screen name="News" component={NewsScreen} />
-    <BottomTab.Screen name="Services" component={ServicesScreen} />
+    <BottomTab.Screen name="Сервисы" component={ServicesScreen} />
     <BottomTab.Screen name="Profile" component={ProfileScreen} />
   </BottomTab.Navigator>
 );
@@ -30,7 +31,8 @@ const MyStack = (props) => (
     <Stack.Screen name="Main" options={{ headerShown: false }}>
       {() => (<MyBottomTabs />)}
     </Stack.Screen>
-    <Stack.Screen name="Service" component={ServiceScreen} />
+    <Stack.Screen name="МОЙ ОТПУСК" component={ServiceVacationScreen} />
+    <Stack.Screen name="МОЙ ДЕНЬ" component={ServiceWorkDayScreen} />
     <Stack.Screen name="Edit" component={EditProfileScreen} />
     <Stack.Screen name="Post" component={PostScreen} />
   </Stack.Navigator>

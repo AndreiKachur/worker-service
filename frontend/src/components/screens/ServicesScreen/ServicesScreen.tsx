@@ -23,7 +23,7 @@ const ServicesScreen: React.FC<ServicesScreenProps> = ({ navigation }) => (
     {services.map((service) => (
       <TouchableOpacity
         activeOpacity={0.85}
-        onPress={() => navigation.navigate('Service')}
+        onPress={() => navigation.navigate(service.title)}
         key={service.id}
       >
         <View style={styles.card}>
