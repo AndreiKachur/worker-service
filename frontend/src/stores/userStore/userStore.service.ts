@@ -1,13 +1,15 @@
 import axios from 'axios';
+import { Platform } from 'react-native';
 
-const baseApiUrl = 'http://localhost:8080';
+import { User } from '../../data';
+import ipconfig from '../../ipconfig';
 
-interface SomeData {
-}
+const baseApiUrl = Platform.OS === 'web' ? '' : ipconfig;
 
 const service = {
-  getSomeData(): Promise<SomeData> {
-    return axios.get(`${baseApiUrl}/someData`).then((response) => response.data);
+  getUser(): Promise<User> {
+    return axios.get(`${baseApiUrl}/api`)
+      .then(((res: any) => res.data.usersData[0]));
   },
 };
 

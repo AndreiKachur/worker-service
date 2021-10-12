@@ -1,13 +1,19 @@
 import axios from 'axios';
+import { Alert, Platform } from 'react-native';
 
-const baseApiUrl = 'http://localhost:8080';
+import ipconfig from '../../ipconfig';
+import { News } from '../../data';
 
-interface SomeData {
-}
+const baseApiUrl = Platform.OS === 'web' ? '' : ipconfig;
 
 const service = {
-  getSomeData(): Promise<SomeData> {
-    return axios.get(`${baseApiUrl}/someData`).then((response) => response.data);
+  getNews(): Promise<News[]> {
+    return axios.get(`${baseApiUrl}/api`)
+      .then(((res: any) => res.data.newsData))
+      .catch((error) => {
+        Alert.alert('Network error');
+        console.log(`Api call error: ${error}`);
+      });
   },
 };
 

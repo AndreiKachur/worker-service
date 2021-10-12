@@ -1,5 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
+import service from './newsStore.service';
 import { News } from '../../data';
 
 class NewsStore {
@@ -9,6 +10,9 @@ class NewsStore {
 
   constructor() {
     makeAutoObservable(this);
+
+    service.getNews()
+      .then((d) => this.setNews(d));
   }
 
   setNews(news: News[]) {
