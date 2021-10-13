@@ -38,8 +38,8 @@ const MyStack = (props) => (
     <Stack.Screen name="Main" options={{ headerShown: false }}>
       {() => (<MyBottomTabs />)}
     </Stack.Screen>
-    <Stack.Screen name="МОЙ ОТПУСК" component={ServiceVacationScreen} />
-    <Stack.Screen name="МОЙ ДЕНЬ" component={ServiceWorkDayScreen} />
+    <Stack.Screen name="Мой Отпуск" component={ServiceVacationScreen} />
+    <Stack.Screen name="Мой День" component={ServiceWorkDayScreen} />
     <Stack.Screen name="Edit" component={EditProfileScreen} />
     <Stack.Screen name="Post" component={PostScreen} />
   </Stack.Navigator>
