@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import color from '../../../themes'
 
 export default StyleSheet.create({
   component: {
@@ -6,4 +7,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: {
+    color: color.secondary,
+  }
 });

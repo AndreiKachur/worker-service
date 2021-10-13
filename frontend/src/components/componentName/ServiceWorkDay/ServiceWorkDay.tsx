@@ -9,7 +9,7 @@ type ServiceScreenProps = {
 
 const ServiceVacation: React.FC<ServiceScreenProps> = (props) => (
   <View style={styles.component}>
-    <Text>Мой рабочий день закончился</Text>
+    <Text style={styles.text}>Мой рабочий день закончился</Text>
   </View>
 );
 

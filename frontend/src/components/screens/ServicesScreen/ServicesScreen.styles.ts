@@ -1,4 +1,5 @@
 import { StyleSheet, Platform } from 'react-native';
+import colors from '../../../themes'
 
 export default StyleSheet.create({
   component: {
@@ -13,8 +14,8 @@ export default StyleSheet.create({
     padding: 20,
     height: 120,
     width: 120,
-    backgroundColor: '#318CE7',
-    color: '#F4F9F9',
+    backgroundColor: colors.primary,
+    color: colors.third,
     borderRadius: 22,
   },
   title: {

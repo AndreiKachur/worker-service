@@ -12,20 +12,27 @@ import ServiceVacationScreen from '../screens/ServiceVacationScreen';
 import ServiceWorkDayScreen from '../screens/ServiceWorkDayScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import PostScreen from '../screens/PostScreen';
+import color from '../../themes'
+
+const headerStyle = {
+  headerStyle: { backgroundColor: color.third, },
+  headerTintColor: color.primary,
+  headerTitleStyle: { fontWeight: 'bold', },
+}
 
 const Stack = createStackNavigator();
 const BottomTab = createBottomTabNavigator();
 
 const MyBottomTabs = (props) => (
-  <BottomTab.Navigator>
-    <BottomTab.Screen name="News" component={NewsScreen} />
+  <BottomTab.Navigator screenOptions={headerStyle}>
+    <BottomTab.Screen name="Новости" component={NewsScreen} />
     <BottomTab.Screen name="Сервисы" component={ServicesScreen} />
-    <BottomTab.Screen name="Profile" component={ProfileScreen} />
+    <BottomTab.Screen name="Профиль" component={ProfileScreen} />
   </BottomTab.Navigator>
 );
 
 const MyStack = (props) => (
-  <Stack.Navigator>
+  <Stack.Navigator screenOptions={headerStyle}>
     <Stack.Screen name="Start" component={StartScreen} />
     <Stack.Screen name="Auth" component={AuthScreen} />
     <Stack.Screen name="Main" options={{ headerShown: false }}>
