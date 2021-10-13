@@ -6,11 +6,17 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "eslint": "^8.0.0",
+    "eslint-plugin-import": "^2.25.2",
     "express": "^4.17.1",
     "nodemon": "^2.0.13",
+    "ts-node": "^10.3.0",
     "typescript": "^4.4.3"
   },
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.8"
   }
 }

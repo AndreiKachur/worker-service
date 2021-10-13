@@ -1,29 +1,29 @@
 const express = require('express')
-const data = require('./data.js')
-const fs = require('fs')
+const data = require('./data/data.ts')
+// const fs = require('fs')
 const http = require('http')
 //const https = require('https')
 
 const app = express()
 
 const PORTHTTP = process.env.PORT || 5000
-//const PORTHTTPS = process.env.PORT || 5001
+// const PORTHTTPS = process.env.PORT || 5001
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/api', async (req, res) => {
+app.get('/api', async (req: any, res: any) => {
   res.json(data)
 })
 
-app.get('/', (req, res) => {
+app.get('/', (req: any, res: any) => {
   res.send("IT'S WORKING!!!!")
 })
 
-const httpsOptions = {
-  key: fs.readFileSync('./security/cert.key'),
-  cert: fs.readFileSync('./security/cert.pem')
-}
+// const httpsOptions = {
+//   key: fs.readFileSync('./security/cert.key'),
+//   cert: fs.readFileSync('./security/cert.pem')
+// }
 
 async function start() {
   http.createServer(app)
