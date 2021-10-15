@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Alert, TouchableOpacity, TextInput } from 'react-native';
 import { observer } from 'mobx-react-lite';
+// import DatePicker from 'react-native-datepicker'
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
 import styles from './ServiceVacation.styles';
@@ -23,6 +24,32 @@ const ServiceVacation: React.FC<ServiceScreenProps> = observer((props) => {
   return (
     <View style={styles.component}>
       <View style={styles.info}>
+
+
+        {/* <DatePicker
+          style={{ width: 200 }}
+          // date={this.state.date}
+          mode="date"
+          placeholder="select date"
+          format="YYYY-MM-DD"
+          minDate="2016-05-01"
+          maxDate="2016-06-01"
+          confirmBtnText="Confirm"
+          cancelBtnText="Cancel"
+          customStyles={{
+            dateIcon: {
+              position: 'absolute',
+              left: 0,
+              top: 4,
+              marginLeft: 0
+            },
+            dateInput: {
+              marginLeft: 36
+            }
+          }}
+        onDateChange={(date) => {this.setState({date: date})}}
+        /> */}
+
 
         {/* <View style={styles.headerWrapper}>
           <Text style={styles.header}>Отпуск - 2021</Text>

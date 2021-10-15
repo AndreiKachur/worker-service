@@ -21,10 +21,14 @@ DerivedData
 *.ipa
 *.xcuserstate
 
-# Android/IntelliJ
-#
 frontend/build/
 frontend/android/app/build
+frontend/.idea
+frontend/android/.idea
+frontend/android/.gradle
+# Android/IntelliJ
+#
+
 .idea
 .gradle
 local.properties
