@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Platform } from 'react-native';
 
-import { User } from '../../data';
+import User from '../models/user';
 import ipconfig from '../../ipconfig';
 
 const baseApiUrl = Platform.OS === 'web' ? '' : ipconfig;

@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
 import service from './userStore.service';
-import { User } from '../../data';
+import User from '../models/user';
 
 class UserStore {
   user: User = { id: '', name: '', avatar: '' };

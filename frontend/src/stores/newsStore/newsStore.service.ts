@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Alert, Platform } from 'react-native';
 
 import ipconfig from '../../ipconfig';
-import { News } from '../../data';
+import { News } from './newsStore.model';
 
 const baseApiUrl = Platform.OS === 'web' ? '' : ipconfig;
 
