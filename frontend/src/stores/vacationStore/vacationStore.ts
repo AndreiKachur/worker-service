@@ -5,7 +5,7 @@ import { VacationData } from './vacationStore.models'
 
 class VacationStore {
 
-  vacationData: VacationData = {
+  data: VacationData = {
     id: 0,
     user: {
       id: '',
@@ -31,7 +31,7 @@ class VacationStore {
   }
 
   setVacation(vacationData: VacationData) {
-    this.vacationData = vacationData;
+    this.data = vacationData;
   }
 }
 
