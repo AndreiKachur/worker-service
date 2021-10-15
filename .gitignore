@@ -24,6 +24,7 @@ DerivedData
 # Android/IntelliJ
 #
 frontend/build/
+frontend/android/app/build
 .idea
 .gradle
 local.properties

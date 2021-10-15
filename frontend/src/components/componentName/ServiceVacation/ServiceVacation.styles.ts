@@ -10,8 +10,11 @@ export default StyleSheet.create({
   info: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    paddingVertical: 30,
+    paddingVertical: 15,
     paddingHorizontal: 15,
+  },
+  top: {
+    marginTop: 20,
   },
   separator: {
     marginVertical: 10,
@@ -43,7 +46,8 @@ export default StyleSheet.create({
   text: {
     marginVertical: 3,
     color: color.third,
-    fontSize: 15
+    fontSize: 15,
+    maxWidth: '80vw',
   },
   btn: {
     backgroundColor: color.third,
@@ -51,10 +55,32 @@ export default StyleSheet.create({
     borderRadius: 5,
     paddingHorizontal: 8,
     paddingVertical: 5,
-    marginVertical: 5,
+    marginVertical: 4,
+    marginLeft: 5,
     fontSize: 10,
     fontWeight: 'bold',
     width: 75,
     textAlign: 'center',
+  },
+  btnBig: {
+    backgroundColor: color.third,
+    color: color.primary,
+    borderRadius: 3,
+    width: '80vw',
+    paddingVertical: 7,
+    marginVertical: 8,
+    fontSize: 10,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  input: {
+    backgroundColor: color.third,
+    color: color.primary,
+    borderRadius: 3,
+    marginBottom: 5,
+    height: 30,
+    width: '35vw',
+    borderWidth: 0,
+    padding: 10,
   }
 });
