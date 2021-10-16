@@ -49,7 +49,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
       <Image style={styles.img} source={imageUri} />
       <TextInput style={styles.input} placeholder="Login" />
       <TextInput style={styles.input} placeholder="Password" />
-      <Button title="Enter" onPress={clickHandlerTEST} />
+      <Button title="Войти" onPress={clickHandlerTEST} />
     </View>
   );
 };

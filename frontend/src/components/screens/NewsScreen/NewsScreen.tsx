@@ -3,6 +3,7 @@ import {
   View, Text, ScrollView, ImageBackground, Pressable, Button,
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import newsStore from '../../../stores/newsStore/newsStore';
 import styles from './NewsScreen.styles';
@@ -24,10 +25,11 @@ const NewsScreen: React.FC<NewsScreenProps> = observer(({ navigation }) => {
       headerTitle: 'Новости',
       headerRight: () => (
         <View style={styles.filerButton}>
-          <Button
+          <Icon.Button
             onPress={() => setActiveDropDown(!activeDropDown)}
-            title="Filter"
-            color="rgb(200, 200, 200)"
+            name="filter"
+            backgroundColor="rgb(200, 200, 200)"
+            iconStyle={styles.iconStyle}
           />
         </View>
       ),

@@ -3,6 +3,7 @@ import {
   View, Text, ScrollView, ImageBackground, Alert, Pressable, Button,
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import newsStore from '../../../stores/newsStore';
 import styles from './StartScreen.styles';
@@ -14,12 +15,13 @@ const StartScreen: React.FC<StartScreenProps> = observer(({ navigation }) => {
     navigation.setOptions({
       headerTitle: 'Публичные новости',
       headerRight: () => (
-        <View style={styles.authButton}>
-          <Button
+        <View style={styles.authButtonBox}>
+          <Icon.Button
             onPress={() => navigation.navigate('Auth')}
-            title="Auth"
-            color="rgb(200, 200, 200)"
-          />
+            name="sign-in-alt"
+            backgroundColor="rgb(200, 200, 200)"
+            iconStyle={styles.iconStyle}
+          ></Icon.Button>
         </View>
       ),
     });

@@ -4,6 +4,7 @@ import React, {
 import {
   View, Text, Button, Image,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import styles from './ProfileScreen.styles';
 
@@ -37,11 +38,12 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
       headerTitle: 'Профиль',
       headerRight: () => (
         <View style={styles.editButton}>
-          <Button
+          <Icon.Button
             onPress={() => navigation.navigate('Edit')}
-            title="Edit"
-            color="rgb(200, 200, 200)"
-          />
+            name="user-cog"
+            backgroundColor="rgb(200, 200, 200)"
+            iconStyle={styles.iconStyle}
+          ></Icon.Button>
         </View>
       ),
     });

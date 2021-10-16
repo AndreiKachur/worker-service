@@ -9,4 +9,8 @@ export default StyleSheet.create({
   editButton: {
     marginRight: 20,
   },
+  iconStyle: {
+    marginRight: 10,
+    marginLeft: 10
+  }
 });

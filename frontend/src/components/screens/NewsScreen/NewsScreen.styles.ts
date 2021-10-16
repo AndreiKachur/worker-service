@@ -53,4 +53,8 @@ export default StyleSheet.create({
   filerButton: {
     marginRight: 20,
   },
+  iconStyle: {
+    marginRight: 10,
+    marginLeft: 10
+  }
 });

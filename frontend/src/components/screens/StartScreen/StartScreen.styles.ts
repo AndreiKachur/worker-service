@@ -50,7 +50,11 @@ export default StyleSheet.create({
   views: {
 
   },
-  authButton: {
+  authButtonBox: {
     marginRight: 20,
   },
+  iconStyle: {
+    marginRight: 10,
+    marginLeft: 10
+  }
 });
