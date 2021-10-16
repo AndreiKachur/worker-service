@@ -1,59 +1,44 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import FonticstoIco from 'react-native-vector-icons/Fontisto';
+import MaterialIco from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styles from './ServicesScreen.styles';
+import colors from '../../../themes'
 
 type ServicesScreenProps = any;
 const services = [
   {
     id: 1,
     title: 'Мой День',
-    description: 'Посмотреть или внести данные о затраченном рабочем времени',
+    ico: <MaterialIco
+      size={50}
+      style={[styles.ico, { backgroundColor: colors.primary }]}
+      name='office-building' />,
   },
   {
     id: 2,
     title: 'Мой Отпуск',
-    description: 'Посмотреть или выбрать даты отпусков',
+    ico: <FonticstoIco
+      size={50}
+      style={[styles.ico, { backgroundColor: colors.fourth }]}
+      name='holiday-village' />,
   },
   {
     id: 3,
     title: 'Мой Отпуск',
-    description: 'Посмотреть или выбрать даты отпусков',
+    ico: <FonticstoIco
+      size={50}
+      style={[styles.ico, { backgroundColor: colors.seventh }]}
+      name='holiday-village' />,
   },
   {
     id: 4,
     title: 'Мой Отпуск',
-    description: 'Посмотреть или выбрать даты отпусков',
-  },
-  {
-    id: 5,
-    title: 'Мой Отпуск',
-    description: 'Посмотреть или выбрать даты отпусков',
-  },
-  {
-    id: 6,
-    title: 'Мой Отпуск',
-    description: 'Посмотреть или выбрать даты отпусков',
-  },
-  {
-    id: 7,
-    title: 'Мой Отпуск',
-    description: 'Посмотреть или выбрать даты отпусков',
-  },
-  {
-    id: 8,
-    title: 'Мой Отпуск',
-    description: 'Посмотреть или выбрать даты отпусков',
-  },
-  {
-    id: 9,
-    title: 'Мой Отпуск',
-    description: 'Посмотреть или выбрать даты отпусков',
-  },
-  {
-    id: 10,
-    title: 'Мой Отпуск',
-    description: 'Посмотреть или выбрать даты отпусков',
+    ico: <FonticstoIco
+      size={50}
+      style={[styles.ico, { backgroundColor: colors.secondary }]}
+      name='holiday-village' />,
   },
 ];
 
@@ -64,10 +49,9 @@ const ServicesScreen: React.FC<ServicesScreenProps> = ({ navigation }) => (
       <TouchableOpacity
         activeOpacity={0.85}
         onPress={() => navigation.navigate(service.title)}
-        key={service.id}
+        key={`services${service.id}`}
       >
-        <View style={styles.card}>
-        </View>
+        {service.ico}
         <Text style={styles.title}>{service.title}</Text>
       </TouchableOpacity>
     ))}
