@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import { observer } from 'mobx-react-lite';
-import DatePicker from 'react-native-datepicker'
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
 import styles from './ServiceVacation.styles';
-import color from '../../../themes'
 
 type ServiceScreenProps = {
 };
