@@ -5,9 +5,8 @@ export default StyleSheet.create({
   component: {
     flex: 1,
     alignItems: 'center',
-    // backgroundColor: color.primary,
   },
-  info: {
+  mainWrapper: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     paddingVertical: 15,
