@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import { observer } from 'mobx-react-lite';
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
+import Button from '../../common/Button'
 import styles from './ServiceVacation.styles';
+import colors from '../../../themes'
 
 type ServiceScreenProps = {
 };
 
-const Separator = () => (
-  <View style={styles.separator} />
-);
+const Separator = () => <View style={styles.separator} />
+
+const CancelButton = () => (
+  <Button
+    title={'ОТМЕНИТЬ'}
+    width={22}
+    fontSize={12}
+    paddingVertical={8}
+    borderRadius={5}
+    onClick={() => console.log('click')} />
+)
 
 const ServiceVacation: React.FC<ServiceScreenProps> = observer((props) => {
   const { daysAmount, restDaysAmount, planned, inquire } = vacationStore.data.thisYear
@@ -33,12 +43,10 @@ const ServiceVacation: React.FC<ServiceScreenProps> = observer((props) => {
 
             <Text style={styles.text}>Количество дней к выбору: {restDaysAmount}</Text>
 
+            <Button onClick={() => setShowCalendar(!showCalendar)} >
+              ВЫБРАТЬ ДАТЫ ОТПУСКА
+            </Button>
 
-            <TouchableOpacity
-              activeOpacity={0.70}
-              onPress={() => setShowCalendar(!showCalendar)}>
-              <Text style={styles.btnBig}>ВЫБРАТЬ ДАТЫ ОТПУСКА</Text>
-            </TouchableOpacity>
             {showCalendar &&
               <View style={styles.calendar}>
                 <Calendar
@@ -62,18 +70,18 @@ const ServiceVacation: React.FC<ServiceScreenProps> = observer((props) => {
               </View>}
 
             <Text style={styles.text}>Итого выбрано дней: 0</Text>
-            <TouchableOpacity
-              activeOpacity={0.70}
-              onPress={() => { console.log('click') }}>
-              <Text style={styles.btnBig}>ОТПРАВИТЬ ЗАПРОС</Text>
-            </TouchableOpacity>
+
+            <Button backgroundColor={colors.fourth}
+              onClick={() => console.log('click')} >
+              ВЫБРАТЬ ДАТЫ ОТПУСКА
+            </Button>
+
             <Separator />
 
-            <TouchableOpacity
-              activeOpacity={0.70}
-              onPress={() => setShowInfo(!showInfo)}>
-              <Text style={styles.btnBig}>ПОКАЗАТЬ ИНФОРМАЦИЮ ПО ОТПУСКАМ</Text>
-            </TouchableOpacity>
+            <Button backgroundColor={colors.seventh}
+              onClick={() => setShowInfo(!showInfo)}>
+              ПОКАЗАТЬ ИНФОРМАЦИЮ ПО ОТПУСКАМ
+            </Button>
 
             {showInfo &&
               <View>
@@ -82,11 +90,7 @@ const ServiceVacation: React.FC<ServiceScreenProps> = observer((props) => {
                   <Text style={styles.text}>
                     с {planned[0].start} по {planned[0].end}
                   </Text>
-                  <TouchableOpacity
-                    activeOpacity={0.70}
-                    onPress={() => { console.log('click') }}>
-                    <Text style={styles.btn}>ОТМЕНИТЬ</Text>
-                  </TouchableOpacity>
+                  <CancelButton />
                 </View>
                 <Text style={styles.text}>Статус: передано </Text>
                 <Separator />
@@ -95,11 +99,7 @@ const ServiceVacation: React.FC<ServiceScreenProps> = observer((props) => {
                   <Text style={styles.text}>
                     с {planned[0].start} по {planned[0].end}
                   </Text>
-                  <TouchableOpacity
-                    activeOpacity={0.70}
-                    onPress={() => { console.log('click') }}>
-                    <Text style={styles.btn}>ОТМЕНИТЬ</Text>
-                  </TouchableOpacity>
+                  <CancelButton />
                 </View>
                 <Text style={styles.text}>Статус: оформление </Text>
                 <Separator />
@@ -109,32 +109,24 @@ const ServiceVacation: React.FC<ServiceScreenProps> = observer((props) => {
                   <Text style={styles.text}>
                     С {planned[0].start} по {planned[0].end}
                   </Text>
-                  <TouchableOpacity
-                    activeOpacity={0.70}
-                    onPress={() => { console.log('click') }}>
-                    <Text style={styles.btn}>ОТМЕНИТЬ</Text>
-                  </TouchableOpacity>
+                  <CancelButton />
                 </View>
                 <Separator />
 
                 <Text style={styles.header2}>Архив отпусков: </Text>
                 <Text style={styles.text}>
                   С {planned[0].start} по {planned[0].end} ({planned[0].duration} дней)
-        </Text>
+                </Text>
                 <Separator />
               </View>
             }
 
-
-            <TouchableOpacity
-              activeOpacity={0.70}
-              onPress={() => setShowRules(!showRules)}>
-              <Text style={styles.btnBig}>ПРАВИЛА ОФОРМЛЕНИЯ ОТПУСКОВ</Text>
-            </TouchableOpacity>
+            <Button onClick={() => setShowRules(!showRules)} >
+              ПРАВИЛА ОФОРМЛЕНИЯ ОТПУСКОВ
+            </Button>
             {
               showRules &&
               <View>
-                <View style={styles.header} />
                 <Text style={styles.text}>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Ullam aliquid id provident, doloremque placeat veritatis,

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
 import StartScreen from '../screens/StartScreen';
@@ -30,21 +30,22 @@ const MyBottomTabs = (props) => (
     <BottomTab.Screen name='News' component={NewsScreen} options={{
       tabBarLabel: 'Новости',
       tabBarIcon: ({ color, size }) => (
-        <MaterialCommunityIcons name='post' color={color} size={size} />
+        <Icon name='newspaper' color={color} size={size} />
       ),
     }}
     />
     <BottomTab.Screen name="Services" component={ServicesScreen} options={{
+      headerTitle: 'Новости',
       tabBarLabel: 'Сервисы',
       tabBarIcon: ({ color, size }) => (
-        <MaterialCommunityIcons name='animation-outline' color={color} size={size} />
+        <Icon name='th' color={color} size={size} />
       ),
     }}
     />
     <BottomTab.Screen name="Profile" component={ProfileScreen} options={{
       tabBarLabel: 'Профиль',
       tabBarIcon: ({ color, size }) => (
-        <MaterialCommunityIcons name='account' color={color} size={size} />
+        <Icon name='user' color={color} size={size} />
       ),
     }}
     />
@@ -54,7 +55,10 @@ const MyBottomTabs = (props) => (
 const MyStack = (props) => (
   <Stack.Navigator screenOptions={headerStyle}>
     <Stack.Screen name="Start" component={StartScreen} />
-    <Stack.Screen name="Auth" component={AuthScreen} />
+    <Stack.Screen name="Auth" component={AuthScreen} options={{
+      headerTitle: 'Авторизация'
+    }}
+    />
     <Stack.Screen name="Main" options={{ headerShown: false }}>
       {() => (<MyBottomTabs />)}
     </Stack.Screen>
