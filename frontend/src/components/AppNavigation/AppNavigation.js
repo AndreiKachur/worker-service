@@ -35,7 +35,7 @@ const MyBottomTabs = (props) => (
     }}
     />
     <BottomTab.Screen name="Services" component={ServicesScreen} options={{
-      headerTitle: 'Новости',
+      headerTitle: 'Сервисы',
       tabBarLabel: 'Сервисы',
       tabBarIcon: ({ color, size }) => (
         <Icon name='th' color={color} size={size} />
