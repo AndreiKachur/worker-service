@@ -22,7 +22,7 @@ DerivedData
 *.xcuserstate
 
 frontend/build/
-frontend/android/app/build
+# frontend/android/app/build
 frontend/.idea
 frontend/android/.idea
 frontend/android/.gradle

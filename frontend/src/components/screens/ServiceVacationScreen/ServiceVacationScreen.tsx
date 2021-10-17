@@ -1,13 +1,28 @@
 import React from 'react';
+import { View, ScrollView } from 'react-native';
 
-import ServiceVacation from '../../componentName/ServiceVacation'
+import VacationForm from '../../componentName/VacationForm'
+import VacationInfo from '../../componentName/VacationInfo'
+import VacationRules from '../../componentName/VacationRules'
+import styles from './ServiceVacationScreen.styles';
 
 type ServiceVacationProps = {};
 
-const ServiceVacationScreen: React.FC<ServiceVacationProps> = () => (
+const ServiceVacationScreen: React.FC<ServiceVacationProps> = () => {
 
-  <ServiceVacation />
-
-);
+  return (
+    <ScrollView>
+      <View>
+        <View style={styles.component}>
+          <View style={styles.mainWrapper}>
+            <VacationForm />
+            <VacationInfo />
+            <VacationRules />
+          </View>
+        </View>
+      </View>
+    </ScrollView>
+  )
+};
 
 export default ServiceVacationScreen;
