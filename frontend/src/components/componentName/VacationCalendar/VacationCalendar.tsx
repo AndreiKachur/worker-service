@@ -3,7 +3,7 @@ import { Calendar, LocaleConfig } from 'react-native-calendars';
 
 import buildPeriod from './buildPeriod'
 import localeData from './localeData'
-import { Day } from '../VacationForm/VacationForm'
+import Day from '../models/day'
 
 type VacationCalendarProps = {
   setVacationDaysAmount: (days: number) => void;

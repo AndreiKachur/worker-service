@@ -6,18 +6,12 @@ import vacationStore from '../../../stores/vacationStore/vacationStore';
 import VacationCalendar from '../VacationCalendar'
 import Button from '../../common/Button'
 import Separator from '../../common/Separator'
+import Day from '../models/day'
 import styles from './VacationForm.styles';
 import colors from '../../../themes'
 
 type VacationFormProps = {
 };
-export type Day = {
-  dateString: string;
-  day: number;
-  month: number;
-  year: number
-  timestamp: number;
-}
 
 const monthNames = ['янв.', 'фев.', 'мрт.', 'апр.', 'мая', 'июня',
   'июля', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.']

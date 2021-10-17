@@ -1,5 +1,17 @@
+import Day from '../models/day'
 
-const buildPeriod = (start: any, end: any, clickCounter: number) => {
+type SetBetweenPeriodType = (
+  start: Day,
+  beginDay: number,
+  endDay: number,
+  month: number | string) => void
+
+type buildPeriodType = (
+  start: Day | undefined,
+  end: Day | undefined,
+  clickCounter: number) => any
+
+const buildPeriod: buildPeriodType = (start, end, clickCounter) => {
 
   if (!start) return
 
@@ -19,21 +31,34 @@ const buildPeriod = (start: any, end: any, clickCounter: number) => {
 
   if (!end) return
 
+  const daysInMonth = (month: number, year: number) => {
+    return 32 - new Date(year, month - 1, 32).getDate();
+  }
+
   // добавляем начало и окончание периода
   period[start.dateString] = intervalPatterns.start
   period[end.dateString] = intervalPatterns.end
 
   //добавляем дни между стартом и окончанием периода
-  for (let day = start.day + 1; day < end.day; day++) {
+  const setBetweenPeriod: SetBetweenPeriodType = (start, beginDay, endDay, month) => {
+    for (let day = beginDay + 1; day < endDay; day++) {
 
-    let month = start.month
+      const dayFormat = day > 9 ? day : ['0', day].join('')
+      month = month > 9 ? month : ['0', month].join('')
 
-    day = day > 9 ? day : ['0', day].join('')
-    month = month > 9 ? month : ['0', month].join('')
+      const dateString = [start.year, month, dayFormat].join('-')
 
-    const dateString = [start.year, month, day].join('-')
+      period[dateString] = intervalPatterns.between
+    }
+  }
 
-    period[dateString] = intervalPatterns.between
+  let monthEnd = daysInMonth(start.month, start.year) + 1
+
+  if (start.month !== end.month) {
+    setBetweenPeriod(start, start.day, monthEnd, start.month)
+    setBetweenPeriod(start, 0, end.day, end.month)
+  } else {
+    setBetweenPeriod(start, start.day, end.day, start.month)
   }
 
   return period
