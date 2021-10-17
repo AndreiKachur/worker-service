@@ -1,7 +1,8 @@
 com/testapp4/MainActivity.java
  com.testapp4.MainActivity
-com/facebook/react/PackageList.java
- com.facebook.react.PackageList
+com/testapp4/MainApplication.java
+ com.testapp4.MainApplication
+ com.testapp4.MainApplication$1
 com/testapp4/BuildConfig.java
  com.testapp4.BuildConfig
 com/testapp4/ReactNativeFlipper.java
@@ -9,6 +10,5 @@ com/testapp4/ReactNativeFlipper.java
  com.testapp4.ReactNativeFlipper$1
  com.testapp4.ReactNativeFlipper$2
  com.testapp4.ReactNativeFlipper$2$1
-com/testapp4/MainApplication.java
- com.testapp4.MainApplication
- com.testapp4.MainApplication$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList

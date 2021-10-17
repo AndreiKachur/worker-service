@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import {
-  View, Text, ScrollView, ImageBackground, Alert, Pressable, Button,
+  View, Text, ScrollView, ImageBackground, Alert, Pressable, Button, Image
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -19,7 +19,7 @@ const StartScreen: React.FC<StartScreenProps> = observer(({ navigation }) => {
           <Icon.Button
             onPress={() => navigation.navigate('Auth')}
             name="sign-in-alt"
-            backgroundColor="rgb(200, 200, 200)"
+            backgroundColor='#fff'
             iconStyle={styles.iconStyle}
           ></Icon.Button>
         </View>
@@ -34,15 +34,20 @@ const StartScreen: React.FC<StartScreenProps> = observer(({ navigation }) => {
       <ScrollView style={styles.posts}>
         {
           publicNews.map((post) => (
-            <Pressable key={post.id} onPress={() => { navigation.navigate('Post', post); }}>
-              <ImageBackground style={styles.post} source={{ uri: post.image }}>
+            <Pressable key={post.id} onPress={() => { navigation.navigate('PieceOfNews', post); }}>
+              <View style={styles.post}>
+              <Image  resizeMethod="scale"  source={{ uri: post.image }} style={styles.image}/>
                 <View style={styles.headerBox}>
                   <Text style={styles.date}>{post.publicDate}</Text>
+                  <View style={styles.iconBox}>
+                  <Icon style={styles.views} name="eye"> {post.views}</Icon>
+                  <Icon style={styles.likes} name="heart"> {post.likes}</Icon>
+                  </View>
                 </View>
                 <View style={styles.titleBox}>
                   <Text style={styles.titleText}>{post.title}</Text>
                 </View>
-              </ImageBackground>
+              </View>
             </Pressable>
           ))
         }

@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 import {
-  View, Text, ScrollView, ImageBackground, Pressable, Button,
+  View, Text, ScrollView, ImageBackground, Pressable, Button, Image
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import newsStore from '../../../stores/newsStore/newsStore';
 import styles from './NewsScreen.styles';
 import DropDown from '../../common/DropDown';
+import colors from '../../../themes'
 
 type NewsScreenProps = any;
 
@@ -28,7 +29,7 @@ const NewsScreen: React.FC<NewsScreenProps> = observer(({ navigation }) => {
           <Icon.Button
             onPress={() => setActiveDropDown(!activeDropDown)}
             name="filter"
-            backgroundColor="rgb(200, 200, 200)"
+            backgroundColor='#fff'
             iconStyle={styles.iconStyle}
           />
         </View>
@@ -65,15 +66,20 @@ const NewsScreen: React.FC<NewsScreenProps> = observer(({ navigation }) => {
       <ScrollView style={styles.posts}>
         {
           FilterNews.map((post) => (
-            <Pressable key={post.id} onPress={() => { navigation.navigate('Post', post); }}>
-              <ImageBackground style={styles.post} source={{ uri: post.image }}>
+            <Pressable key={post.id} onPress={() => { navigation.navigate('PieceOfNews', post); }}>
+              <View style={styles.post}>
+              <Image  resizeMethod="scale"  source={{ uri: post.image }} style={styles.image}/>
                 <View style={styles.headerBox}>
                   <Text style={styles.date}>{post.publicDate}</Text>
+                  <View style={styles.iconBox}>
+                  <Icon style={styles.views} name="eye"> {post.views}</Icon>
+                  <Icon style={styles.likes} name="heart"> {post.likes}</Icon>
+                  </View>
                 </View>
                 <View style={styles.titleBox}>
                   <Text style={styles.titleText}>{post.title}</Text>
                 </View>
-              </ImageBackground>
+              </View>
             </Pressable>
           ))
         }

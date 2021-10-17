@@ -1,4 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet,  Dimensions } from 'react-native';
+import colors from '../../../themes';
+
+const width = Dimensions.get('window').width
+const height = Dimensions.get('window').height
 
 export default StyleSheet.create({
   component: {
@@ -11,6 +15,7 @@ export default StyleSheet.create({
   },
   iconStyle: {
     marginRight: 10,
-    marginLeft: 10
+    marginLeft: 10,
+    color: `${colors.primary}`
   }
 });

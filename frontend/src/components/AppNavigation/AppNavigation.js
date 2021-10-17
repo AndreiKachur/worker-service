@@ -13,7 +13,7 @@ import ProfileScreen from '../screens/ProfileScreen';
 import ServiceVacationScreen from '../screens/ServiceVacationScreen';
 import ServiceWorkDayScreen from '../screens/ServiceWorkDayScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
-import PostScreen from '../screens/PostScreen';
+import PieceOfNewsScreen from '../screens/PieceOfNewsScreen';
 import color from '../../themes'
 
 const headerStyle = {
@@ -65,7 +65,7 @@ const MyStack = (props) => (
     <Stack.Screen name="Мой Отпуск" component={ServiceVacationScreen} />
     <Stack.Screen name="Мой День" component={ServiceWorkDayScreen} />
     <Stack.Screen name="Edit" component={EditProfileScreen} />
-    <Stack.Screen name="Post" component={PostScreen} />
+    <Stack.Screen name="PieceOfNews" component={PieceOfNewsScreen} />
   </Stack.Navigator>
 );
 

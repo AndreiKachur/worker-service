@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { Dimensions } from 'react-native';
+import { StyleSheet,  Dimensions } from 'react-native';
+
 
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
@@ -30,6 +30,6 @@ export default StyleSheet.create({
   button: {
     width: 150,
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
   }
 })

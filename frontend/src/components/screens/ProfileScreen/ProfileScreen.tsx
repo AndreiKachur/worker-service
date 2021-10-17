@@ -41,7 +41,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
           <Icon.Button
             onPress={() => navigation.navigate('Edit')}
             name="user-cog"
-            backgroundColor="rgb(200, 200, 200)"
+            backgroundColor="#fff"
             iconStyle={styles.iconStyle}
           ></Icon.Button>
         </View>

@@ -4,7 +4,8 @@ import {
 } from 'react-native';
 
 import styles from './DropDown.styles';
-import { Filter } from '../../screens/NewsScreen/NewsScreen'
+import { Filter } from '../../screens/NewsScreen/NewsScreen';
+import colors from '../../../themes';
 
 type DropDownProps = any;
 
@@ -38,12 +39,14 @@ const DropDown: React.FC<DropDownProps> = (props) => {
                         <View key={filter.id} style={styles.button}>
                             <Button color={
                                 filter.name === props.newsFilter
-                                    ? "rgb(100, 100, 100)"
-                                    : "rgb(200, 200, 200)"
+                                    ? `${colors.sixth}`
+                                    : `${colors.primary}`
                             }
                                 onPress={() => {
                                     props.setNewsFilter(filter.name)
-                                }} title={filter.title} />
+                                }} 
+                                title={filter.title} 
+                            />
                         </View>
                     )
                 })}
