@@ -3,6 +3,7 @@ import { Calendar, LocaleConfig } from 'react-native-calendars';
 
 import buildPeriod from './buildPeriod'
 import localeData from './localeData'
+import { Day } from '../VacationForm/VacationForm'
 
 type VacationCalendarProps = {
   setVacationDaysAmount: (days: number) => void;
@@ -11,14 +12,6 @@ type VacationCalendarProps = {
   endDate?: Day;
   setEndDate: React.Dispatch<React.SetStateAction<Day | undefined>>;
 };
-
-type Day = {
-  dateString: string;
-  day: number;
-  month: number;
-  timestamp: number;
-  year: number
-}
 
 LocaleConfig.locales['ru'] = localeData;
 LocaleConfig.defaultLocale = 'ru';

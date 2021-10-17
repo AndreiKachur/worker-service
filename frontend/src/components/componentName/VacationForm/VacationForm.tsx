@@ -11,13 +11,16 @@ import colors from '../../../themes'
 
 type VacationFormProps = {
 };
-type Day = {
-  dateString: string,
-  day: number,
-  month: number,
-  timestamp: number,
+export type Day = {
+  dateString: string;
+  day: number;
+  month: number;
   year: number
+  timestamp: number;
 }
+
+const monthNames = ['янв.', 'фев.', 'мрт.', 'апр.', 'мая', 'июня',
+  'июля', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.']
 
 const VacationForm: React.FC<VacationFormProps> = observer(() => {
   const { restDaysAmount } = vacationStore.data.thisYear
@@ -33,6 +36,8 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
     const daysDifference = (timeDifference / (1000 * 3600 * 24)) + 1
     setVacationDaysAmount(daysDifference);
   }
+
+  const getDayFormat = (d: Day) => [d.day, monthNames[d.month - 1], d.year].join(' ')
 
   useEffect(() => {
     computeDaysAmount()
@@ -68,10 +73,10 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
       {startDate &&
         <View>
           <Text style={styles.text}>
-            Дата начала отпуска: {startDate ? startDate.dateString : 'Не выбрана'}
+            Дата начала отпуска: {startDate ? getDayFormat(startDate) : 'Не выбрана'}
           </Text>
           <Text style={styles.text}>
-            Дата окончания отпуска: {endDate ? endDate.dateString : 'Не выбрана'}
+            Дата окончания отпуска: {endDate ? getDayFormat(endDate) : 'Не выбрана'}
           </Text>
           <Text style={styles.text}>
             Итого выбрано дней: {vacationDaysAmount}

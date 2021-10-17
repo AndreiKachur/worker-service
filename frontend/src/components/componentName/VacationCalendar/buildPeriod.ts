@@ -1,37 +1,41 @@
-const intervalPatterns = {
-  start: { startingDay: true, color: '#50cebb', textColor: 'white' },
-  between: { color: '#70d7c7', textColor: 'white' },
-  end: { endingDay: true, color: '#50cebb', textColor: 'white' }
-}
 
-const buildPeriod = (startDate: any, endDate: any, clickCounter: number) => {
+const buildPeriod = (start: any, end: any, clickCounter: number) => {
 
-  if (!startDate) return
+  if (!start) return
 
   const period: any = {}
 
+  const intervalPatterns = {
+    start: { startingDay: true, color: '#50cebb', textColor: 'white' },
+    between: { color: '#70d7c7', textColor: 'white' },
+    end: { endingDay: true, color: '#50cebb', textColor: 'white' }
+  }
+
   //подсвечиваем стартовый день
   if (clickCounter === 1) {
-    period[startDate.dateString] = intervalPatterns.start
+    period[start.dateString] = intervalPatterns.start
     return period
   }
 
-  if (!endDate) return
+  if (!end) return
 
-  // добавляем старт и окончание периода
-  period[startDate.dateString] = intervalPatterns.start
-  period[endDate.dateString] = intervalPatterns.end
+  // добавляем начало и окончание периода
+  period[start.dateString] = intervalPatterns.start
+  period[end.dateString] = intervalPatterns.end
 
   //добавляем дни между стартом и окончанием периода
-  for (let index = startDate.day + 1; index < endDate.day; index++) {
+  for (let day = start.day + 1; day < end.day; day++) {
 
-    const dateParts = startDate.dateString.split('-')
-    const day = + dateParts[2] + (index - startDate.day)
-    dateParts[2] = day > 9 ? day.toString() : ['0', day].join('')
-    const dateString = dateParts.join('-')
+    let month = start.month
+
+    day = day > 9 ? day : ['0', day].join('')
+    month = month > 9 ? month : ['0', month].join('')
+
+    const dateString = [start.year, month, day].join('-')
 
     period[dateString] = intervalPatterns.between
   }
+
   return period
 }
 
