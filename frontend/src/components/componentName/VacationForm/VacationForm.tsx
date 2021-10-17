@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
-import { Calendar } from 'react-native-calendars';
 import { observer } from 'mobx-react-lite';
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
+import VacationCalendar from '../VacationCalendar'
 import Button from '../../common/Button'
 import Separator from '../../common/Separator'
 import styles from './VacationForm.styles';
@@ -29,28 +29,11 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
 
       <Button onClick={() => setShowCalendar(!showCalendar)} >
         ВЫБРАТЬ ДАТЫ ОТПУСКА
-            </Button>
+      </Button>
 
       {showCalendar &&
         <View style={styles.calendar}>
-          <Calendar
-            markingType={'period'}
-            markedDates={{
-              '2021-10-21': { startingDay: true, color: '#50cebb', textColor: 'white' },
-              '2021-10-22': { color: '#70d7c7', textColor: 'white' },
-              '2021-10-23': { color: '#70d7c7', textColor: 'white', marked: true, dotColor: 'white' },
-              '2021-10-24': { color: '#70d7c7', textColor: 'white' },
-              '2021-10-25': { color: '#70d7c7', textColor: 'white' },
-              '2021-10-26': { color: '#70d7c7', textColor: 'white' },
-              '2021-10-27': { color: '#70d7c7', textColor: 'white' },
-              '2021-10-28': { color: '#70d7c7', textColor: 'white' },
-              '2021-10-29': { color: '#70d7c7', textColor: 'white' },
-              '2021-10-30': { color: '#70d7c7', textColor: 'white' },
-              '2021-10-31': { color: '#70d7c7', textColor: 'white' },
-              '2021-11-01': { color: '#70d7c7', textColor: 'white' },
-              '2021-11-02': { endingDay: true, color: '#50cebb', textColor: 'white' }
-            }}
-          />
+          <VacationCalendar />
         </View>}
 
       <Text style={styles.text}>Итого выбрано дней: 0</Text>
