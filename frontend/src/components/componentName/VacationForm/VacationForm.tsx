@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { observer } from 'mobx-react-lite';
 
@@ -11,11 +11,32 @@ import colors from '../../../themes'
 
 type VacationFormProps = {
 };
+type Day = {
+  dateString: string,
+  day: number,
+  month: number,
+  timestamp: number,
+  year: number
+}
 
 const VacationForm: React.FC<VacationFormProps> = observer(() => {
   const { restDaysAmount } = vacationStore.data.thisYear
 
-  const [showCalendar, setShowCalendar] = useState(true);
+  const [calendarView, setCalendarView] = useState(true);
+  const [vacationDaysAmount, setVacationDaysAmount] = useState(0);
+  const [startDate, setStartDate] = useState<Day>()
+  const [endDate, setEndDate] = useState<Day>()
+
+  const computeDaysAmount = () => {
+    if (!startDate || !endDate) return
+    const timeDifference = endDate.timestamp - startDate.timestamp
+    const daysDifference = (timeDifference / (1000 * 3600 * 24)) + 1
+    setVacationDaysAmount(daysDifference);
+  }
+
+  useEffect(() => {
+    computeDaysAmount()
+  }, [endDate])
 
   return (
     <View>
@@ -25,18 +46,38 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
       </View>
       <Separator />
 
-      <Text style={styles.text}>Количество дней к выбору: {restDaysAmount}</Text>
+      {calendarView &&
+        <Text style={styles.text}>
+          Количество дней к выбору: {restDaysAmount - vacationDaysAmount}
+        </Text>}
 
-      <Button onClick={() => setShowCalendar(!showCalendar)} >
+      <Button onClick={() => setCalendarView(!calendarView)} >
         ВЫБРАТЬ ДАТЫ ОТПУСКА
       </Button>
 
-      {showCalendar &&
+      {calendarView &&
         <View style={styles.calendar}>
-          <VacationCalendar />
+          <VacationCalendar
+            setVacationDaysAmount={setVacationDaysAmount}
+            startDate={startDate}
+            setStartDate={setStartDate}
+            endDate={endDate}
+            setEndDate={setEndDate}
+          />
         </View>}
-
-      <Text style={styles.text}>Итого выбрано дней: 0</Text>
+      {startDate &&
+        <View>
+          <Text style={styles.text}>
+            Дата начала отпуска: {startDate ? startDate.dateString : 'Не выбрана'}
+          </Text>
+          <Text style={styles.text}>
+            Дата окончания отпуска: {endDate ? endDate.dateString : 'Не выбрана'}
+          </Text>
+          <Text style={styles.text}>
+            Итого выбрано дней: {vacationDaysAmount}
+          </Text>
+        </View>
+      }
 
       <Button backgroundColor={colors.fourth}
         onClick={() => console.log('click')} >
