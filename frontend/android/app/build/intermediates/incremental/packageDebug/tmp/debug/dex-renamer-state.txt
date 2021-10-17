@@ -1,24 +1,8 @@
-<<<<<<< HEAD
-#Sun Oct 17 19:28:44 YEKT 2021
+#Sun Oct 17 23:32:25 YEKT 2021
 path.4=14/classes.dex
 path.3=11/classes.dex
 path.2=0/classes.dex
 path.1=0/classes.dex
-=======
-#Sat Oct 16 00:42:54 MSK 2021
-path.4=2/classes.dex
-path.3=1/classes.dex
-path.2=11/classes.dex
-renamed.9=classes10.dex
-path.1=10/classes.dex
-renamed.8=classes9.dex
-path.8=9/classes.dex
-path.7=7/classes.dex
-path.6=6/classes.dex
-path.5=5/classes.dex
-renamed.11=classes12.dex
-renamed.10=classes11.dex
->>>>>>> e147f9e49fd1c38c6236c861f7dee954b3fd3d46
 path.0=classes.dex
 base.4=C\:\\gnivc-project\\develop 2\\react-marathon-2-team-2\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\14\\classes.dex
 base.3=C\:\\gnivc-project\\develop 2\\react-marathon-2-team-2\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
