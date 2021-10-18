@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 import {
-  View, Text, ScrollView, ImageBackground, Pressable, Button, Image
+  View, Text, ScrollView, ImageBackground, Pressable, Button, Image,
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -54,7 +54,6 @@ const NewsScreen: React.FC<NewsScreenProps> = observer(({ navigation }) => {
     ? newsStore.news.filter((post) => post.private)
     : newsStore.news.filter((post) => !post.private)
 
-
   return (
     <View style={styles.component}>
       {activeDropDown ? <DropDown
@@ -63,7 +62,8 @@ const NewsScreen: React.FC<NewsScreenProps> = observer(({ navigation }) => {
         setNewsFilter={setNewsFilter}
         newsFilter={newsFilter}
       /> : null}
-      <ScrollView style={styles.posts}>
+      <ScrollView style={styles.scroll}>
+        <View style={styles.posts}>
         {
           FilterNews.map((post) => (
             <Pressable key={post.id} onPress={() => { navigation.navigate('PieceOfNews', post); }}>
@@ -83,6 +83,7 @@ const NewsScreen: React.FC<NewsScreenProps> = observer(({ navigation }) => {
             </Pressable>
           ))
         }
+        </View>
       </ScrollView>
     </View>
   );

@@ -8,12 +8,17 @@ export default StyleSheet.create({
   component: {
     flex: 1,
     alignItems: 'center',
+    width: '100%',
   
   },
-  posts: {
-    marginTop: 10,
-    marginBottom: 10,
+  scroll: {
     width: '100%',
+    height: '100%'
+  },
+  posts: {
+    marginLeft: '5%',
+    marginRight: '5%',
+    marginBottom: '5%'
   },
   post: {
     position: 'relative',
@@ -21,17 +26,15 @@ export default StyleSheet.create({
     borderTopRightRadius: 20,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-    marginLeft: 10,
-    marginRight: 10,
+    marginTop: '5%',
     borderRadius: 20,
-    marginBottom: 10,
+    
     height: 300,
   },
   image: {
     borderRadius: 20,
     width: '100%',
     height: '100%',
-    zIndex: 0
   },
   titleBox: {
     display: 'flex',
@@ -45,7 +48,6 @@ export default StyleSheet.create({
     padding: 20,
     height: '20%',
     backgroundColor: `${colors.primaryOpacity}`,
-    zIndex: 1,
   },
   titleText: {
     color: 'rgb(255, 255, 255)',
@@ -65,7 +67,6 @@ export default StyleSheet.create({
     width: '100%',
     height: '20%',
     backgroundColor: `${colors.primaryOpacity}`,
-    zIndex: 1,
   },
   date: {
     color: 'rgb(255, 255, 255)',

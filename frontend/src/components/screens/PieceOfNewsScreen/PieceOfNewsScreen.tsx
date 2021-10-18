@@ -12,15 +12,19 @@ const PostScreen: React.FC<PostScreenProps> = (props) => {
 
   return (
     <View style={styles.component}>
-      <ScrollView style={styles.post}>
-        <View style={styles.titleBox}>
-          <Text style={styles.titleText}>{post.title}</Text>
-        </View>
-        <Image style={styles.image} source={{ uri: post.image }} />
-        <View style={styles.textBox}>
-        <Text style={styles.text}>{post.title.repeat(200)}</Text>
+      <ScrollView >
+        <View style={styles.post}>
+          <View style={styles.titleBox}>
+            <Text style={styles.titleText}>{post.title}</Text>
+          </View>
+          <Image style={styles.image} source={{ uri: post.image }} />
+          <View style={styles.textBox}>
+            <Text style={styles.text}>{post.title.repeat(200)}</Text>
+          </View>
         </View>
       </ScrollView>
+
+
     </View>
   );
 };
