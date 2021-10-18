@@ -33,6 +33,14 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
 
   const getDayFormat = (d: Day) => [d.day, monthNames[d.month - 1], d.year].join(' ')
 
+  const daysDiff = restDaysAmount - vacationDaysAmount
+  const pointsDiff = startDate && endDate ? endDate?.timestamp - startDate?.timestamp : 0
+
+  const getTextStyle = (diff: number) => {
+    return diff < 0 ?
+      [styles.text, { backgroundColor: colors.danger, color: colors.third }] : styles.text
+  }
+
   useEffect(() => {
     computeDaysAmount()
   }, [endDate])
@@ -46,8 +54,8 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
       <Separator />
 
       {calendarView &&
-        <Text style={styles.text}>
-          Количество дней к выбору: {restDaysAmount - vacationDaysAmount}
+        <Text style={getTextStyle(daysDiff)}>
+          Количество дней к выбору: {daysDiff}
         </Text>}
 
       <Button onClick={() => setCalendarView(!calendarView)} >
@@ -69,16 +77,19 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
           <Text style={styles.text}>
             Дата начала отпуска: {startDate ? getDayFormat(startDate) : 'Не выбрана'}
           </Text>
-          <Text style={styles.text}>
+          <Text style={pointsDiff < 0 ? getTextStyle(pointsDiff) : styles.text}>
             Дата окончания отпуска: {endDate ? getDayFormat(endDate) : 'Не выбрана'}
+            {pointsDiff < 0 && ' (неверная дата)'}
           </Text>
-          <Text style={styles.text}>
+          <Text style={getTextStyle(daysDiff)}>
             Итого выбрано дней: {vacationDaysAmount}
+            {daysDiff < 0 && ' (превышен лимит дней)'}
           </Text>
         </View>
       }
 
-      <Button backgroundColor={colors.fourth}
+      <Button
+        backgroundColor={daysDiff < 0 || pointsDiff < 0 ? colors.danger : colors.fourth}
         onClick={() => console.log('click')} >
         ОТПРАВИТЬ
       </Button>

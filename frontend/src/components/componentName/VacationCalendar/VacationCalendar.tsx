@@ -4,6 +4,7 @@ import { Calendar, LocaleConfig } from 'react-native-calendars';
 import buildPeriod from './buildPeriod'
 import localeData from './localeData'
 import Day from '../models/day'
+import colors from '../../../themes';
 
 type VacationCalendarProps = {
   setVacationDaysAmount: (days: number) => void;
@@ -63,6 +64,16 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
       enableSwipeMonths={true}
       onDayPress={(day) => setDate(day)}
       markedDates={daysInterval}
+    // markedDates={
+    //   Object.assign({
+    //     '2021-11-04': {
+    //       disabled: true, startingDay: true, endingDay: true,
+    //       color: '#70d7c7', textColor: colors.third
+    //     },
+    //     '2021-11-05': {
+    //       disabled: true,
+    //     },
+    //   }, daysInterval)}
     />
   )
 };

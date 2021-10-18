@@ -1,4 +1,5 @@
 const colors = {
+    danger: '#FA2727',
     primary: '#2196F3',
     primaryOpacity: '#318ce785',
     secondary: '#484A4E',
