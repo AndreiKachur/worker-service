@@ -2,6 +2,6 @@
 // если сервер запускаете локально,
 // то нужно получить свой ip в консоли(ipconfig) => вписать в переменную ipconfig
 
-const ipconfig = 'http://192.168.43.197:5000';
+const ipconfig = 'http://192.168.100.2:5000';
 
 export default ipconfig;

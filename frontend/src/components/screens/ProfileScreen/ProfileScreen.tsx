@@ -10,6 +10,7 @@ import authStore from '../../../stores/authStore';
 
 import styles from './ProfileScreen.styles';
 
+
 type ProfileScreenProps = any;
 type UserInfo = {
   id: string;

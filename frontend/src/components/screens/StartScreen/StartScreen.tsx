@@ -7,6 +7,8 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import newsStore from '../../../stores/newsStore';
 import styles from './StartScreen.styles';
+import NewsCard from '../../componentName/NewsCard';
+import { Post } from '../../componentName/NewsCard/NewsCard';
 
 type StartScreenProps = any;
 
@@ -35,21 +37,7 @@ const StartScreen: React.FC<StartScreenProps> = ({ navigation }) => {
         <View style={styles.posts}>
         {
           publicNews.map((post) => (
-            <Pressable key={post.id} onPress={() => { navigation.navigate('PieceOfNews', post); }}>
-              <View style={styles.post}>
-              <Image  resizeMethod="scale"  source={{ uri: post.image }} style={styles.image}/>
-                <View style={styles.headerBox}>
-                  <Text style={styles.date}>{post.publicDate}</Text>
-                  <View style={styles.iconBox}>
-                  <Icon style={styles.views} name="eye"> {post.views}</Icon>
-                  <Icon style={styles.likes} name="heart"> {post.likes}</Icon>
-                  </View>
-                </View>
-                <View style={styles.titleBox}>
-                  <Text style={styles.titleText}>{post.title}</Text>
-                </View>
-              </View>
-            </Pressable>
+            <NewsCard key={post.id} post={post} navigation={navigation}/>
           ))
         }
         </View>
