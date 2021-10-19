@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { observer } from 'mobx-react-lite';
+import axios from 'axios'
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
 import VacationCalendar from '../VacationCalendar'
@@ -20,6 +21,7 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
   const { restDaysAmount } = vacationStore.data.thisYear
 
   const [calendarView, setCalendarView] = useState(true);
+  // const [sending, setSending] = useState(false);
   const [vacationDaysAmount, setVacationDaysAmount] = useState(0);
   const [startDate, setStartDate] = useState<Day>()
   const [endDate, setEndDate] = useState<Day>()
@@ -41,9 +43,20 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
       [styles.text, { backgroundColor: colors.danger, color: colors.third }] : styles.text
   }
 
+  const sendForm = async () => {
+    const data = {
+      startDate: startDate,
+      endDate: endDate,
+      vacationDaysAmount: vacationDaysAmount
+    }
+    const res = await axios.post('http://192.168.1.64:5000/vacation', { data })
+    console.log(res.data)
+  }
+
   useEffect(() => {
     computeDaysAmount()
   }, [endDate])
+
 
   return (
     <View>
@@ -90,7 +103,7 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
 
       <Button
         backgroundColor={daysDiff < 0 || pointsDiff < 0 ? colors.danger : colors.fourth}
-        onClick={() => console.log('click')} >
+        onClick={sendForm} >
         ОТПРАВИТЬ
       </Button>
       <Separator />

@@ -1,7 +1,8 @@
 const express = require('express')
 const data = require('./data/data.ts')
-// const fs = require('fs')
 const http = require('http')
+const vacation = require('./routes/vacation')
+// const fs = require('fs')
 //const https = require('https')
 
 const app = express()
@@ -11,6 +12,8 @@ const PORTHTTP = process.env.PORT || 5000
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+app.use('/vacation', vacation)
 
 app.get('/api', async (req: any, res: any) => {
   res.json(data)
