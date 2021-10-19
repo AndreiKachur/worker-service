@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, Dimensions } from 'react-native';
 import colors from '../../../themes'
 
 type ButtonProps = {
-  title?: string
+  title?: string,
   onClick?: () => any,
   width?: number,
   backgroundColor?: string,

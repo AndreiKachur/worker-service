@@ -68,10 +68,11 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
     //   Object.assign({
     //     '2021-11-04': {
     //       disabled: true, startingDay: true, endingDay: true,
-    //       color: '#70d7c7', textColor: colors.third
+    //       textColor: '#50cebb'
     //     },
     //     '2021-11-05': {
     //       disabled: true,
+    // textColor: '#50cebb'
     //     },
     //   }, daysInterval)}
     />
