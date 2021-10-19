@@ -5,7 +5,7 @@ router.post('/', async (req: any, res: any) => {
     try {
         console.log(req.body);
 
-        res.json({ answer: 'Данные записаны' })
+        res.json({ answer: 'Ваша заявка принята к рассмотрению' })
 
     } catch (e) {
         console.log(e);

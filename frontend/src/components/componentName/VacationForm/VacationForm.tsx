@@ -15,15 +15,24 @@ import { set } from 'mobx';
 
 type VacationFormProps = {
   setSpinner: React.Dispatch<React.SetStateAction<boolean>>;
+  setCalendarView: React.Dispatch<React.SetStateAction<boolean>>;
+  toogleBlocks: () => void;
+  setServerAnswer: React.Dispatch<any>;
+  calendarView: boolean;
 };
 
 const monthsNames = ['янв.', 'фев.', 'мрт.', 'апр.', 'мая', 'июня',
   'июля', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.']
 
-const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
+const VacationForm: React.FC<VacationFormProps> = ({
+  setSpinner,
+  setCalendarView,
+  toogleBlocks,
+  setServerAnswer,
+  calendarView
+}) => {
   const { restDaysAmount } = vacationStore.data.thisYear
 
-  const [calendarView, setCalendarView] = useState(true);
   const [vacationDaysAmount, setVacationDaysAmount] = useState(0);
   const [startDate, setStartDate] = useState<Day>()
   const [endDate, setEndDate] = useState<Day>()
@@ -52,8 +61,12 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
       duration: vacationDaysAmount
     }
     setSpinner(true)
-    const res = await axios.post(`${baseApiUrl}/vacation`, { data })
-    setTimeout(() => setSpinner(false), 1500)
+    const res: any = await axios.post(`${baseApiUrl}/vacation`, { data })
+    setTimeout(() => {
+      setServerAnswer(res.data.answer)
+      toogleBlocks()
+      setSpinner(false)
+    }, 1500)
     console.log(res.data)
   }
 
