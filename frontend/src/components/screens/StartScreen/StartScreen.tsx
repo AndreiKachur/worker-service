@@ -28,10 +28,11 @@ const StartScreen: React.FC<StartScreenProps> = observer(({ navigation }) => {
   }, [navigation]);
 
   const publicNews = newsStore.news.filter((post) => !post.private);
-
+  
   return (
     <View style={styles.component}>
-      <ScrollView style={styles.posts}>
+      <ScrollView style={styles.scroll}>
+        <View style={styles.posts}>
         {
           publicNews.map((post) => (
             <Pressable key={post.id} onPress={() => { navigation.navigate('PieceOfNews', post); }}>
@@ -51,6 +52,7 @@ const StartScreen: React.FC<StartScreenProps> = observer(({ navigation }) => {
             </Pressable>
           ))
         }
+        </View>
       </ScrollView>
     </View>
   );
