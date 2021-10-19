@@ -1,10 +1,7 @@
 import axios from 'axios';
-import { Alert, Platform } from 'react-native';
 
-import ipconfig from '../../ipconfig';
+import baseApiUrl from '../../ipconfig';
 import { VacationData } from './vacationStore.models'
-
-const baseApiUrl = Platform.OS === 'web' ? '' : ipconfig;
 
 const service = {
   getVacation(): Promise<VacationData> {

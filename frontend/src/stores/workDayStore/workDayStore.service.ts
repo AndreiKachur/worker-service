@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const baseApiUrl = 'http://localhost:8080';
+import baseApiUrl from '../../ipconfig';
 
-interface SomeData {
+interface WorkDayData {
 }
 
 const service = {
-  getSomeData(): Promise<SomeData> {
+  getSomeData(): Promise<WorkDayData> {
     return axios.get(`${baseApiUrl}/someData`).then((response) => response.data);
   },
 };

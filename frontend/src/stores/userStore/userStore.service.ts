@@ -1,10 +1,7 @@
 import axios from 'axios';
-import { Platform } from 'react-native';
 
 import User from '../models/user';
-import ipconfig from '../../ipconfig';
-
-const baseApiUrl = Platform.OS === 'web' ? '' : ipconfig;
+import baseApiUrl from '../../ipconfig';
 
 const service = {
   getUser(): Promise<User> {
