@@ -11,14 +11,16 @@ import Separator from '../../common/Separator'
 import Day from '../models/day'
 import styles from './VacationForm.styles';
 import colors from '../../../themes'
+import { set } from 'mobx';
 
 type VacationFormProps = {
+  setSpinner: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const monthsNames = ['янв.', 'фев.', 'мрт.', 'апр.', 'мая', 'июня',
   'июля', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.']
 
-const VacationForm: React.FC<VacationFormProps> = () => {
+const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
   const { restDaysAmount } = vacationStore.data.thisYear
 
   const [calendarView, setCalendarView] = useState(true);
@@ -36,7 +38,7 @@ const VacationForm: React.FC<VacationFormProps> = () => {
   const getDayFormat = (d: Day) => [d.day, monthsNames[d.month - 1], d.year].join(' ')
 
   const daysDiff = restDaysAmount - vacationDaysAmount
-  const pointsDiff = startDate && endDate ? endDate?.timestamp - startDate?.timestamp : 0
+  const pointsDiff = startDate && endDate ? endDate.timestamp - startDate.timestamp : 0
 
   const getTextStyle = (diff: number) => {
     return diff < 0 ?
@@ -47,9 +49,11 @@ const VacationForm: React.FC<VacationFormProps> = () => {
     const data = {
       startDate: startDate,
       endDate: endDate,
-      vacationDaysAmount: vacationDaysAmount
+      duration: vacationDaysAmount
     }
+    setSpinner(true)
     const res = await axios.post(`${baseApiUrl}/vacation`, { data })
+    setTimeout(() => setSpinner(false), 1500)
     console.log(res.data)
   }
 
