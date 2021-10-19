@@ -8,9 +8,10 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import newsStore from '../../../stores/newsStore';
 import styles from './StartScreen.styles';
 import NewsCard from '../../componentName/NewsCard';
-import { Post } from '../../componentName/NewsCard/NewsCard';
 
-type StartScreenProps = any;
+type StartScreenProps = {
+  navigation: any
+};
 
 const StartScreen: React.FC<StartScreenProps> = ({ navigation }) => {
   useLayoutEffect(() => {
