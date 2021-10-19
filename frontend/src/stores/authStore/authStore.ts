@@ -1,7 +1,7 @@
 import {
     action, makeObservable, observable,
 } from 'mobx';
-import { Alert} from 'react-native';
+import { Alert } from 'react-native';
 import { useAsyncStorage } from '@react-native-community/async-storage'
 
 import service from './authStore.service';

@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import colors from '../../../themes'
 
 export default StyleSheet.create({
   component: {
@@ -14,6 +15,9 @@ export default StyleSheet.create({
     borderRadius: 10,
     width: '60%',
     height: 40,
+    color: `${colors.primary}`,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   img: {
   },

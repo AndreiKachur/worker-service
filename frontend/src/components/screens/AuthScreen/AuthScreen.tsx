@@ -1,57 +1,29 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import { observer } from 'mobx-react-lite';
+import React, { useEffect, useState } from 'react';
 import {
   View, Text, Button, TextInput, Alert, Image,
 } from 'react-native';
 
 import styles from './AuthScreen.styles';
+import authStore from '../../../stores/authStore'
 
 type AuthScreenProps = any;
 
-const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const AuthScreen: React.FC<AuthScreenProps> = observer(({ navigation }) => {
+  const { setPushAuthButton, setEmailValue, setPasswordValue, emailValue, passwordValue, auth } = authStore
+  
 
-  const echo = (message: string) => {
-    Alert.alert(message);
-  };
+  if(auth) { navigation.navigate('Main') }
 
-  const clickHandler = async () => {
-    if (email.length == 0) {
-      echo('Пустой email');
-      return;
-    }
-    if (password.length == 0) {
-      echo('Пустой пароль');
-      return;
-    }
-
-    const data = { email, password };
-    const response = await fetch('http://192.168.0.4:5000/login', {
-      mode: 'no-cors',
-      method: 'POST',
-      body: JSON.stringify({ data }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const json = await response.json();
-
-    if (json.jwt) {
-      navigation.navigate('Main');
-    }
-  };
-  const clickHandlerTEST = () => {
-    navigation.navigate('Main');
-  };
-  const imageUri = { uri: 'https://www.gnivc.ru/design/www/images/ico/logo.png' };
   return (
     <View style={styles.component}>
-      <Image style={styles.img} source={imageUri} />
-      <TextInput style={styles.input} placeholder="Login" />
-      <TextInput style={styles.input} placeholder="Password" />
-      <Button title="Войти" onPress={clickHandlerTEST} />
+      {/* <Image style={styles.img} source={imageUri} /> */}
+      <TextInput onChange={setEmailValue} style={styles.input} placeholder="Login" value={emailValue} />
+      <TextInput onChange={setPasswordValue} style={styles.input} placeholder="Password" value={passwordValue} />
+      <Button title="Войти" onPress={setPushAuthButton} />
     </View>
   );
-};
+});
 
 export default AuthScreen;
