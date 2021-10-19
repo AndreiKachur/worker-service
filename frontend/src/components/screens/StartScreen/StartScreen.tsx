@@ -10,7 +10,7 @@ import styles from './StartScreen.styles';
 
 type StartScreenProps = any;
 
-const StartScreen: React.FC<StartScreenProps> = observer(({ navigation }) => {
+const StartScreen: React.FC<StartScreenProps> = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: 'Публичные новости',
@@ -56,6 +56,6 @@ const StartScreen: React.FC<StartScreenProps> = observer(({ navigation }) => {
       </ScrollView>
     </View>
   );
-});
+};
 
-export default StartScreen;
+export default observer(StartScreen);

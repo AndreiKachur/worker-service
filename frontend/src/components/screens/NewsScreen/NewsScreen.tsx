@@ -18,7 +18,7 @@ export type Filter = {
   title: string;
 }
 
-const NewsScreen: React.FC<NewsScreenProps> = observer(({ navigation }) => {
+const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
   const [newsFilter, setNewsFilter] = useState('private');
   const [activeDropDown, setActiveDropDown] = useState(false);
   useLayoutEffect(() => {
@@ -87,6 +87,6 @@ const NewsScreen: React.FC<NewsScreenProps> = observer(({ navigation }) => {
       </ScrollView>
     </View>
   );
-});
+};
 
-export default NewsScreen;
+export default observer(NewsScreen);
