@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import React, {
   useLayoutEffect, useState, useCallback, useEffect,
 } from 'react';
@@ -5,6 +6,7 @@ import {
   View, Text, Button, Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import authStore from '../../../stores/authStore';
 
 import styles from './ProfileScreen.styles';
 
@@ -15,8 +17,10 @@ type UserInfo = {
   avatar: string
 };
 
-const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
+const ProfileScreen: React.FC<ProfileScreenProps> = observer(({ navigation }) => {
   const [user, setUser] = useState<UserInfo>();
+
+  const { setLogout } = authStore
 
   const getUserInfo = useCallback(async () => {
     const name = 'Артем';
@@ -49,6 +53,11 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
     });
   }, [navigation]);
 
+  const logout = () => {
+    setLogout()
+    navigation.navigate('Auth')
+  }
+
   return (
     <View style={styles.component}>
       <Text>ProfileScreen</Text>
@@ -61,9 +70,9 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
         </>
         )
     }
-      <Button title="Выйти" onPress={() => { navigation.navigate('Auth'); }} />
+      <Button title="Выйти" onPress={logout} />
     </View>
   );
-};
+});
 
 export default ProfileScreen;

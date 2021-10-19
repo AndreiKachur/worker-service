@@ -10,7 +10,7 @@ import authStore from '../../../stores/authStore'
 
 type AuthScreenProps = any;
 
-const AuthScreen: React.FC<AuthScreenProps> = observer(({ navigation }) => {
+const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
   const { setPushAuthButton, setEmailValue, setPasswordValue, emailValue, passwordValue, auth } = authStore
   
 
@@ -24,6 +24,6 @@ const AuthScreen: React.FC<AuthScreenProps> = observer(({ navigation }) => {
       <Button title="Войти" onPress={setPushAuthButton} />
     </View>
   );
-});
+};
 
-export default AuthScreen;
+export default observer(AuthScreen);
