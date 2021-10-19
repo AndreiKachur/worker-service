@@ -61,51 +61,55 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
   return (
     <View>
 
-      <View style={styles.headerWrapper}>
-        <Text style={styles.header}>Оформить отпуск:</Text>
-      </View>
-      <Separator />
-
-      {calendarView &&
-        <Text style={getTextStyle(daysDiff)}>
-          Количество дней к выбору: {daysDiff}
-        </Text>}
-
       <Button onClick={() => setCalendarView(!calendarView)} >
-        ВЫБРАТЬ ДАТЫ ОТПУСКА
+        ОФОРМИТЬ ОТПУСК
       </Button>
 
       {calendarView &&
-        <View style={styles.calendar}>
-          <VacationCalendar
-            setVacationDaysAmount={setVacationDaysAmount}
-            startDate={startDate}
-            setStartDate={setStartDate}
-            endDate={endDate}
-            setEndDate={setEndDate}
-          />
-        </View>}
-      {startDate &&
         <View>
-          <Text style={styles.text}>
-            Дата начала отпуска: {startDate ? getDayFormat(startDate) : 'Не выбрана'}
-          </Text>
-          <Text style={pointsDiff < 0 ? getTextStyle(pointsDiff) : styles.text}>
-            Дата окончания отпуска: {endDate ? getDayFormat(endDate) : 'Не выбрана'}
-            {pointsDiff < 0 && ' (неверная дата)'}
-          </Text>
-          <Text style={getTextStyle(daysDiff)}>
-            Итого выбрано дней: {vacationDaysAmount}
-            {daysDiff < 0 && ' (превышен лимит дней)'}
-          </Text>
-        </View>
-      }
 
-      <Button
-        backgroundColor={daysDiff < 0 || pointsDiff < 0 ? colors.danger : colors.fourth}
-        onClick={sendForm} >
-        ОТПРАВИТЬ
+          {!startDate &&
+            <Text style={styles.text}>
+              Выберите даты:
+            </Text>
+          }
+
+          <View style={styles.calendar}>
+            <VacationCalendar
+              setVacationDaysAmount={setVacationDaysAmount}
+              startDate={startDate}
+              setStartDate={setStartDate}
+              endDate={endDate}
+              setEndDate={setEndDate}
+            />
+          </View>
+
+          <Text style={getTextStyle(daysDiff)}>
+            Количество доступных дней отпуска: {daysDiff}
+          </Text>
+
+          {startDate &&
+            <View>
+              <Text style={styles.text}>
+                Дата начала отпуска: {startDate ? getDayFormat(startDate) : 'Не выбрана'}
+              </Text>
+              <Text style={pointsDiff < 0 ? getTextStyle(pointsDiff) : styles.text}>
+                Дата окончания отпуска: {endDate ? getDayFormat(endDate) : 'Не выбрана'}
+                {pointsDiff < 0 && ' (неверная дата)'}
+              </Text>
+              <Text style={getTextStyle(daysDiff)}>
+                Итого выбрано дней: {vacationDaysAmount}
+                {daysDiff < 0 && ' (превышен лимит дней)'}
+              </Text>
+            </View>
+          }
+
+          <Button
+            backgroundColor={daysDiff < 0 || pointsDiff < 0 ? colors.danger : colors.fourth}
+            onClick={sendForm} >
+            ОТПРАВИТЬ
       </Button>
+        </View>}
       <Separator />
 
     </View>
