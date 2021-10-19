@@ -24,10 +24,11 @@ type Body = {
 };
 
 class authStore {
+
     auth: boolean = false;
+
     loader: boolean = false;
-    emailValue: string = 'test@mail.ru';
-    passwordValue: string = '123456';
+
     authData: AuthData = {
         displayName: '',
         email: '',
@@ -38,17 +39,12 @@ class authStore {
         refreshToken: '',
         registered: false,
     };
-    
 
     constructor() {
         makeObservable(this, {
             auth: observable,
             loader: observable,
-            emailValue: observable,
-            passwordValue: observable,
             setAuthData: action.bound,
-            setEmailValue: action.bound,
-            setPasswordValue: action.bound,
             setPushAuthButton: action.bound,
             setLogout: action.bound,
         });
@@ -56,33 +52,20 @@ class authStore {
 
     setAuthData(data: AuthData) { this.authData = data };
 
-    setEmailValue(e: React.ChangeEvent<HTMLInputElement>) {
-        this.emailValue = e.target.value
-    };
-    setPasswordValue(e: React.ChangeEvent<HTMLInputElement>) {
-        this.passwordValue = e.target.value
-    };
-    setPushAuthButton() {
-        const body: Body = {
-            email: this.emailValue,
-            password: this.passwordValue,
-            returnSecureToken: true,
-        };
-
+    setPushAuthButton(body: Body) {
         service.getAuthData(body)
             .then((data) => {
                 this.auth = true
                 this.setAuthData(data)
-                useAsyncStorage('token').setItem( data.idToken )
+                useAsyncStorage('token').setItem(data.idToken)
             })
-            .catch((e) => { 
+            .catch((e) => {
                 console.log(e)
-                Alert.alert("Неверный Email или пароль") 
+                Alert.alert("Неверный Email или пароль")
             });
     };
+
     setLogout() {
-        this.emailValue = ''
-        this.passwordValue = ''
         this.authData = {
             displayName: '',
             email: '',
@@ -94,10 +77,11 @@ class authStore {
             registered: false,
         }
         this.setAuthFalse()
-    }
+    };
+
     setAuthFalse() {
         this.auth = false
-    }
-}
+    };
+};
 
 export default new authStore();

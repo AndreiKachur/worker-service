@@ -11,7 +11,7 @@ type NewsCardProps = {
     post: Post
 };
 
-export type Post = {
+type Post = {
     id: string,
     private: boolean,
     title: string,

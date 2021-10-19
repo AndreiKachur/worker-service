@@ -1,27 +1,48 @@
-import axios from 'axios';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
-import React, { useEffect, useState } from 'react';
-import {
-  View, Text, Button, TextInput, Alert, Image,
-} from 'react-native';
+import { View, Button, TextInput } from 'react-native';
 
 import styles from './AuthScreen.styles';
-import authStore from '../../../stores/authStore'
+import authStore from '../../../stores/authStore';
 
-type AuthScreenProps = any;
+type AuthScreenProps = {
+  navigation: any
+};
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
-  const { setPushAuthButton, setEmailValue, setPasswordValue, emailValue, passwordValue, auth } = authStore
-  
+  const [emailValue, setEmailValue] = useState('test@mail.ru');
+  const [passwordValue, setPasswordValue] = useState('123456');
 
-  if(auth) { navigation.navigate('Main') }
+  const changeEmailValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmailValue(e.target.value)
+  };
+  const changePasswordValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPasswordValue(e.target.value)
+  };
+  const pushAuthButtonHander = () => {
+    const body = {
+      email: emailValue,
+      password: passwordValue,
+      returnSecureToken: true,
+    };
+
+    authStore.setPushAuthButton(body)
+  }
+
+  if (authStore.auth) { navigation.navigate('Main') }
 
   return (
     <View style={styles.component}>
       {/* <Image style={styles.img} source={imageUri} /> */}
-      <TextInput onChange={setEmailValue} style={styles.input} placeholder="Login" value={emailValue} />
-      <TextInput onChange={setPasswordValue} style={styles.input} placeholder="Password" value={passwordValue} />
-      <Button title="Войти" onPress={setPushAuthButton} />
+      <TextInput onChange={changeEmailValue}
+        style={styles.input}
+        placeholder="Login"
+        value={emailValue} />
+      <TextInput onChange={changePasswordValue}
+        style={styles.input}
+        placeholder="Password"
+        value={passwordValue} />
+      <Button title="Войти" onPress={pushAuthButtonHander} />
     </View>
   );
 };
