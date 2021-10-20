@@ -1,8 +1,8 @@
 import {
-    action, makeObservable, observable, runInAction
+    action, makeAutoObservable, makeObservable, observable, runInAction
 } from 'mobx';
 import { Alert } from 'react-native';
-import { useAsyncStorage } from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import service from './authStore.service';
 
@@ -42,12 +42,13 @@ class authStore {
     };
 
     constructor() {
-        makeObservable(this, {
+        makeAutoObservable(this, {
             auth: observable,
             loader: observable,
             setAuthData: action.bound,
             setPushAuthButton: action.bound,
             setLogout: action.bound,
+            setAutoLogin: action.bound,
         });
     }
 
@@ -58,7 +59,7 @@ class authStore {
             .then((data) => {
                 this.setAuthTrue()
                 this.setAuthData(data)
-                useAsyncStorage('token').setItem(data.idToken)
+                this.setSaveToken(data.idToken)
             })
             .catch((e) => {
                 console.log(e)
@@ -66,7 +67,23 @@ class authStore {
             });
     };
 
+    async setSaveToken(data: string) {
+        await AsyncStorage.setItem('token', data)
+    }
+
+    async setDeleteToken() {
+        await AsyncStorage.setItem('token', '')
+    }
+
+    async setAutoLogin() {
+        const token = await AsyncStorage.getItem('token')
+        if (token?.length) {
+            this.setAuthTrue()
+        }
+    }
+
     setLogout() {
+        this.setDeleteToken()
         this.authData = {
             displayName: '',
             email: '',

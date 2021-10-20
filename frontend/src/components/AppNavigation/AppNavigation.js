@@ -84,6 +84,7 @@ const MyStack = observer((props) => {
   }
 })
 
+authStore.setAutoLogin()
 const AppNavigation = (props) => (
   <NavigationContainer>
     <MyStack />

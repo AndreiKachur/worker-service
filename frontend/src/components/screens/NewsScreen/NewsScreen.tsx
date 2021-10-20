@@ -10,6 +10,7 @@ import styles from './NewsScreen.styles';
 import DropDown from '../../common/DropDown';
 import colors from '../../../themes'
 import NewsCard from '../../componentName/NewsCard';
+import  AsyncStorage  from '@react-native-community/async-storage';
 
 type NewsScreenProps = any;
 
@@ -22,6 +23,7 @@ export type Filter = {
 const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
   const [newsFilter, setNewsFilter] = useState('private');
   const [activeDropDown, setActiveDropDown] = useState(false);
+  
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: 'Новости',
