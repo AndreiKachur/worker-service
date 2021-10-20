@@ -61,8 +61,10 @@ const WorkDay: React.FC<WorkDayProps> = (props) => {
 
   const renderEmptyDate = () => {
     return (
-      <View style={styles.emptyDate}>
-        <Text>Дата не актуальна</Text>
+      <View style={styles.item}>
+        <View style={styles.emptyDate}>
+          <Text>Дата не актуальна</Text>
+        </View>
       </View>
     );
   }
@@ -70,8 +72,9 @@ const WorkDay: React.FC<WorkDayProps> = (props) => {
   return (
     <Agenda
       // markingType={'period'}
-      minDate={new Date(new Date() - 1000 * 60 * 60 * 24 * 7)}
-      selected={new Date()}
+      minDate={new Date(+new Date() - 1000 * 60 * 60 * 24 * 7)}
+      maxDate={new Date(+new Date() + 1000 * 60 * 60 * 24 * 5)}
+      selected={new Date(+new Date() - 1000 * 60 * 60 * 24 * 1)}
       pastScrollRange={1}
       futureScrollRange={1}
       firstDay={1}

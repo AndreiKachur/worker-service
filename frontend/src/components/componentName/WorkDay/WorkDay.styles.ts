@@ -22,7 +22,8 @@ export default StyleSheet.create({
   emptyDate: {
     height: 15,
     flex: 1,
-    paddingTop: 30
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     color: color.secondary,
