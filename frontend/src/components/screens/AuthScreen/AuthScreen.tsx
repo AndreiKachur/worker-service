@@ -13,11 +13,11 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
   const [emailValue, setEmailValue] = useState('test@mail.ru');
   const [passwordValue, setPasswordValue] = useState('123456');
 
-  const changeEmailValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmailValue(e.target.value)
+  const changeEmailValue = (text: string) => {
+    setEmailValue(text)
   };
-  const changePasswordValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPasswordValue(e.target.value)
+  const changePasswordValue = (text: string) => {
+    setPasswordValue(text)
   };
   const pushAuthButtonHander = () => {
     const body = {
@@ -34,11 +34,11 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
   return (
     <View style={styles.component}>
       {/* <Image style={styles.img} source={imageUri} /> */}
-      <TextInput onChange={changeEmailValue}
+      <TextInput onChangeText={changeEmailValue}
         style={styles.input}
         placeholder="Login"
         value={emailValue} />
-      <TextInput onChange={changePasswordValue}
+      <TextInput onChangeText={changePasswordValue}
         style={styles.input}
         placeholder="Password"
         value={passwordValue} />
