@@ -63,7 +63,7 @@ const WorkDayModal: React.FC<WorkDayModalProps> = ({ title }) => {
       <Button
         width={27}
         paddingVertical={10}
-        marginVertical={5}
+        marginVertical={1}
         onClick={() => setModalVisible(true)}>
         {title}
       </Button>

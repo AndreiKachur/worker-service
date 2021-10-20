@@ -14,7 +14,7 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     flex: 1,
     borderRadius: 15,
-    paddingVertical: 10,
+    paddingVertical: 14,
     paddingHorizontal: 25,
     marginRight: 10,
     marginTop: 17

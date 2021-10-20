@@ -26,15 +26,17 @@ const WorkDays: React.FC<WorkDayProps> = () => {
   const [items, setItems] = useState({})
 
   const changeableDaysAmount = -10
-  const maxDatefromNow = 4
+  const minDateFromNow = -20
+  const maxDateFromNow = 5
 
   useEffect(() => {
-    for (let i = changeableDaysAmount; i <= maxDatefromNow; i++) {
+    for (let i = minDateFromNow; i <= maxDateFromNow; i++) {
       const date = getDateFormat(getDateFromNow(i))
+
       if (!days[date]) {
         days[date] = []
       }
-      if (!days[date].length && i <= 0) {
+      if (!days[date].length && i <= 0 && i >= changeableDaysAmount) {
         days[date] = [{ name: 'ВАШ РАБОЧИЙ ДЕНЬ', date: date }]
       }
     }
@@ -45,7 +47,13 @@ const WorkDays: React.FC<WorkDayProps> = () => {
     return new Date(+ new Date() + 1000 * 60 * 60 * 24 * daysNumber)
   }
   function getDateFormat(d: Date) {
-    return [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-')
+    const month = d.getMonth() + 1
+    const day = d.getDate()
+
+    const dayFormat = day > 9 ? day : ['0', day].join('')
+    const monthFormat = month > 9 ? month : ['0', month].join('')
+
+    return [d.getFullYear(), monthFormat, dayFormat].join('-')
   }
 
   const renderItem = (item: Item) => {
@@ -95,8 +103,8 @@ const WorkDays: React.FC<WorkDayProps> = () => {
 
   return (
     <Agenda
-      minDate={getDateFromNow(-30)}
-      maxDate={getDateFromNow(maxDatefromNow)}
+      minDate={getDateFromNow(minDateFromNow)}
+      maxDate={getDateFromNow(maxDateFromNow)}
       selected={getDateFromNow(-1)}
       pastScrollRange={1}
       futureScrollRange={1}
