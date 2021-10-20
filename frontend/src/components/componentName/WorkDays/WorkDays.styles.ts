@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import color from '../../../themes'
+import colors from '../../../themes';
 
 export default StyleSheet.create({
   component: {
@@ -19,13 +19,13 @@ export default StyleSheet.create({
     marginRight: 10,
     marginTop: 17
   },
-  emptyDate: {
+  inActiveDate: {
     height: 15,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   text: {
-    color: color.secondary,
+    color: colors.secondary,
   }
 });

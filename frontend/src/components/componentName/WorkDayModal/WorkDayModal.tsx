@@ -5,7 +5,11 @@ import Button from "../../common/Button";
 
 import styles from './WorkDayModal.styles';
 
-const WorkDayModal = () => {
+type WorkDayModalProps = {
+  title: string
+};
+
+const WorkDayModal: React.FC<WorkDayModalProps> = ({ title }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [number, onChangeNumber] = React.useState<string | undefined>();
 
@@ -24,7 +28,7 @@ const WorkDayModal = () => {
           <View style={styles.modalView}>
 
             <Pressable
-              style={[styles.button, styles.buttonClose]}
+              style={[styles.button, styles.buttonClose,]}
               onPress={() => setModalVisible(!modalVisible)}>
               <Text style={styles.textStyle}>X</Text>
             </Pressable>
@@ -42,23 +46,28 @@ const WorkDayModal = () => {
                 value={number}
               />
             </View>
+
             <Button
               width={50}
-              onClick={() => {
-                setModalVisible(!modalVisible);
-              }}>
-              ОТПРАВИТЬ ДАННЫЕ
+              onClick={() => { setModalVisible(!modalVisible); }}>
+              {title === 'ИЗМЕНИТЬ' ?
+                'ИЗМЕНИТЬ ДАННЫЕ'
+                :
+                'ОТПРАВИТЬ ДАННЫЕ'}
             </Button>
 
           </View>
         </View>
       </Modal>
-      <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.textStyle}>УКАЗАТЬ</Text>
-      </Pressable>
+
+      <Button
+        width={27}
+        paddingVertical={10}
+        marginVertical={5}
+        onClick={() => setModalVisible(true)}>
+        {title}
+      </Button>
+
     </View>
   );
 };
