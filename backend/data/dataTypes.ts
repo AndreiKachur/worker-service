@@ -45,6 +45,8 @@ export type VacationDate = {
     duration: number
 }
 
-export type WorkingTime = {
-
+export type WorkDaysData = {
+    id: number,
+    user: User,
+    days: any,
 }
