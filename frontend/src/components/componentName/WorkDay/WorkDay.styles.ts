@@ -7,11 +7,15 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  centeredTitle: {
+    alignItems: 'center'
+  },
   item: {
     backgroundColor: 'white',
     flex: 1,
-    borderRadius: 5,
-    padding: 10,
+    borderRadius: 15,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
     marginRight: 10,
     marginTop: 17
   },

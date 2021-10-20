@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Agenda } from 'react-native-calendars';
 
+import WorkDayModal from '../WorkDayModal'
 import Separator from '../../common/Separator';
 import colors from '../../../themes';
 import styles from './WorkDay.styles';
@@ -47,10 +48,12 @@ const WorkDay: React.FC<WorkDayProps> = (props) => {
     return (
       <TouchableOpacity style={styles.item}>
         <View >
-          <Text style={styles.text}>{item.name}</Text>
-          <Separator width={50} />
+          <View style={styles.centeredTitle}>
+            <Text style={styles.text}>{item.name}</Text>
+            <Separator width={70} />
+          </View>
           <Text style={styles.text}>Количество рабочих часов: не указано</Text>
-
+          <WorkDayModal />
         </View>
       </TouchableOpacity>
     )
@@ -69,6 +72,15 @@ const WorkDay: React.FC<WorkDayProps> = (props) => {
       loadItemsForMonth={loadItems}
       renderItem={renderItem}
       onDayPress={() => console.log('click')}
+      theme={{
+        selectedDayBackgroundColor: colors.primary,
+        todayTextColor: colors.primary,
+        dotColor: colors.primary,
+        monthTextColor: colors.primary,
+        indicatorColor: colors.primary,
+        agendaDayNumColor: colors.primary,
+        agendaTodayColor: colors.primary,
+      }}
     />
   )
 };
