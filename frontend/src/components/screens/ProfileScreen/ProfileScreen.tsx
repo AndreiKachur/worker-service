@@ -21,8 +21,6 @@ type UserInfo = {
 const ProfileScreen: React.FC<ProfileScreenProps> = observer(({ navigation }) => {
   const [user, setUser] = useState<UserInfo>();
 
-  const { setLogout } = authStore
-
   const getUserInfo = useCallback(async () => {
     const name = 'Артем';
     const response = await fetch('http://192.168.0.4:5000/getInfo', {
@@ -54,11 +52,6 @@ const ProfileScreen: React.FC<ProfileScreenProps> = observer(({ navigation }) =>
     });
   }, [navigation]);
 
-  const logout = () => {
-    setLogout()
-    navigation.navigate('Auth')
-  }
-
   return (
     <View style={styles.component}>
       <Text>ProfileScreen</Text>
@@ -71,7 +64,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = observer(({ navigation }) =>
         </>
         )
     }
-      <Button title="Выйти" onPress={logout} />
+      <Button title="Выйти" onPress={() => {authStore.setLogout()}} />
     </View>
   );
 });

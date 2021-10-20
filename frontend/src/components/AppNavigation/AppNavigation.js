@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { observer } from 'mobx-react-lite';
 
 
 import StartScreen from '../screens/StartScreen';
@@ -15,6 +16,7 @@ import ServiceWorkDayScreen from '../screens/ServiceWorkDayScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import PieceOfNewsScreen from '../screens/PieceOfNewsScreen';
 import color from '../../themes'
+import authStore from '../../stores/authStore/';
 
 const headerStyle = {
   headerStyle: { backgroundColor: color.third, },
@@ -52,24 +54,35 @@ const MyBottomTabs = (props) => (
   </BottomTab.Navigator>
 );
 
-const MyStack = (props) => (
-  <Stack.Navigator screenOptions={headerStyle}>
-    <Stack.Screen name="Start" component={StartScreen} />
-    <Stack.Screen name="Auth" component={AuthScreen} options={{
-      headerTitle: 'Авторизация'
-    }}
-    />
-    <Stack.Screen name="Main" options={{ headerShown: false }}>
-      {() => (<MyBottomTabs />)}
-    </Stack.Screen>
-    <Stack.Screen name="Мой Отпуск" component={ServiceVacationScreen} />
-    <Stack.Screen name="Мой День" component={ServiceWorkDayScreen} />
-    <Stack.Screen name="Edit" component={EditProfileScreen} />
-    <Stack.Screen name="PieceOfNews" component={PieceOfNewsScreen} options={{
-      headerTitle: ''
-    }}/>
-  </Stack.Navigator>
-);
+const MyStack = observer((props) => {
+  if (!authStore.auth) {
+    return (
+      <Stack.Navigator screenOptions={headerStyle}>
+        <Stack.Screen name="Start" component={StartScreen} />
+        <Stack.Screen name="Auth" component={AuthScreen} options={{
+          headerTitle: 'Авторизация'
+        }}
+        />
+        <Stack.Screen name="PieceOfNews" component={PieceOfNewsScreen} options={{
+          headerTitle: ''
+        }} />
+      </Stack.Navigator>
+    )
+  } else {
+    return (
+      <Stack.Navigator screenOptions={headerStyle}>
+        <Stack.Screen name="Main" options={{ headerShown: false }}>
+          {() => (<MyBottomTabs />)}
+        </Stack.Screen>
+        <Stack.Screen name="PieceOfNews" component={PieceOfNewsScreen} options={{
+          headerTitle: ''
+        }} />
+        <Stack.Screen name="Мой Отпуск" component={ServiceVacationScreen} />
+        <Stack.Screen name="Мой День" component={ServiceWorkDayScreen} />
+        <Stack.Screen name="Edit" component={EditProfileScreen} />
+      </Stack.Navigator>)
+  }
+})
 
 const AppNavigation = (props) => (
   <NavigationContainer>

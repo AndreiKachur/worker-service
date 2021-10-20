@@ -1,10 +1,11 @@
 import {
-    action, makeObservable, observable,
+    action, makeObservable, observable, runInAction
 } from 'mobx';
 import { Alert } from 'react-native';
 import { useAsyncStorage } from '@react-native-community/async-storage'
 
 import service from './authStore.service';
+
 
 type AuthData = {
     displayName: string;
@@ -52,10 +53,10 @@ class authStore {
 
     setAuthData(data: AuthData) { this.authData = data };
 
-    setPushAuthButton(body: Body) {
-        service.getAuthData(body)
+    async setPushAuthButton(body: Body) {
+        await service.getAuthData(body)
             .then((data) => {
-                this.auth = true
+                this.setAuthTrue()
                 this.setAuthData(data)
                 useAsyncStorage('token').setItem(data.idToken)
             })
@@ -78,9 +79,16 @@ class authStore {
         }
         this.setAuthFalse()
     };
+    setAuthTrue() {
+        runInAction(() => {
+            this.auth = true
+        })
 
+    };
     setAuthFalse() {
-        this.auth = false
+        runInAction(() => {
+            this.auth = false
+        })
     };
 };
 

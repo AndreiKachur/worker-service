@@ -10,8 +10,8 @@ type AuthScreenProps = {
 };
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
-  const [emailValue, setEmailValue] = useState('test@mail.ru');
-  const [passwordValue, setPasswordValue] = useState('123456');
+  const [emailValue, setEmailValue] = useState(''); //test@mail.ru
+  const [passwordValue, setPasswordValue] = useState(''); //123456
 
   const changeEmailValue = (text: string) => {
     setEmailValue(text)
@@ -28,8 +28,6 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
 
     authStore.setPushAuthButton(body)
   }
-
-  if (authStore.auth) { navigation.navigate('Main') }
 
   return (
     <View style={styles.component}>
