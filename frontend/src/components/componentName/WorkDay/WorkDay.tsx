@@ -46,7 +46,7 @@ const WorkDay: React.FC<WorkDayProps> = (props) => {
 
   const renderItem = (item) => {
     return (
-      <TouchableOpacity style={styles.item}>
+      <View style={styles.item}>
         <View >
           <View style={styles.centeredTitle}>
             <Text style={styles.text}>{item.name}</Text>
@@ -55,8 +55,16 @@ const WorkDay: React.FC<WorkDayProps> = (props) => {
           <Text style={styles.text}>Количество рабочих часов: не указано</Text>
           <WorkDayModal />
         </View>
-      </TouchableOpacity>
+      </View>
     )
+  }
+
+  const renderEmptyDate = () => {
+    return (
+      <View style={styles.emptyDate}>
+        <Text>Дата не актуальна</Text>
+      </View>
+    );
   }
 
   return (
@@ -68,10 +76,24 @@ const WorkDay: React.FC<WorkDayProps> = (props) => {
       futureScrollRange={1}
       firstDay={1}
       enableSwipeMonths={true}
-      items={items}
+      items={{
+        '2021-10-17': [{ name: 'ВАШ РАБОЧИЙ ДЕНЬ' }],
+        '2021-10-18': [{ name: 'ВАШ РАБОЧИЙ ДЕНЬ' }],
+        '2021-10-19': [{ name: 'ВАШ РАБОЧИЙ ДЕНЬ' }],
+        '2021-10-20': [{ name: 'ВАШ РАБОЧИЙ ДЕНЬ' }],
+        '2021-10-21': [{ name: 'ВАШ РАБОЧИЙ ДЕНЬ' }],
+        '2021-10-22': [],
+        '2021-10-23': [],
+        '2021-10-24': [],
+        '2021-10-25': [],
+        '2021-10-26': [],
+        '2021-10-27': [],
+        '2021-10-28': [],
+      }}
       loadItemsForMonth={loadItems}
       renderItem={renderItem}
       onDayPress={() => console.log('click')}
+      renderEmptyDate={renderEmptyDate}
       theme={{
         selectedDayBackgroundColor: colors.primary,
         todayTextColor: colors.primary,
