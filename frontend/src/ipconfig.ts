@@ -1,7 +1,11 @@
+import { Platform } from 'react-native';
+
 // используется адрес удаленного сервера,
 // если сервер запускаете локально,
 // то нужно получить свой ip в консоли(ipconfig) => вписать в переменную ipconfig
 
-const ipconfig = 'http://192.168.100.3:5000';
+const ipconfig = 'http://192.168.1.64:5000';
 
-export default ipconfig;
+const baseApiUrl = Platform.OS === 'web' ? '' : ipconfig;
+
+export default baseApiUrl;

@@ -12,7 +12,7 @@ import NewsScreen from '../screens/NewsScreen';
 import ServicesScreen from '../screens/ServicesScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import ServiceVacationScreen from '../screens/ServiceVacationScreen';
-import ServiceWorkDayScreen from '../screens/ServiceWorkDayScreen';
+import ServiceWorkDaysScreen from '../screens/ServiceWorkDaysScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import PieceOfNewsScreen from '../screens/PieceOfNewsScreen';
 import color from '../../themes'

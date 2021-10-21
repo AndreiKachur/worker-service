@@ -10,12 +10,15 @@ import styles from './VacationInfo.styles';
 import colors from '../../../themes'
 
 type VacactionInfoProps = {
+  showInfo: boolean;
+  setShowInfo: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const VacationInfo: React.FC<VacactionInfoProps> = observer(() => {
+const VacationInfo: React.FC<VacactionInfoProps> = ({
+  showInfo,
+  setShowInfo
+}) => {
   const { planned } = vacationStore.data.thisYear
-
-  const [showInfo, setShowInfo] = useState(false);
 
   return (
     <View>
@@ -64,6 +67,6 @@ const VacationInfo: React.FC<VacactionInfoProps> = observer(() => {
       }
     </View>
   )
-});
+};
 
-export default VacationInfo;
+export default observer(VacationInfo);

@@ -4,24 +4,35 @@ import { observer } from 'mobx-react-lite';
 import axios from 'axios'
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
+import baseApiUrl from '../../../ipconfig'
 import VacationCalendar from '../VacationCalendar'
 import Button from '../../common/Button'
 import Separator from '../../common/Separator'
 import Day from '../models/day'
 import styles from './VacationForm.styles';
 import colors from '../../../themes'
+import { set } from 'mobx';
 
 type VacationFormProps = {
+  setSpinner: React.Dispatch<React.SetStateAction<boolean>>;
+  setCalendarView: React.Dispatch<React.SetStateAction<boolean>>;
+  toogleBlocks: () => void;
+  setServerAnswer: React.Dispatch<any>;
+  calendarView: boolean;
 };
 
-const monthNames = ['янв.', 'фев.', 'мрт.', 'апр.', 'мая', 'июня',
+const monthsNames = ['янв.', 'фев.', 'мрт.', 'апр.', 'мая', 'июня',
   'июля', 'авг.', 'сен.', 'окт.', 'ноя.', 'дек.']
 
-const VacationForm: React.FC<VacationFormProps> = observer(() => {
+const VacationForm: React.FC<VacationFormProps> = ({
+  setSpinner,
+  setCalendarView,
+  toogleBlocks,
+  setServerAnswer,
+  calendarView
+}) => {
   const { restDaysAmount } = vacationStore.data.thisYear
 
-  const [calendarView, setCalendarView] = useState(true);
-  // const [sending, setSending] = useState(false);
   const [vacationDaysAmount, setVacationDaysAmount] = useState(0);
   const [startDate, setStartDate] = useState<Day>()
   const [endDate, setEndDate] = useState<Day>()
@@ -33,10 +44,10 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
     setVacationDaysAmount(daysDifference);
   }
 
-  const getDayFormat = (d: Day) => [d.day, monthNames[d.month - 1], d.year].join(' ')
+  const getDayFormat = (d: Day) => [d.day, monthsNames[d.month - 1], d.year].join(' ')
 
   const daysDiff = restDaysAmount - vacationDaysAmount
-  const pointsDiff = startDate && endDate ? endDate?.timestamp - startDate?.timestamp : 0
+  const pointsDiff = startDate && endDate ? endDate.timestamp - startDate.timestamp : 0
 
   const getTextStyle = (diff: number) => {
     return diff < 0 ?
@@ -47,9 +58,15 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
     const data = {
       startDate: startDate,
       endDate: endDate,
-      vacationDaysAmount: vacationDaysAmount
+      duration: vacationDaysAmount
     }
-    const res = await axios.post('http://192.168.1.64:5000/vacation', { data })
+    setSpinner(true)
+    const res: any = await axios.post(`${baseApiUrl}/vacation`, { data })
+    setTimeout(() => {
+      setServerAnswer(res.data.answer)
+      toogleBlocks()
+      setSpinner(false)
+    }, 1500)
     console.log(res.data)
   }
 
@@ -108,12 +125,12 @@ const VacationForm: React.FC<VacationFormProps> = observer(() => {
             backgroundColor={daysDiff < 0 || pointsDiff < 0 ? colors.danger : colors.fourth}
             onClick={sendForm} >
             ОТПРАВИТЬ
-      </Button>
+          </Button>
         </View>}
       <Separator />
 
     </View>
   )
-});
+};
 
-export default VacationForm;
+export default observer(VacationForm);

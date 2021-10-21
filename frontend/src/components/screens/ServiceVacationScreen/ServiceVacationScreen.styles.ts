@@ -6,6 +6,13 @@ export default StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
+  center: {
+    height: Dimensions.get('window').height * 0.85,
+    justifyContent: 'center',
+  },
+  text: {
+    textAlign: 'center',
+  },
   mainWrapper: {
     alignItems: 'flex-start',
     justifyContent: 'flex-start',

@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-import User from '../models/user';
 import baseApiUrl from '../../ipconfig';
+import { WorkDaysData } from './workDaysStore.models'
 
 const service = {
-  getUser(): Promise<User> {
+  getWorkDays(): Promise<WorkDaysData> {
     return axios.get(`${baseApiUrl}/api`)
-      .then(((res: any) => res.data.usersData[0]));
+      .then((res: any) => res.data.workDays[0]);
   },
 };
 

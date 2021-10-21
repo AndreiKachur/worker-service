@@ -1,10 +1,8 @@
 import axios from 'axios';
-import { Alert, Platform } from 'react-native';
+import { Alert } from 'react-native';
 
-import ipconfig from '../../ipconfig';
+import baseApiUrl from '../../ipconfig';
 import { News } from './newsStore.model';
-
-const baseApiUrl = Platform.OS === 'web' ? '' : ipconfig;
 
 const service = {
   getNews(): Promise<News[]> {
