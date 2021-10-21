@@ -25,31 +25,26 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
     setEndDate,
   },
 ) => {
-  const [clickCounter, setClickCounter] = useState(0);
+  const [isEndDay, setIsEndDay] = useState(false);
   const [daysInterval, setDaysInterval] = useState<any>({});
+  // console.log(isEndDay);
 
   useEffect(() => {
-    const period = buildPeriod(startDate, endDate, clickCounter);
+    const period = buildPeriod(startDate, endDate, isEndDay);
     setDaysInterval(period);
-  }, [clickCounter]);// eslint-disable-this-line
+  }, [isEndDay]);// eslint-disable-this-line
 
   const setDate = (day: Day) => {
-    setClickCounter(clickCounter + 1);
-    if (clickCounter >= 2) setClickCounter(0);
+    setIsEndDay(!isEndDay);
 
-    const makeSets = (startDay: Day | undefined = undefined) => {
+    const makeSets = (startDay: Day) => {
       setStartDate(startDay);
       setEndDate(undefined);
       setDaysInterval({});
       setVacationDaysAmount(0);
     };
 
-    switch (clickCounter) {
-      case 0: return makeSets();
-      case 1: return makeSets(day);
-      case 2: return setEndDate(day);
-      default: return 'Nothing';
-    }
+    return isEndDay ? setEndDate(day) : makeSets(day)
   };
 
   return (

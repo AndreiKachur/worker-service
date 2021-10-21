@@ -9,12 +9,12 @@ type SetBetweenPeriodType = (
 type BuildPeriodProps = (
   start: Day | undefined,
   end: Day | undefined,
-  clickCounter: number,) => any;
+  isEndDay: boolean,) => any;
 
-const buildPeriod: BuildPeriodProps = (start, end, clickCounter) => {
-  if (!start) return;
-
+const buildPeriod: BuildPeriodProps = (start, end, isEndDay) => {
   const period: any = {};
+
+  if (!start) return;
 
   const intervalPatterns = {
     start: { startingDay: true, color: '#50cebb', textColor: 'white' },
@@ -23,7 +23,7 @@ const buildPeriod: BuildPeriodProps = (start, end, clickCounter) => {
   };
 
   // подсвечиваем стартовый день
-  if (clickCounter === 1) {
+  if (isEndDay) {
     period[start.dateString] = intervalPatterns.start;
     return period;
   }

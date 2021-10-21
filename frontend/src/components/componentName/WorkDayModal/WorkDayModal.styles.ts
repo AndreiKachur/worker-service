@@ -38,7 +38,7 @@ export default StyleSheet.create({
     elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: color.primary,
+    backgroundColor: colors.primary,
   },
   buttonClose: {
     position: 'absolute',
@@ -47,7 +47,7 @@ export default StyleSheet.create({
     width: 30,
     height: 30,
     padding: 5,
-    backgroundColor: color.primary,
+    backgroundColor: colors.primary,
   },
   textStyle: {
     color: 'white',
