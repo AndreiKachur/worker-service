@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import colors from '../../../themes';
 
 export default StyleSheet.create({
@@ -7,8 +7,17 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  wrapper: {
+    flex: 1,
+    width: Dimensions.get('window').width * 1,
+  },
   centeredTitle: {
     alignItems: 'center'
+  },
+  centeredView: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 15
   },
   item: {
     backgroundColor: 'white',

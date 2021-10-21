@@ -6,12 +6,15 @@ import Button from "../../common/Button";
 import styles from './WorkDayModal.styles';
 
 type WorkDayModalProps = {
-  title: string
+  title: string;
+  modalVisible: boolean;
+  setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  addHours(hours: string): void;
 };
 
-const WorkDayModal: React.FC<WorkDayModalProps> = ({ title }) => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [number, onChangeNumber] = React.useState<string | undefined>();
+const WorkDayModal: React.FC<WorkDayModalProps> = ({ title, modalVisible, setModalVisible, addHours }) => {
+  // const [modalVisible, setModalVisible] = useState(true);
+  const [hoursAmount, onChangeHoursAmount] = React.useState<string>('');
 
 
   return (
@@ -42,14 +45,17 @@ const WorkDayModal: React.FC<WorkDayModalProps> = ({ title }) => {
               <TextInput
                 style={styles.input}
                 keyboardType='numeric'
-                onChangeText={onChangeNumber}
-                value={number}
+                onChangeText={onChangeHoursAmount}
+                value={hoursAmount}
               />
             </View>
 
             <Button
               width={50}
-              onClick={() => { setModalVisible(!modalVisible); }}>
+              onClick={() => {
+                setModalVisible(!modalVisible)
+                addHours(hoursAmount)
+              }}>
               {title === 'ИЗМЕНИТЬ' ?
                 'ИЗМЕНИТЬ ДАННЫЕ'
                 :
@@ -60,13 +66,13 @@ const WorkDayModal: React.FC<WorkDayModalProps> = ({ title }) => {
         </View>
       </Modal>
 
-      <Button
+      {/* <Button
         width={27}
         paddingVertical={10}
         marginVertical={1}
         onClick={() => setModalVisible(true)}>
         {title}
-      </Button>
+      </Button> */}
 
     </View>
   );

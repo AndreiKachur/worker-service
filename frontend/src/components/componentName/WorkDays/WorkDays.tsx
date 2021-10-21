@@ -8,6 +8,7 @@ import Separator from '../../common/Separator';
 import colors from '../../../themes';
 import styles from './WorkDays.styles';
 import workDaysStore from '../../../stores/workDaysStore';
+import Button from '../../common/Button';
 
 type WorkDayProps = {
 
@@ -24,6 +25,9 @@ const WorkDays: React.FC<WorkDayProps> = () => {
   const { days } = workDaysStore.data
 
   const [items, setItems] = useState({})
+  const [itemActive, setItemActive] = useState({})
+  const [modalVisible, setModalVisible] = useState(false);
+  console.log(itemActive);
 
   const changeableDaysAmount = -10
   const minDateFromNow = -20
@@ -42,6 +46,12 @@ const WorkDays: React.FC<WorkDayProps> = () => {
     }
     setItems(days)
   }, [days])
+
+  function addHours(hours: string) {
+    if (hours === '') { return }
+    const newItem = Object.assign(itemActive, { hours: + hours })
+    setItemActive(newItem)
+  }
 
   function getDateFromNow(daysNumber: number) {
     return new Date(+ new Date() + 1000 * 60 * 60 * 24 * daysNumber)
@@ -63,20 +73,39 @@ const WorkDays: React.FC<WorkDayProps> = () => {
         {new Date(item.date) > getDateFromNow(changeableDaysAmount - 1) ?
           <View style={styles.centeredTitle}>
             <View>
-              <Text style={[styles.text, { color: colors.seventh, fontWeight: 'bold' }]}>{item.name}</Text>
-              <Separator width={70} />
-              {item.hours ?
-                <Text style={[styles.text, { fontWeight: 'bold', color: colors.primary }]}>
-                  Количество рабочих часов: {item.hours}
-                </Text>
-                :
-                <View>
-                  <Text style={[styles.text, { fontWeight: 'bold', color: colors.fourth }]}>
-                    Количество рабочих часов: НЕ УКАЗАНО
+              <Text style={[styles.text, { color: colors.seventh, fontWeight: 'bold' }]}>
+                {item.name}
               </Text>
+              <Separator width={70} />
+              {item.hours !== undefined ?
+                <View>
+                  {item.hours === 0 ?
+                    <Text style={[styles.text, { fontWeight: 'bold', color: colors.primary }]}>
+                      Выходной день
+                    </Text>
+                    :
+                    <Text style={[styles.text, { fontWeight: 'bold', color: colors.primary }]}>
+                      Количество рабочих часов: {item.hours}
+                    </Text>
+                  }
                 </View>
+                :
+                <Text style={[styles.text, { fontWeight: 'bold', color: colors.fourth }]}>
+                  Количество рабочих часов: НЕ УКАЗАНО
+                </Text>
               }
-              <WorkDayModal title={item.hours ? 'ИЗМЕНИТЬ' : 'УКАЗАТЬ'} />
+              <View style={styles.centeredView}>
+                <Button
+                  width={27}
+                  paddingVertical={10}
+                  marginVertical={1}
+                  onClick={() => {
+                    setModalVisible(true)
+                    setItemActive({ ...item })
+                  }}>
+                  {item.hours !== undefined ? 'ИЗМЕНИТЬ' : 'УКАЗАТЬ'}
+                </Button>
+              </View>
             </View>
           </View>
           :
@@ -102,58 +131,39 @@ const WorkDays: React.FC<WorkDayProps> = () => {
   }
 
   return (
-    <Agenda
-      minDate={getDateFromNow(minDateFromNow)}
-      maxDate={getDateFromNow(maxDateFromNow)}
-      selected={getDateFromNow(-1)}
-      pastScrollRange={1}
-      futureScrollRange={1}
-      firstDay={1}
-      items={items}
-      // loadItemsForMonth={loadItems}
-      renderItem={renderItem}
-      renderEmptyDate={renderEmptyDate}
-      theme={{
-        selectedDayBackgroundColor: colors.primary,
-        todayTextColor: colors.primary,
-        dotColor: colors.primary,
-        monthTextColor: colors.primary,
-        indicatorColor: colors.primary,
-        agendaDayNumColor: colors.primary,
-        agendaTodayColor: colors.primary,
-      }}
-    />
+    <View style={styles.wrapper}>
+      <Agenda
+        minDate={getDateFromNow(minDateFromNow)}
+        maxDate={getDateFromNow(maxDateFromNow)}
+        selected={getDateFromNow(-1)}
+        pastScrollRange={1}
+        futureScrollRange={1}
+        firstDay={1}
+        items={items}
+        // loadItemsForMonth={loadItems}
+        renderItem={renderItem}
+        renderEmptyDate={renderEmptyDate}
+        theme={{
+          selectedDayBackgroundColor: colors.primary,
+          todayTextColor: colors.primary,
+          dotColor: colors.primary,
+          monthTextColor: colors.primary,
+          indicatorColor: colors.primary,
+          agendaDayNumColor: colors.primary,
+          agendaTodayColor: colors.primary,
+        }}
+      />
+      {modalVisible &&
+        <View style={{ height: 0 }}>
+          <WorkDayModal
+            title={1 ? 'ИЗМЕНИТЬ' : 'УКАЗАТЬ'}
+            modalVisible={modalVisible}
+            setModalVisible={setModalVisible}
+            addHours={addHours} />
+        </View>
+      }
+    </View>
   )
 };
 
 export default observer(WorkDays);
-
-
- // const timeToString = (time) => {
-  //   const date = new Date(time);
-  //   return date.toISOString().split('T')[0];
-  // }
-
-  // const loadItems = (day) => {
-  //   setTimeout(() => {
-  //     for (let i = -1; i < 3; i++) {
-  //       const time = day.timestamp + i * 24 * 60 * 60 * 1000;
-  //       const strTime = timeToString(time);
-  //       if (!items[strTime]) {
-  //         items[strTime] = [];
-  //         // const numItems = Math.floor(Math.random() * 3 + 1);
-  //         for (let j = 0; j < 1; j++) {
-  //           items[strTime].push({
-  //             name: 'ВАШ РАБОЧИЙ ДЕНЬ',
-  //             height: Math.max(50, Math.floor(Math.random() * 150)),
-  //           });
-  //         }
-  //       }
-  //     }
-  //     const newItems = {};
-  //     Object.keys(items).forEach(key => {
-  //       newItems[key] = items[key];
-  //     });
-  //     setItems(newItems);
-  //   }, 1000);
-  // }
