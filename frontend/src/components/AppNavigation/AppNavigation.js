@@ -78,7 +78,7 @@ const MyStack = observer((props) => {
           headerTitle: ''
         }} />
         <Stack.Screen name="Мой Отпуск" component={ServiceVacationScreen} />
-        <Stack.Screen name="Мой День" component={ServiceWorkDayScreen} />
+        <Stack.Screen name="Мой День" component={ServiceWorkDaysScreen} />
         <Stack.Screen name="Edit" component={EditProfileScreen} />
       </Stack.Navigator>)
   }
