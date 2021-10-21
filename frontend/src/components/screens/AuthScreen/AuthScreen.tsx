@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react-lite';
-import { View, Button, TextInput, Image, Pressable } from 'react-native';
+import { View, TextInput, Image, Pressable, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+import Button from '../../common/Button'
 import styles from './AuthScreen.styles';
 import authStore from '../../../stores/authStore';
+
+const windowWidth = Dimensions.get('window').width
 
 type AuthScreenProps = {
   navigation: any
@@ -67,13 +70,10 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
               style={styles.iconStyle}
             />
           </Pressable>
-
         </View>
-
-
       </View>
       <View style={styles.buttonBox}>
-        <Button title="Войти" onPress={pushAuthButtonHander} />
+        <Button width={windowWidth < 600 ? 70 : 40 } onClick={pushAuthButtonHander} >Войти</Button>
       </View>
     </View>
   );
