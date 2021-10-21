@@ -19,9 +19,9 @@ type Post = {
     createdAt?: User,
     publicDate?: string,
     image?: string,
-    views: number,
-    likes: number,
-    comments: Array<Commentary>,
+    views?: number,
+    likes?: number,
+    comments?: Array<Commentary>,
     author?: string
 }
 
