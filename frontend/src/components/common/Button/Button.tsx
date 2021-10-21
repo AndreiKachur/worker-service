@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, Dimensions } from 'react-native';
-import colors from '../../../themes'
+
+import colors from '../../../themes';
 
 type ButtonProps = {
   title?: string,
@@ -27,33 +28,32 @@ const Button: React.FC<ButtonProps> = ({
   paddingVertical = 12,
   marginVertical = 7,
   marginHorizontal = 0,
-  children = 'ОТПРАВИТЬ'
-}) => {
+  children = 'ОТПРАВИТЬ',
+}) => (
 
-  return (
-
-    <TouchableOpacity
-      activeOpacity={0.70}
-      onPress={onClick}>
-      <Text
-        style={
+  <TouchableOpacity
+    activeOpacity={0.70}
+    onPress={onClick}
+  >
+    <Text
+      style={
           {
-            backgroundColor: backgroundColor,
-            color: color,
-            borderRadius: borderRadius,
-            paddingVertical: paddingVertical,
-            marginVertical: marginVertical,
-            marginHorizontal: marginHorizontal,
-            fontSize: fontSize,
+            backgroundColor,
+            color,
+            borderRadius,
+            paddingVertical,
+            marginVertical,
+            marginHorizontal,
+            fontSize,
             fontWeight: 'bold',
             textAlign: 'center',
             width: Dimensions.get('window').width * (width / 100),
           }
-        }>
-        {title || children}
-      </Text>
-    </TouchableOpacity>
-  )
-};
+        }
+    >
+      {title || children}
+    </Text>
+  </TouchableOpacity>
+);
 
 export default Button;

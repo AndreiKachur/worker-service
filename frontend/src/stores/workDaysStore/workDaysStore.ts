@@ -1,21 +1,20 @@
 import { makeAutoObservable } from 'mobx';
 
 import service from './workDaysStore.service';
-import { WorkDaysData } from './workDaysStore.models'
+import { WorkDaysData } from './workDaysStore.models';
 
 class WorkDayStore {
-
   data: WorkDaysData = {
     id: 0,
     user: {
       id: '',
       name: '',
-      avatar: 'Ooops'
+      avatar: 'Ooops',
     },
     days: {
       '': [],
-    }
-  }
+    },
+  };
 
   constructor() {
     makeAutoObservable(this);

@@ -6,10 +6,9 @@ import {
   View, Text, Button, Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+
 import authStore from '../../../stores/authStore';
-
 import styles from './ProfileScreen.styles';
-
 
 type ProfileScreenProps = any;
 type UserInfo = {
@@ -46,7 +45,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = observer(({ navigation }) =>
             name="user-cog"
             backgroundColor="#fff"
             iconStyle={styles.iconStyle}
-          ></Icon.Button>
+          />
         </View>
       ),
     });
@@ -64,7 +63,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = observer(({ navigation }) =>
         </>
         )
     }
-      <Button title="Выйти" onPress={() => {authStore.setLogout()}} />
+      <Button title="Выйти" onPress={() => { authStore.setLogout(); }} />
     </View>
   );
 });

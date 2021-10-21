@@ -12,7 +12,7 @@ const PostScreen: React.FC<PostScreenProps> = (props) => {
 
   return (
     <View style={styles.component}>
-      <ScrollView >
+      <ScrollView>
         <View style={styles.post}>
           <View style={styles.titleBox}>
             <Text style={styles.titleText}>{post.title}</Text>
@@ -23,7 +23,6 @@ const PostScreen: React.FC<PostScreenProps> = (props) => {
           </View>
         </View>
       </ScrollView>
-
 
     </View>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
-import { StyleSheet, Dimensions } from 'react-native';
-import color from '../../../themes'
+import { View, StyleSheet, Dimensions } from 'react-native';
 
-const Separator = ({ width = 90 }) =>
+import color from '../../../themes';
+
+const Separator = ({ width = 90 }) => (
   <View
     style={{
       marginVertical: 8,
@@ -12,5 +12,6 @@ const Separator = ({ width = 90 }) =>
       width: Dimensions.get('window').width * (width / 100),
     }}
   />
+);
 
 export default Separator;

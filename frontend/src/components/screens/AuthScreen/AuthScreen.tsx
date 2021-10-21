@@ -10,14 +10,14 @@ type AuthScreenProps = {
 };
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
-  const [emailValue, setEmailValue] = useState(''); //test@mail.ru
-  const [passwordValue, setPasswordValue] = useState(''); //123456
+  const [emailValue, setEmailValue] = useState(''); // test@mail.ru
+  const [passwordValue, setPasswordValue] = useState(''); // 123456
 
   const changeEmailValue = (text: string) => {
-    setEmailValue(text)
+    setEmailValue(text);
   };
   const changePasswordValue = (text: string) => {
-    setPasswordValue(text)
+    setPasswordValue(text);
   };
   const pushAuthButtonHander = () => {
     const body = {
@@ -26,20 +26,24 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
       returnSecureToken: true,
     };
 
-    authStore.setPushAuthButton(body)
-  }
+    authStore.setPushAuthButton(body);
+  };
 
   return (
     <View style={styles.component}>
       {/* <Image style={styles.img} source={imageUri} /> */}
-      <TextInput onChangeText={changeEmailValue}
+      <TextInput
+        onChangeText={changeEmailValue}
         style={styles.input}
         placeholder="Login"
-        value={emailValue} />
-      <TextInput onChangeText={changePasswordValue}
+        value={emailValue}
+      />
+      <TextInput
+        onChangeText={changePasswordValue}
         style={styles.input}
         placeholder="Password"
-        value={passwordValue} />
+        value={passwordValue}
+      />
       <Button title="Войти" onPress={pushAuthButtonHander} />
     </View>
   );

@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+
 import colors from '../../../themes';
 
 export default StyleSheet.create({
@@ -12,12 +13,12 @@ export default StyleSheet.create({
     width: Dimensions.get('window').width * 1,
   },
   centeredTitle: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   centeredView: {
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 15
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 15,
   },
   item: {
     backgroundColor: 'white',
@@ -26,7 +27,7 @@ export default StyleSheet.create({
     paddingVertical: 14,
     paddingHorizontal: 25,
     marginRight: 10,
-    marginTop: 17
+    marginTop: 17,
   },
   inActiveDate: {
     height: 15,
@@ -36,5 +37,5 @@ export default StyleSheet.create({
   },
   text: {
     color: colors.secondary,
-  }
+  },
 });

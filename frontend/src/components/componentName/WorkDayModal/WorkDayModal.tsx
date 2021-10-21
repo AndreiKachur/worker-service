@@ -1,27 +1,30 @@
-import React, { useState } from "react";
-import { Alert, Modal, Text, TextInput, Pressable, View } from "react-native";
-import colors from "../../../themes";
-import Button from "../../common/Button";
+import React, { useState } from 'react';
+import {
+  Alert, Modal, Text, TextInput, Pressable, View,
+} from 'react-native';
 
+import colors from '../../../themes';
+import Button from '../../common/Button';
 import styles from './WorkDayModal.styles';
 
 type WorkDayModalProps = {
   title: string;
   modalVisible: boolean;
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
-  addHours(hours: string): void;
+  addHours: (hours: string) => void;
 };
 
-const WorkDayModal: React.FC<WorkDayModalProps> = ({ title, modalVisible, setModalVisible, addHours }) => {
+const WorkDayModal: React.FC<WorkDayModalProps> = ({
+  title, modalVisible, setModalVisible, addHours,
+}) => {
   // const [modalVisible, setModalVisible] = useState(true);
   const [hoursAmount, onChangeHoursAmount] = React.useState<string>('');
-
 
   return (
     <View style={styles.centeredView}>
       <Modal
         animationType="slide"
-        transparent={true}
+        transparent
         visible={modalVisible}
         onRequestClose={() => {
           setModalVisible(!modalVisible);
@@ -31,8 +34,9 @@ const WorkDayModal: React.FC<WorkDayModalProps> = ({ title, modalVisible, setMod
           <View style={styles.modalView}>
 
             <Pressable
-              style={[styles.button, styles.buttonClose,]}
-              onPress={() => setModalVisible(!modalVisible)}>
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
+            >
               <Text style={styles.textStyle}>X</Text>
             </Pressable>
 
@@ -40,11 +44,11 @@ const WorkDayModal: React.FC<WorkDayModalProps> = ({ title, modalVisible, setMod
               <View style={styles.textBox}>
                 <Text style={styles.modalText}>
                   Введите количество рабочих часов за день:
-              </Text>
+                </Text>
               </View>
               <TextInput
                 style={styles.input}
-                keyboardType='numeric'
+                keyboardType="numeric"
                 onChangeText={onChangeHoursAmount}
                 value={hoursAmount}
               />
@@ -53,13 +57,13 @@ const WorkDayModal: React.FC<WorkDayModalProps> = ({ title, modalVisible, setMod
             <Button
               width={50}
               onClick={() => {
-                setModalVisible(!modalVisible)
-                addHours(hoursAmount)
-              }}>
-              {title === 'ИЗМЕНИТЬ' ?
-                'ИЗМЕНИТЬ ДАННЫЕ'
-                :
-                'ОТПРАВИТЬ ДАННЫЕ'}
+                setModalVisible(!modalVisible);
+                addHours(hoursAmount);
+              }}
+            >
+              {title === 'ИЗМЕНИТЬ'
+                ? 'ИЗМЕНИТЬ ДАННЫЕ'
+                : 'ОТПРАВИТЬ ДАННЫЕ'}
             </Button>
 
           </View>
@@ -78,4 +82,4 @@ const WorkDayModal: React.FC<WorkDayModalProps> = ({ title, modalVisible, setMod
   );
 };
 
-export default WorkDayModal
+export default WorkDayModal;

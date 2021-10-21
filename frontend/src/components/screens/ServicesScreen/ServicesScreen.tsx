@@ -4,7 +4,7 @@ import FonticstoIco from 'react-native-vector-icons/Fontisto';
 import MaterialIco from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import styles from './ServicesScreen.styles';
-import colors from '../../../themes'
+import colors from '../../../themes';
 
 type ServicesScreenProps = any;
 const services = [
@@ -14,7 +14,8 @@ const services = [
     ico: <MaterialIco
       size={50}
       style={[styles.ico, { backgroundColor: colors.primary }]}
-      name='office-building' />,
+      name="office-building"
+    />,
   },
   {
     id: 2,
@@ -22,7 +23,8 @@ const services = [
     ico: <FonticstoIco
       size={50}
       style={[styles.ico, { backgroundColor: colors.fourth }]}
-      name='holiday-village' />,
+      name="holiday-village"
+    />,
   },
   {
     id: 3,
@@ -30,7 +32,8 @@ const services = [
     ico: <FonticstoIco
       size={50}
       style={[styles.ico, { backgroundColor: colors.seventh }]}
-      name='holiday-village' />,
+      name="holiday-village"
+    />,
   },
   {
     id: 4,
@@ -38,7 +41,8 @@ const services = [
     ico: <FonticstoIco
       size={50}
       style={[styles.ico, { backgroundColor: colors.secondary }]}
-      name='holiday-village' />,
+      name="holiday-village"
+    />,
   },
 ];
 

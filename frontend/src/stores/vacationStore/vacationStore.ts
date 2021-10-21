@@ -1,16 +1,15 @@
 import { makeAutoObservable } from 'mobx';
 
 import service from './vacationStore.service';
-import { VacationData } from './vacationStore.models'
+import { VacationData } from './vacationStore.models';
 
 class VacationStore {
-
   data: VacationData = {
     id: 0,
     user: {
       id: '',
       name: '',
-      avatar: 'Ooops'
+      avatar: 'Ooops',
     },
     thisYear: {
       daysAmount: 0,
@@ -18,10 +17,10 @@ class VacationStore {
       planned: [{
         start: '',
         end: '',
-        duration: 0
+        duration: 0,
       }],
     },
-  }
+  };
 
   constructor() {
     makeAutoObservable(this);

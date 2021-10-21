@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import baseApiUrl from '../../ipconfig';
-import { WorkDaysData } from './workDaysStore.models'
+import { WorkDaysData } from './workDaysStore.models';
 
 const service = {
   getWorkDays(): Promise<WorkDaysData> {

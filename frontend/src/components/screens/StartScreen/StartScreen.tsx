@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import {
-  View, Text, ScrollView, ImageBackground, Alert, Pressable, Button, Image
+  View, Text, ScrollView, ImageBackground, Alert, Pressable, Button, Image,
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -22,23 +22,23 @@ const StartScreen: React.FC<StartScreenProps> = ({ navigation }) => {
           <Icon.Button
             onPress={() => navigation.navigate('Auth')}
             name="sign-in-alt"
-            backgroundColor='#fff'
+            backgroundColor="#fff"
             iconStyle={styles.iconStyle}
-          ></Icon.Button>
+          />
         </View>
       ),
     });
   }, [navigation]);
 
   const publicNews = newsStore.news.filter((post) => !post.private);
-  
+
   return (
     <View style={styles.component}>
       <ScrollView style={styles.scroll}>
         <View style={styles.posts}>
-        {
+          {
           publicNews.map((post) => (
-            <NewsCard key={post.id} post={post} navigation={navigation}/>
+            <NewsCard key={post.id} post={post} navigation={navigation} />
           ))
         }
         </View>
