@@ -1,15 +1,12 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import { observer } from 'mobx-react-lite';
 
+import BottomTabs from '../common/BottomTabs';
+import { headerTabs, vacationTabs } from './tabItems'
 import StartScreen from '../screens/StartScreen';
 import AuthScreen from '../screens/AuthScreen';
-import NewsScreen from '../screens/NewsScreen';
-import ServicesScreen from '../screens/ServicesScreen';
-import ProfileScreen from '../screens/ProfileScreen';
 import ServiceVacationScreen from '../screens/ServiceVacationScreen';
 import ServiceWorkDaysScreen from '../screens/ServiceWorkDaysScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
@@ -24,43 +21,6 @@ const headerStyle = {
 };
 
 const Stack = createStackNavigator();
-const BottomTab = createBottomTabNavigator();
-
-const MyBottomTabs = (props) => (
-  <BottomTab.Navigator screenOptions={headerStyle}>
-    <BottomTab.Screen
-      name="News"
-      component={NewsScreen}
-      options={{
-        tabBarLabel: 'Новости',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="newspaper" color={color} size={size} />
-        ),
-      }}
-    />
-    <BottomTab.Screen
-      name="Services"
-      component={ServicesScreen}
-      options={{
-        headerTitle: 'Сервисы',
-        tabBarLabel: 'Сервисы',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="th" color={color} size={size} />
-        ),
-      }}
-    />
-    <BottomTab.Screen
-      name="Profile"
-      component={ProfileScreen}
-      options={{
-        tabBarLabel: 'Профиль',
-        tabBarIcon: ({ color, size }) => (
-          <Icon name="user" color={color} size={size} />
-        ),
-      }}
-    />
-  </BottomTab.Navigator>
-);
 
 const MyStack = observer((props) => {
   if (!authStore.auth) {
@@ -87,7 +47,7 @@ const MyStack = observer((props) => {
   return (
     <Stack.Navigator screenOptions={headerStyle}>
       <Stack.Screen name="Main" options={{ headerShown: false }}>
-        {() => (<MyBottomTabs />)}
+        {() => (<BottomTabs items={headerTabs} />)}
       </Stack.Screen>
       <Stack.Screen
         name="PieceOfNews"
@@ -96,7 +56,9 @@ const MyStack = observer((props) => {
           headerTitle: '',
         }}
       />
-      <Stack.Screen name="Мой Отпуск" component={ServiceVacationScreen} />
+      <Stack.Screen name="Мой Отпуск" options={{ headerShown: true }}>
+        {() => (<BottomTabs items={vacationTabs} showHeader={false} />)}
+      </Stack.Screen>
       <Stack.Screen name="Мой День" component={ServiceWorkDaysScreen} />
       <Stack.Screen name="Edit" component={EditProfileScreen} />
     </Stack.Navigator>

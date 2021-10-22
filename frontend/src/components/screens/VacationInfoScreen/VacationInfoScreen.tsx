@@ -8,11 +8,11 @@ import Spinner from '../../common/Spinner'
 import VacationForm from '../../componentName/VacationForm';
 import VacationInfo from '../../componentName/VacationInfo';
 import VacationRules from '../../componentName/VacationRules';
-import styles from './ServiceVacationScreen.styles';
+import styles from './VacationInfoScreen.styles';
 
 type ServiceVacationProps = {};
 
-const ServiceVacationScreen: React.FC<ServiceVacationProps> = () => {
+const VacationFormScreen: React.FC<ServiceVacationProps> = () => {
   const [spinner, setSpinner] = useState(false);
   const [calendarView, setCalendarView] = useState(true);
   const [serverAnswer, setServerAnswer] = useState<any>();
@@ -48,9 +48,11 @@ const ServiceVacationScreen: React.FC<ServiceVacationProps> = () => {
               toogleBlocks={toogleBlocks}
               setServerAnswer={setServerAnswer} />
 
-            <VacationInfo />
+            {/* <VacationInfo
+              showInfo={showInfo}
+              setShowInfo={setShowInfo} />
 
-            <VacationRules />
+            <VacationRules /> */}
 
           </View>
         </View>
@@ -59,4 +61,4 @@ const ServiceVacationScreen: React.FC<ServiceVacationProps> = () => {
   );
 };
 
-export default ServiceVacationScreen;
+export default VacationFormScreen;
