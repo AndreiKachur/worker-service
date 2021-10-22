@@ -1,5 +1,6 @@
 import { StyleSheet, Platform } from 'react-native';
-import colors from '../../../themes'
+
+import colors from '../../../themes';
 
 export default StyleSheet.create({
   component: {
@@ -7,7 +8,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     flexWrap: 'wrap',
     marginVertical: 20,
-    marginHorizontal: 8
+    marginHorizontal: 8,
   },
   card: {
     margin: 8,

@@ -1,7 +1,7 @@
-import User from '../models/user'
+import User from '../models/user';
 
 export type WorkDaysData = {
-    id: number,
-    user: User,
-    days: any,
-}
+  id: number,
+  user: User,
+  days: any,
+};

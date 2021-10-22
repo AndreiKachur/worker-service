@@ -4,26 +4,26 @@ import {
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import newsStore from '../../../stores/newsStore/newsStore';
 import styles from './NewsScreen.styles';
 import DropDown from '../../common/DropDown';
-import colors from '../../../themes'
+import colors from '../../../themes';
 import NewsCard from '../../componentName/NewsCard';
-import  AsyncStorage  from '@react-native-community/async-storage';
 
 type NewsScreenProps = any;
 
 export type Filter = {
   id: number;
-  name: "private" | "public";
+  name: 'private' | 'public';
   title: string;
-}
+};
 
 const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
   const [newsFilter, setNewsFilter] = useState('private');
   const [activeDropDown, setActiveDropDown] = useState(false);
-  
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: 'Новости',
@@ -32,7 +32,7 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
           <Icon.Button
             onPress={() => setActiveDropDown(!activeDropDown)}
             name="filter"
-            backgroundColor='#fff'
+            backgroundColor="#fff"
             iconStyle={styles.iconStyle}
           />
         </View>
@@ -43,33 +43,35 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
   const filters: Filter[] = [
     {
       id: 1,
-      name: "private",
-      title: "Приватные",
+      name: 'private',
+      title: 'Приватные',
     },
     {
       id: 2,
-      name: "public",
-      title: "Публичные",
-    }
-  ]
+      name: 'public',
+      title: 'Публичные',
+    },
+  ];
 
-  const FilterNews = newsFilter === "private"
+  const FilterNews = newsFilter === 'private'
     ? newsStore.news.filter((post) => post.private)
-    : newsStore.news.filter((post) => !post.private)
+    : newsStore.news.filter((post) => !post.private);
 
   return (
     <View style={styles.component}>
-      {activeDropDown ? <DropDown
-        filters={filters}
-        setActiveDropDown={setActiveDropDown}
-        setNewsFilter={setNewsFilter}
-        newsFilter={newsFilter}
-      /> : null}
+      {activeDropDown ? (
+        <DropDown
+          filters={filters}
+          setActiveDropDown={setActiveDropDown}
+          setNewsFilter={setNewsFilter}
+          newsFilter={newsFilter}
+        />
+      ) : null}
       <ScrollView style={styles.scroll}>
         <View style={styles.posts}>
-        {
+          {
           FilterNews.map((post) => (
-            <NewsCard key={post.id} post={post} navigation={navigation}/>
+            <NewsCard key={post.id} post={post} navigation={navigation} />
           ))
         }
         </View>

@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
-import colors from '../../../themes'
+
+import colors from '../../../themes';
 
 const windowWidth = Dimensions.get('window').width
 const windowHeight = Dimensions.get('window').height

@@ -1,8 +1,9 @@
-import { StyleSheet,  Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
 import colors from '../../../themes';
 
-const width = Dimensions.get('window').width
-const height = Dimensions.get('window').height
+const { width } = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 
 export default StyleSheet.create({
   post: {
@@ -13,7 +14,7 @@ export default StyleSheet.create({
     borderBottomRightRadius: 20,
     marginTop: '5%',
     borderRadius: 20,
-    
+
     height: 300,
   },
   image: {
@@ -69,6 +70,6 @@ export default StyleSheet.create({
   },
   views: {
     marginLeft: 5,
-    marginRight: 10
+    marginRight: 10,
   },
 });

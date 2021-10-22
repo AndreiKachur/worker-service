@@ -14,15 +14,20 @@ type AuthScreenProps = {
 };
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
+<<<<<<< HEAD
   const [emailValue, setEmailValue] = useState(''); //test@mail.ru
   const [passwordValue, setPasswordValue] = useState(''); //123456
   const [privatePassword, setPrivatePassword] = useState(true)
+=======
+  const [emailValue, setEmailValue] = useState(''); // test@mail.ru
+  const [passwordValue, setPasswordValue] = useState(''); // 123456
+>>>>>>> feature/services
 
   const changeEmailValue = (text: string) => {
-    setEmailValue(text)
+    setEmailValue(text);
   };
   const changePasswordValue = (text: string) => {
-    setPasswordValue(text)
+    setPasswordValue(text);
   };
   const pushAuthButtonHander = () => {
     const body = {
@@ -31,8 +36,8 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
       returnSecureToken: true,
     };
 
-    authStore.setPushAuthButton(body)
-  }
+    authStore.setPushAuthButton(body);
+  };
 
   return (
     <View style={styles.component}>
@@ -73,7 +78,7 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.buttonBox}>
-        <Button width={windowWidth < 600 ? 70 : 40 } onClick={pushAuthButtonHander} >Войти</Button>
+        <Button width={windowWidth < 600 ? 70 : 40} onClick={pushAuthButtonHander} >Войти</Button>
       </View>
     </View>
   );

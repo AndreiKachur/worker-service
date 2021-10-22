@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import WorkDays from '../../componentName/WorkDays'
+import WorkDays from '../../componentName/WorkDays';
 
 type ServiceScreenProps = {};
 

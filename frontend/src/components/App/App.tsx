@@ -6,14 +6,12 @@ import styles from './App.styles';
 
 type AppProps = any;
 
-const App: React.FC<AppProps> = () => {
-    return (
-        <>
-            <SafeAreaProvider>
-                <AppNavigation />
-            </SafeAreaProvider>
-        </>
-    )
-}
+const App: React.FC<AppProps> = () => (
+  <>
+    <SafeAreaProvider>
+      <AppNavigation />
+    </SafeAreaProvider>
+  </>
+);
 
 export default App;

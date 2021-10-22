@@ -1,9 +1,9 @@
 type Day = {
-    dateString: string;
-    day: number;
-    month: number;
-    year: number
-    timestamp: number;
-}
+  dateString: string;
+  day: number;
+  month: number;
+  year: number
+  timestamp: number;
+};
 
-export default Day
+export default Day;
