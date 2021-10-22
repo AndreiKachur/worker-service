@@ -4,7 +4,8 @@ type SetBetweenPeriodType = (
   start: Day,
   beginDay: number,
   endDay: number,
-  month: number | string) => void;
+  month: number | string,
+  year?: number) => void;
 
 type BuildPeriodProps = (
   start: Day | undefined,
@@ -39,12 +40,12 @@ const buildPeriod: BuildPeriodProps = (start, end, isEndDay) => {
   period[end.dateString] = intervalPatterns.end;
 
   // добавляем дни между стартом и окончанием периода
-  const setBetweenPeriod: SetBetweenPeriodType = (startDay, beginDay, endDay, month) => {
+  const setBetweenPeriod: SetBetweenPeriodType = (startDay, beginDay, endDay, month, year) => {
     for (let day = beginDay + 1; day < endDay; day += 1) {
       const dayFormat = day > 9 ? day : ['0', day].join('');
       const newMonth = month > 9 ? month : ['0', month].join('');
 
-      const dateString = [startDay.year, newMonth, dayFormat].join('-');
+      const dateString = [year, newMonth, dayFormat].join('-');
 
       period[dateString] = intervalPatterns.between;
     }
@@ -53,8 +54,8 @@ const buildPeriod: BuildPeriodProps = (start, end, isEndDay) => {
   const monthEnd = daysInMonth(start.month, start.year) + 1;
 
   if (start.month !== end.month) {
-    setBetweenPeriod(start, start.day, monthEnd, start.month);
-    setBetweenPeriod(start, 0, end.day, end.month);
+    setBetweenPeriod(start, start.day, monthEnd, start.month, start.year);
+    setBetweenPeriod(start, 0, end.day, end.month, end.year);
   } else {
     setBetweenPeriod(start, start.day, end.day, start.month);
   }

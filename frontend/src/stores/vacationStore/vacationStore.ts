@@ -1,7 +1,7 @@
-import { makeAutoObservable } from 'mobx';
+import { makeObservable, observable, action } from 'mobx';
 
 import service from './vacationStore.service';
-import { VacationData } from './vacationStore.models';
+import { VacationData, Holidays } from './vacationStore.models';
 
 class VacationStore {
   data: VacationData = {
@@ -9,28 +9,45 @@ class VacationStore {
     user: {
       id: '',
       name: '',
-      avatar: 'Ooops',
+      avatar: ''
     },
-    thisYear: {
-      daysAmount: 0,
-      restDaysAmount: 0,
-      planned: [{
-        start: '',
-        end: '',
-        duration: 0,
-      }],
-    },
+    region: '',
+    daysAmount: 0,
+    restDaysAmount: 0,
+    planned: [{
+      start: '',
+      end: '',
+      duration: 0
+    }],
   };
+  holidaysData: Holidays = {
+    years: [''],
+    common: {
+      2021: ['',],
+      2022: ['',],
+    }
+  }
 
   constructor() {
-    makeAutoObservable(this);
+    makeObservable(this, {
+      data: observable,
+      holidaysData: observable,
+      setVacation: action.bound,
+      setHolidays: action.bound,
+    });
 
     service.getVacation()
-      .then((d) => this.setVacation(d));
+      .then((d) => {
+        this.setVacation(d.vacation)
+        this.setHolidays(d.holidays)
+      });
   }
 
   setVacation(vacationData: VacationData) {
     this.data = vacationData;
+  }
+  setHolidays(holidaysData: Holidays) {
+    this.holidaysData = holidaysData;
   }
 }
 

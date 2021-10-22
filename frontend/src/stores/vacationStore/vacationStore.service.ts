@@ -1,12 +1,22 @@
 import axios from 'axios';
 
 import baseApiUrl from '../../ipconfig';
-import { VacationData } from './vacationStore.models';
+import { VacationData, Holidays } from './vacationStore.models';
+
+type GetVacationType = {
+  vacation: VacationData,
+  holidays: Holidays
+}
 
 const service = {
-  getVacation(): Promise<VacationData> {
+  getVacation(): Promise<GetVacationType> {
     return axios.get(`${baseApiUrl}/api`)
-      .then(((res: any) => res.data.vacation[0]));
+      .then(((res: any) => {
+        return {
+          vacation: res.data.vacation[0],
+          holidays: res.data.holidays
+        }
+      }));
   },
 };
 

@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
+import { observer } from 'mobx-react-lite';
 
 import buildPeriod, { period } from './buildPeriod';
+import { getHolidays, holidaysList } from './getHolidays';
 import localeData from './localeData';
 import Day from '../models/day';
+import vacationStore from '../../../stores/vacationStore';
+import colors from '../../../themes';
 
 type VacationCalendarProps = {
   setVacationDaysAmount: (days: number) => void;
@@ -25,9 +29,15 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
     setEndDate,
   },
 ) => {
+
   const [isEndDay, setIsEndDay] = useState(false);
   const [daysInterval, setDaysInterval] = useState<any>({});
-  // console.log(isEndDay);
+  const [holidays, setHolidays] = useState<any>(holidaysList);
+
+  useEffect(() => {
+    getHolidays(vacationStore.holidaysData)
+    setHolidays(holidaysList)
+  }, [vacationStore.holidaysData])// eslint-disable-this-line
 
   useEffect(() => {
     buildPeriod(startDate, endDate, isEndDay);
@@ -55,20 +65,9 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
       firstDay={1}
       enableSwipeMonths
       onDayPress={(day) => setDate(day)}
-      markedDates={daysInterval}
-    // markedDates={
-    //   Object.assign({
-    //     '2021-11-04': {
-    //       disabled: true, startingDay: true, endingDay: true,
-    //       textColor: '#50cebb'
-    //     },
-    //     '2021-11-05': {
-    //       disabled: true,
-    // textColor: '#50cebb'
-    //     },
-    //   }, daysInterval)}
+      markedDates={Object.assign({}, holidays, daysInterval)}
     />
   );
 };
 
-export default VacationCalendar;
+export default observer(VacationCalendar);

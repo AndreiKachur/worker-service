@@ -26,6 +26,7 @@ const BottomTabs = ({ items, showHeader = true }) => (
             headerShown: showHeader,
             headerTitle: item.headerTitle,
             tabBarLabel: item.tabBarLabel,
+            tabBarBadge: item.tabBarBadge,
             tabBarIcon: ({ color, size }) => {
               switch (item.iconLib) {
                 case 'FontAwesome': return (

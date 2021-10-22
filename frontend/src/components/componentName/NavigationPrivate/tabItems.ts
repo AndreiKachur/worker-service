@@ -46,6 +46,7 @@ export const vacationTabs = [
     component: VacationInfoScreen,
     headerTitle: 'Инфо',
     tabBarLabel: 'Инфо',
+    tabBarBadge: 3,
     iconLib: 'AntDesign',
     iconName: 'infocirlce',
   },

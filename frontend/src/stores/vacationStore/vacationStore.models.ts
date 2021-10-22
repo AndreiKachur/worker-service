@@ -3,11 +3,7 @@ import User from '../models/user';
 export type VacationData = {
   id: number,
   user: User,
-  thisYear: VacationTime,
-  nextYear?: VacationTime
-};
-
-export type VacationTime = {
+  region: string,
   daysAmount: number,
   restDaysAmount: number,
   planned: VacationDate[],
@@ -19,3 +15,11 @@ export type VacationDate = {
   end: string,
   duration: number
 };
+
+export type Holidays = {
+  years: string[],
+  common: {
+    2021: string[],
+    2022: string[],
+  }
+}
