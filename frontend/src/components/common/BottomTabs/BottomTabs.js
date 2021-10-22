@@ -16,9 +16,9 @@ const BottomTabs = ({ items, showHeader = true }) => (
 
   <BottomTab.Navigator screenOptions={headerStyle}>
     {
-      items.map((item, i) => (
+      items.map(item => (
         <BottomTab.Screen
-          key={item.name + 123}
+          key={item.name}
           name={item.name}
           component={item.component}
           options={{

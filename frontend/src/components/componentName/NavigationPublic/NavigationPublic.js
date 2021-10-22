@@ -25,7 +25,7 @@ function NavigationPublic() {
     <Stack.Navigator screenOptions={headerStyle}>
       {stackItems.map((item) => (
         <Stack.Screen
-          key={item.name + 101}
+          key={item.name}
           name={item.name}
           component={item.component}
           options={{ headerTitle: item.headerTitle }}
