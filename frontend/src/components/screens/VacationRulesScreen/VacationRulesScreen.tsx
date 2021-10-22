@@ -24,7 +24,7 @@ const VacationRules: React.FC<VacationRulesProps> = () => {
               Ullam aliquid id provident, doloremque placeat veritatis,
               alias natus adipisci at possimus repellat delectus quia eaque nam,
               accusantium blanditiis esse officia beatae?
-          </Text>
+            </Text>
           </View>
         )}
     </View>

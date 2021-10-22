@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 
-import buildPeriod from './buildPeriod';
+import buildPeriod, { period } from './buildPeriod';
 import localeData from './localeData';
 import Day from '../models/day';
 
@@ -30,7 +30,7 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
   // console.log(isEndDay);
 
   useEffect(() => {
-    const period = buildPeriod(startDate, endDate, isEndDay);
+    buildPeriod(startDate, endDate, isEndDay);
     setDaysInterval(period);
   }, [isEndDay]);// eslint-disable-this-line
 
@@ -44,7 +44,7 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
       setVacationDaysAmount(0);
     };
 
-    return isEndDay ? setEndDate(day) : makeSets(day)
+    return isEndDay ? setEndDate(day) : makeSets(day);
   };
 
   return (

@@ -4,10 +4,7 @@ import {
 } from 'react-native';
 
 import colors from '../../../themes';
-import Spinner from '../../common/Spinner'
-import VacationForm from '../../componentName/VacationForm';
-import VacationInfo from '../../componentName/VacationInfo';
-import VacationRules from '../../componentName/VacationRules';
+import Spinner from '../../common/Spinner';
 import styles from './VacationFormScreen.styles';
 
 type ServiceVacationProps = {};
@@ -31,9 +28,9 @@ const VacationFormScreen: React.FC<ServiceVacationProps> = () => {
           {serverAnswer}
         </Text>
       </View>
-    )
+    );
   }
-  if (spinner) return <Spinner />
+  if (spinner) return <Spinner />;
 
   return (
     <ScrollView>
@@ -41,18 +38,12 @@ const VacationFormScreen: React.FC<ServiceVacationProps> = () => {
         <View style={styles.component}>
 
           <View style={styles.mainWrapper}>
-            <VacationForm
+            {/* <VacationForm
               setSpinner={setSpinner}
               setCalendarView={setCalendarView}
               calendarView={calendarView}
               toogleBlocks={toogleBlocks}
-              setServerAnswer={setServerAnswer} />
-
-            {/* <VacationInfo
-              showInfo={showInfo}
-              setShowInfo={setShowInfo} />
-
-            <VacationRules /> */}
+              setServerAnswer={setServerAnswer} /> */}
 
           </View>
         </View>

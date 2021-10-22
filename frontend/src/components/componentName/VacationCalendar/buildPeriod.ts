@@ -11,9 +11,9 @@ type BuildPeriodProps = (
   end: Day | undefined,
   isEndDay: boolean,) => any;
 
-const buildPeriod: BuildPeriodProps = (start, end, isEndDay) => {
-  const period: any = {};
+export const period: any = {};
 
+const buildPeriod: BuildPeriodProps = (start, end, isEndDay) => {
   if (!start) return;
 
   const intervalPatterns = {
@@ -25,7 +25,7 @@ const buildPeriod: BuildPeriodProps = (start, end, isEndDay) => {
   // подсвечиваем стартовый день
   if (isEndDay) {
     period[start.dateString] = intervalPatterns.start;
-    return period;
+    return;
   }
 
   if (!end) return;
@@ -56,8 +56,6 @@ const buildPeriod: BuildPeriodProps = (start, end, isEndDay) => {
   } else {
     setBetweenPeriod(start, start.day, end.day, start.month);
   }
-
-  return period;
 };
 
 export default buildPeriod;

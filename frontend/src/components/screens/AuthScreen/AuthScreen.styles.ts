@@ -3,14 +3,14 @@ import { TextInput } from 'react-native-gesture-handler';
 
 import colors from '../../../themes';
 
-const windowWidth = Dimensions.get('window').width
-const windowHeight = Dimensions.get('window').height
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   component: {
     flex: 1,
     alignItems: 'center',
-    justifyContent:  windowWidth < 600 ? 'flex-start' :  'center'
+    justifyContent: windowWidth < 600 ? 'flex-start' : 'center',
 
   },
   logoBox: {
@@ -56,12 +56,12 @@ export default StyleSheet.create({
     borderRadius: 10,
     width: '70%',
     height: '100%',
-    color: 'black'
+    color: 'black',
   },
   img: {
     resizeMode: 'contain',
     width: '100%',
-    height: '100%'
+    height: '100%',
   },
   buttonBox: {
     display: 'flex',
@@ -74,11 +74,11 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
-    width: '15%'
+    width: '15%',
   },
   iconStyle: {
     fontSize: 20,
-    color: `${colors.primary}`
+    color: `${colors.primary}`,
   },
   iconButtonStyle: {
     display: 'flex',
@@ -86,5 +86,5 @@ export default StyleSheet.create({
     alignItems: 'center',
     width: '15%',
     margin: 0,
-  }
+  },
 });

@@ -23,7 +23,7 @@ type Post = {
   likes?: number,
   comments?: Array<Commentary>,
   author?: string
-}
+};
 
 type User = {
   id: string,
