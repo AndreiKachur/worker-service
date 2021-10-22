@@ -7,7 +7,6 @@ import BottomTabs from '../common/BottomTabs';
 import { headerTabs, vacationTabs } from './tabItems'
 import StartScreen from '../screens/StartScreen';
 import AuthScreen from '../screens/AuthScreen';
-import ServiceVacationScreen from '../screens/ServiceVacationScreen';
 import ServiceWorkDaysScreen from '../screens/ServiceWorkDaysScreen';
 import EditProfileScreen from '../screens/EditProfileScreen';
 import PieceOfNewsScreen from '../screens/PieceOfNewsScreen';

@@ -3,21 +3,21 @@ import { StyleSheet, Dimensions } from 'react-native';
 import color from '../../../themes';
 
 export default StyleSheet.create({
-  component: {
-    flex: 1,
-    alignItems: 'center',
+  vacationCard: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: Dimensions.get('window').width * 0.9,
   },
-  center: {
-    height: Dimensions.get('window').height * 0.85,
-    justifyContent: 'center',
+  header: {
+    color: color.primary,
+    fontWeight: 'bold',
+    fontSize: 15,
+    marginBottom: 10,
   },
   text: {
-    textAlign: 'center',
-  },
-  mainWrapper: {
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    paddingVertical: 10,
-    paddingHorizontal: 10,
+    marginVertical: 3,
+    color: color.secondary,
+    fontSize: 15,
+    maxWidth: Dimensions.get('window').width * 0.9,
   },
 });
