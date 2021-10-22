@@ -54,10 +54,11 @@ const buildPeriod: BuildPeriodProps = (start, end, isEndDay) => {
   const monthEnd = daysInMonth(start.month, start.year) + 1;
 
   if (start.month !== end.month) {
+
     setBetweenPeriod(start, start.day, monthEnd, start.month, start.year);
     setBetweenPeriod(start, 0, end.day, end.month, end.year);
   } else {
-    setBetweenPeriod(start, start.day, end.day, start.month);
+    setBetweenPeriod(start, start.day, end.day, start.month, start.year);
   }
 };
 

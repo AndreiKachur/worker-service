@@ -20,6 +20,7 @@ const monthsNames = ['янв.', 'фев.', 'мрт.', 'апр.', 'мая', 'ию
 const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
 
     const [vacationDaysAmount, setVacationDaysAmount] = useState(0);
+    const [holidaysInPeriod, setHolidaysInPeriod] = useState(0);
     const [startDate, setStartDate] = useState<Day>();
     const [endDate, setEndDate] = useState<Day>();
 
@@ -65,6 +66,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
         <View>
             <View style={styles.calendar}>
                 <VacationCalendar
+                    setHolidaysInPeriod={setHolidaysInPeriod}
                     setVacationDaysAmount={setVacationDaysAmount}
                     startDate={startDate}
                     setStartDate={setStartDate}
@@ -77,6 +79,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
                 startDate={startDate}
                 endDate={endDate}
                 vacationDaysAmount={vacationDaysAmount}
+                holidaysInPeriod={holidaysInPeriod}
                 sendForm={sendForm}
             />
 

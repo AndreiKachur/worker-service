@@ -12,7 +12,7 @@ import colors from '../../../themes';
 type VacactionInfoProps = {};
 
 const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
-  const { planned } = vacationStore.data.thisYear;
+  const { planned } = vacationStore.data;
 
   return (
     <ScrollView>

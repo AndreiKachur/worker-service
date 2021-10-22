@@ -10,6 +10,7 @@ import vacationStore from '../../../stores/vacationStore';
 import colors from '../../../themes';
 
 type VacationCalendarProps = {
+  setHolidaysInPeriod: React.Dispatch<React.SetStateAction<number>>,
   setVacationDaysAmount: (days: number) => void;
   startDate?: Day;
   setStartDate: React.Dispatch<React.SetStateAction<Day | undefined>>;
@@ -22,6 +23,7 @@ LocaleConfig.defaultLocale = 'ru';
 
 const VacationCalendar: React.FC<VacationCalendarProps> = (
   {
+    setHolidaysInPeriod,
     setVacationDaysAmount,
     startDate,
     endDate,
@@ -42,6 +44,13 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
   useEffect(() => {
     buildPeriod(startDate, endDate, isEndDay);
     setDaysInterval(period);
+
+    let counter = 0
+    for (const key in period) {
+      if (holidaysList[key]) counter++
+    }
+    setHolidaysInPeriod(counter)
+
   }, [isEndDay]);// eslint-disable-this-line
 
   const setDate = (day: Day) => {
@@ -52,6 +61,7 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
       setEndDate(undefined);
       setDaysInterval({});
       setVacationDaysAmount(0);
+      setHolidaysInPeriod(0);
     };
 
     return isEndDay ? setEndDate(day) : makeSets(day);

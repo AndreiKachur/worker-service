@@ -12,6 +12,7 @@ type VacationFormTextProps = {
     startDate: Day | undefined,
     endDate: Day | undefined,
     vacationDaysAmount: number,
+    holidaysInPeriod: number,
     sendForm: () => Promise<void>
 
 }
@@ -21,13 +22,14 @@ const monthsNames = ['янв.', 'фев.', 'мрт.', 'апр.', 'мая', 'ию
 
 const VacationFormText: React.FC<VacationFormTextProps> = ({
     vacationDaysAmount,
+    holidaysInPeriod,
     startDate,
     endDate,
     sendForm
 }) => {
     const { restDaysAmount } = vacationStore.data
 
-    const daysDiff = restDaysAmount - vacationDaysAmount;
+    const daysDiff = restDaysAmount - vacationDaysAmount + holidaysInPeriod;
 
     const pointsDiff = startDate && endDate ? endDate.timestamp - startDate.timestamp : 0;
 
@@ -58,14 +60,15 @@ const VacationFormText: React.FC<VacationFormTextProps> = ({
                     {pointsDiff < 0 && ' (неверная дата)'}
                 </Text>
                 <Text style={getTextStyle(daysDiff)}>
-                    Итого выбрано дней: {vacationDaysAmount}
+                    Итого выбрано дней: {vacationDaysAmount - holidaysInPeriod}
                     {daysDiff < 0 && ' (превышен лимит дней)'}
+                    {holidaysInPeriod > 0 && ' (за вычетом праздников)'}
                 </Text>
 
                 <Button
                     backgroundColor={getButtonColor}
                     onClick={sendForm}
-                    marginVertical={20}
+                    marginVertical={18}
                 >
                     ОТПРАВИТЬ
                 </Button>
