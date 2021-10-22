@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 
 import colors from '../../../themes';
+import Spinner from '../../common/Spinner'
 import VacationForm from '../../componentName/VacationForm';
 import VacationInfo from '../../componentName/VacationInfo';
 import VacationRules from '../../componentName/VacationRules';
@@ -23,44 +24,39 @@ const ServiceVacationScreen: React.FC<ServiceVacationProps> = () => {
     setShowInfo(true);
   };
 
+  if (serverAnswer) {
+    return (
+      <View style={styles.center}>
+        <Text style={styles.text}>
+          {serverAnswer}
+        </Text>
+      </View>
+    )
+  }
+  if (spinner) return <Spinner />
+
   return (
     <ScrollView>
-      {serverAnswer
-        ? (
-          <View style={styles.center}>
-            <Text style={styles.text}>
-              {serverAnswer}
-            </Text>
+      <View>
+        <View style={styles.component}>
+
+          <View style={styles.mainWrapper}>
+            <VacationForm
+              setSpinner={setSpinner}
+              setCalendarView={setCalendarView}
+              calendarView={calendarView}
+              toogleBlocks={toogleBlocks}
+              setServerAnswer={setServerAnswer} />
+
+            <VacationInfo
+              showInfo={showInfo}
+              setShowInfo={setShowInfo} />
+
+            <VacationRules />
+
           </View>
-        )
-        : (
-          <View>
-            <View style={styles.component}>
-              {spinner
-                ? (
-                  <View style={styles.center}>
-                    <ActivityIndicator size="large" color={colors.primary} />
-                  </View>
-                )
-                : (
-                  <View style={styles.mainWrapper}>
-                    <VacationForm
-                      setSpinner={setSpinner}
-                      setCalendarView={setCalendarView}
-                      calendarView={calendarView}
-                      toogleBlocks={toogleBlocks}
-                      setServerAnswer={setServerAnswer}
-                    />
-                    <VacationInfo
-                      showInfo={showInfo}
-                      setShowInfo={setShowInfo}
-                    />
-                    <VacationRules />
-                  </View>
-                )}
-            </View>
-          </View>
-        )}
+        </View>
+      </View>
     </ScrollView>
   );
 };

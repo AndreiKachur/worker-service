@@ -14,14 +14,9 @@ type AuthScreenProps = {
 };
 
 const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
-<<<<<<< HEAD
   const [emailValue, setEmailValue] = useState(''); //test@mail.ru
   const [passwordValue, setPasswordValue] = useState(''); //123456
   const [privatePassword, setPrivatePassword] = useState(true)
-=======
-  const [emailValue, setEmailValue] = useState(''); // test@mail.ru
-  const [passwordValue, setPasswordValue] = useState(''); // 123456
->>>>>>> feature/services
 
   const changeEmailValue = (text: string) => {
     setEmailValue(text);
