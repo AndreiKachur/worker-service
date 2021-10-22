@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
+import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 
 import colors from '../../../themes';
 
@@ -25,9 +26,15 @@ const BottomTabs = ({ items, showHeader = true }) => (
             headerShown: showHeader,
             headerTitle: item.headerTitle,
             tabBarLabel: item.tabBarLabel,
-            tabBarIcon: ({ color, size }) => (
-              <Icon name={item.iconName} color={color} size={size} />
-            ),
+            tabBarIcon: ({ color, size }) => {
+              switch (item.iconLib) {
+                case 'FontAwesome': return (
+                  <FontAwesomeIcon name={item.iconName} color={color} size={size} />)
+                case 'AntDesign': return (
+                  <AntDesignIcon name={item.iconName} color={color} size={size} />)
+                default: return
+              }
+            },
           }}
         />
       ))

@@ -11,13 +11,16 @@ export const headerTabs = [
     component: NewsScreen,
     headerTitle: 'Новости',
     tabBarLabel: 'Новости',
+    iconLib: 'FontAwesome',
     iconName: 'newspaper',
+
   },
   {
     name: 'Services',
     component: ServicesScreen,
     headerTitle: 'Сервисы',
     tabBarLabel: 'Сервисы',
+    iconLib: 'FontAwesome',
     iconName: 'th',
   },
   {
@@ -25,6 +28,7 @@ export const headerTabs = [
     component: ProfileScreen,
     headerTitle: 'Профиль',
     tabBarLabel: 'Профиль',
+    iconLib: 'FontAwesome',
     iconName: 'user',
   },
 ];
@@ -34,20 +38,23 @@ export const vacationTabs = [
     component: VacationFormScreen,
     headerTitle: 'Оформить',
     tabBarLabel: 'Оформить',
-    iconName: 'newspaper',
+    iconLib: 'AntDesign',
+    iconName: 'form',
   },
   {
     name: 'Info',
     component: VacationInfoScreen,
     headerTitle: 'Инфо',
     tabBarLabel: 'Инфо',
-    iconName: 'th',
+    iconLib: 'AntDesign',
+    iconName: 'infocirlce',
   },
   {
     name: 'Rules',
     component: VacationRulesScreen,
     headerTitle: 'Правила',
     tabBarLabel: 'Правила',
-    iconName: 'user',
+    iconLib: 'AntDesign',
+    iconName: 'appstore-o',
   },
 ];

@@ -20,12 +20,12 @@ const stackItems = [
     {
         name: 'Мой Отпуск',
         component: () => (<BottomTabs items={vacationTabs} showHeader={false} />),
-        options: { headerShown: true, headerTitle: '' }
+        options: { headerShown: true, }
     },
     {
         name: 'Мой День',
         component: () => (<ServiceWorkDaysScreen />),
-        options: { headerShown: true, headerTitle: '' }
+        options: { headerShown: true, }
     },
     {
         name: 'Edit',
