@@ -18,17 +18,7 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
   const { planned } = vacationStore.data.thisYear;
 
   return (
-    <View>
-      {/*
-      <Button
-        backgroundColor={colors.seventh}
-        onClick={() => setShowInfo(!showInfo)}
-      >
-        ПОКАЗАТЬ ИНФОРМАЦИЮ ПО ОТПУСКАМ
-      </Button> */}
-
-      {/* {showInfo
-        && ( */}
+    <View style={styles.mainWrapper}>
       <View>
         <Text style={styles.header}>Запросы на рассмотрении: </Text>
         <View style={styles.vacationCard}>
@@ -64,7 +54,6 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
         </Text>
         <Separator />
       </View>
-      {/* )} */}
     </View>
   );
 };

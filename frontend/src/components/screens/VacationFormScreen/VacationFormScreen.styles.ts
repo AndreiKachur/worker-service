@@ -15,9 +15,9 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   mainWrapper: {
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingVertical: 10,
+    paddingVertical: 20,
     paddingHorizontal: 10,
   },
 });

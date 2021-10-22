@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
 import {
-  View, ScrollView, ActivityIndicator, Text,
+  View, ScrollView, Text,
 } from 'react-native';
 
 import colors from '../../../themes';
 import Spinner from '../../common/Spinner';
 import styles from './VacationFormScreen.styles';
+import VacationForm from '../../componentName/VacationForm'
 
 type ServiceVacationProps = {};
 
 const VacationFormScreen: React.FC<ServiceVacationProps> = () => {
   const [spinner, setSpinner] = useState(false);
-  const [calendarView, setCalendarView] = useState(true);
   const [serverAnswer, setServerAnswer] = useState<any>();
   const [showInfo, setShowInfo] = useState(false);
 
   const toogleBlocks = () => {
     setTimeout(() => setServerAnswer(undefined), 2000);
-    setCalendarView(false);
     setShowInfo(true);
   };
 
@@ -34,20 +33,14 @@ const VacationFormScreen: React.FC<ServiceVacationProps> = () => {
 
   return (
     <ScrollView>
-      <View>
-        <View style={styles.component}>
+      {/* <View style={styles.component}> */}
 
-          <View style={styles.mainWrapper}>
-            {/* <VacationForm
-              setSpinner={setSpinner}
-              setCalendarView={setCalendarView}
-              calendarView={calendarView}
-              toogleBlocks={toogleBlocks}
-              setServerAnswer={setServerAnswer} /> */}
+      <VacationForm
+        setSpinner={setSpinner}
+        toogleBlocks={toogleBlocks}
+        setServerAnswer={setServerAnswer} />
 
-          </View>
-        </View>
-      </View>
+      {/* </View> */}
     </ScrollView>
   );
 };

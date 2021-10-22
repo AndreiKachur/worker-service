@@ -11,9 +11,11 @@ type BuildPeriodProps = (
   end: Day | undefined,
   isEndDay: boolean,) => any;
 
-export const period: any = {};
+export let period: any = {};
 
 const buildPeriod: BuildPeriodProps = (start, end, isEndDay) => {
+  period = {}
+
   if (!start) return;
 
   const intervalPatterns = {

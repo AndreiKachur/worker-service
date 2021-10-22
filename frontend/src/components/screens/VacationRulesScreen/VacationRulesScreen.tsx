@@ -11,22 +11,13 @@ const VacationRules: React.FC<VacationRulesProps> = () => {
   const [showRules, setShowRules] = useState(false);
 
   return (
-    <View>
-      <Button onClick={() => setShowRules(!showRules)}>
-        ПРАВИЛА ОФОРМЛЕНИЯ ОТПУСКОВ
-      </Button>
-
-      {showRules
-        && (
-          <View>
-            <Text style={styles.text}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Ullam aliquid id provident, doloremque placeat veritatis,
-              alias natus adipisci at possimus repellat delectus quia eaque nam,
-              accusantium blanditiis esse officia beatae?
+    <View style={styles.mainWrapper}>
+      <Text style={styles.text}>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Ullam aliquid id provident, doloremque placeat veritatis,
+        alias natus adipisci at possimus repellat delectus quia eaque nam,
+        accusantium blanditiis esse officia beatae?
             </Text>
-          </View>
-        )}
     </View>
   );
 };
