@@ -1,5 +1,4 @@
 import { StyleSheet, Dimensions } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler';
 
 import colors from '../../../themes';
 

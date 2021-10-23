@@ -1,15 +1,11 @@
 import React, { useState, useLayoutEffect } from 'react';
-import {
-  View, Text, ScrollView, ImageBackground, Pressable, Button, Image,
-} from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import AsyncStorage from '@react-native-community/async-storage';
 
 import newsStore from '../../../stores/newsStore/newsStore';
 import styles from './NewsScreen.styles';
 import DropDown from '../../common/DropDown';
-import colors from '../../../themes';
 import NewsCard from '../../componentName/NewsCard';
 
 type NewsScreenProps = any;
