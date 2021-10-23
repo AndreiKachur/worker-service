@@ -20,6 +20,9 @@ app.use('/vacation', vacation)
 app.get('/api', async (req: any, res: any) => {
   res.json(data)
 })
+app.get('/api/user', async (req: any, res: any) => {
+  res.json(data.usersData)
+})
 
 app.get('/', (req: any, res: any) => {
   res.send("IT'S WORKING!!!!")

@@ -24,6 +24,7 @@ type Body = {
 };
 
 class authStore {
+  
   auth = false;
 
   loader = false;
@@ -57,7 +58,7 @@ class authStore {
       .then((data) => {
         this.setAuthTrue();
         this.setAuthData(data);
-        this.setSaveToken(data.idToken);
+        this.setSaveToken(data);
       })
       .catch((e) => {
         console.log(e);
@@ -65,12 +66,15 @@ class authStore {
       });
   }
 
-  async setSaveToken(data: string) {
-    await AsyncStorage.setItem('token', data);
+  async setSaveToken(data: AuthData) {
+    await AsyncStorage.setItem('token', data.idToken);
+    await AsyncStorage.setItem('userId', data.localId);
   }
 
   async setDeleteToken() {
     await AsyncStorage.setItem('token', '');
+    await AsyncStorage.setItem('userId', '');
+    
   }
 
   async setAutoLogin() {

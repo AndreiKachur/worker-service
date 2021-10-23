@@ -5,8 +5,8 @@ import baseApiUrl from '../../ipconfig';
 
 const service = {
   getUser(): Promise<User> {
-    return axios.get(`${baseApiUrl}/api`)
-      .then(((res: any) => res.data.usersData[0]));
+    return axios.get(`${baseApiUrl}/api/user`)
+      .then(((res: any) => res.data[0]));
   },
 };
 

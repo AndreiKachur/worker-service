@@ -1,20 +1,48 @@
-import { makeAutoObservable } from 'mobx';
+import {
+  action, makeAutoObservable, observable,
+} from 'mobx';
+import { Alert } from 'react-native';
 
 import service from './userStore.service';
 import User from '../models/user';
 
 class UserStore {
-  user: User = { id: '', name: '', avatar: '' };
+
+  userData: User = {
+    id: '',
+    userName: '',
+    avatar: 'https://avatars.mds.yandex.net/i?id=d6e0b45c8a9f07b60d73f92bd8aa9897-5231737-images-thumbs&n=13',
+    fullName: '',
+    mail: '',
+    telephoneNumber: '',
+  };
 
   constructor() {
-    makeAutoObservable(this);
-
-    service.getUser()
-      .then((d) => this.setUser(d));
+    makeAutoObservable(this, {
+      userData: observable,
+      setUserData: action.bound,
+      setOpenProfileScreen: action.bound
+    });
   }
 
-  setUser(user: User) {
-    this.user = user;
+  async setOpenProfileScreen() {
+    await service.getUser()
+      .then((data) => {
+        this.setUserData(data);
+      })
+      .catch((e) => {
+        console.log(e);
+        Alert.alert('Ошибка загрузки данный пользователя');
+      });
+  }
+
+  setUserData(userData: User) {
+    this.userData.id = userData.id;
+    this.userData.userName = userData.userName;
+    this.userData.avatar = userData.avatar;
+    this.userData.fullName = userData.fullName;
+    this.userData.mail = userData.mail;
+    this.userData.telephoneNumber = userData.telephoneNumber;
   }
 }
 
