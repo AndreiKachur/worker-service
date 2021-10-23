@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Agenda } from 'react-native-calendars';
 import { observer } from 'mobx-react-lite';
 
-import sendForm from '../../common/sendForm'
+import sendForm from '../../common/sendForm';
 import WorkDaysEmptyDate from '../WorkDaysEmptyDate';
 import WorkDaysItem from '../WorkDaysItem';
 import WorkDayModal from '../WorkDaysModal';
@@ -41,7 +41,7 @@ const WorkDays: React.FC<WorkDayProps> = ({ setSpinner }) => {
     return [d.getFullYear(), monthFormat, dayFormat].join('-');
   }
 
-  const submitForm = () => sendForm('workdays', setSpinner, itemActive)
+  const submitForm = () => sendForm('workdays', setSpinner, itemActive);
 
   useEffect(() => {
     for (let i = minDateFromNow; i <= maxDateFromNow; i += 1) {

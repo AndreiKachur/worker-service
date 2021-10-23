@@ -13,8 +13,8 @@ type WorkDayModalProps = {
   submitForm: () => Promise<void>;
 };
 
-const WorkDayModal: React.FC<WorkDayModalProps> = ({
-  modalVisible, setModalVisible, addHours, submitForm
+const WorkDaysModal: React.FC<WorkDayModalProps> = ({
+  modalVisible, setModalVisible, addHours, submitForm,
 }) => {
   const [hoursAmount, onChangeHoursAmount] = React.useState<string>('');
 
@@ -71,4 +71,4 @@ const WorkDayModal: React.FC<WorkDayModalProps> = ({
   );
 };
 
-export default WorkDayModal;
+export default WorkDaysModal;

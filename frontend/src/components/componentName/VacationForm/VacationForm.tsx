@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Alert } from 'react-native';
 
-import sendForm from '../../common/sendForm'
+import sendForm from '../../common/sendForm';
 import VacationCalendar from '../VacationCalendar';
 import VacationFormText from '../VacationFormText';
 import Day from '../models/day';
@@ -38,7 +38,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
       duration: vacationDaysAmount,
     };
 
-    sendForm('vacation', setSpinner, data)
+    sendForm('vacation', setSpinner, data);
   };
 
   useEffect(() => {

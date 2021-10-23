@@ -2,14 +2,19 @@ import React from 'react';
 
 import Button from '../../common/Button';
 
-const ButtonCancel = () => (
+type ButtonCancelProps = {
+  submitForm: () => Promise<void>
+};
+
+const ButtonCancel: React.FC<ButtonCancelProps> = ({ submitForm }) => (
   <Button
     title="ОТМЕНИТЬ"
     width={22}
     fontSize={12}
     paddingVertical={8}
     borderRadius={5}
-    onClick={() => console.log('click')}
+    marginVertical={2}
+    onClick={submitForm}
   />
 );
 

@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import {
-  View, Text, ScrollView, ImageBackground, Alert, Pressable, Button, Image,
+  View, ScrollView,
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -37,10 +37,10 @@ const StartScreen: React.FC<StartScreenProps> = ({ navigation }) => {
       <ScrollView style={styles.scroll}>
         <View style={styles.posts}>
           {
-          publicNews.map((post) => (
-            <NewsCard key={post.id} post={post} navigation={navigation} />
-          ))
-        }
+            publicNews.map((post) => (
+              <NewsCard key={post.id} post={post} navigation={navigation} />
+            ))
+          }
         </View>
       </ScrollView>
     </View>

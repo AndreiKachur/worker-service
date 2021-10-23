@@ -4,23 +4,22 @@ import { Alert } from 'react-native';
 import baseApiUrl from '../../ipconfig';
 
 type SendForm = (
-    url: string,
-    setSpinner: React.Dispatch<React.SetStateAction<boolean>>,
-    data: {}
-) => Promise<void>
+  url: string,
+  setSpinner: React.Dispatch<React.SetStateAction<boolean>>,
+  data: {}
+) => Promise<void>;
 
 const sendForm: SendForm = async (url, setSpinner, data) => {
+  setSpinner(true);
 
-    setSpinner(true);
+  const res: any = await axios.post(`${baseApiUrl}/${url}`, data);
 
-    const res: any = await axios.post(`${baseApiUrl}/${url}`, data);
+  setTimeout(() => {
+    Alert.alert(res.data.answer);
+    setSpinner(false);
+  }, 1500);
 
-    setTimeout(() => {
-        Alert.alert(res.data.answer);
-        setSpinner(false);
-    }, 1500);
-
-    console.log(res.data);
+  console.log(res.data);
 };
 
-export default sendForm
+export default sendForm;
