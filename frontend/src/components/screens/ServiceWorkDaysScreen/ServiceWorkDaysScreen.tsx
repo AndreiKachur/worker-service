@@ -1,14 +1,17 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
 
+import Spinner from '../../common/Spinner';
 import WorkDays from '../../componentName/WorkDays';
 
 type ServiceScreenProps = {};
 
-const ServiceWorkDayScreen: React.FC<ServiceScreenProps> = () => (
+const ServiceWorkDayScreen: React.FC<ServiceScreenProps> = () => {
 
-  <WorkDays />
+  const [spinner, setSpinner] = useState(false);
 
-);
+  if (spinner) return <Spinner />;
+
+  return <WorkDays setSpinner={setSpinner} />;
+}
 
 export default ServiceWorkDayScreen;

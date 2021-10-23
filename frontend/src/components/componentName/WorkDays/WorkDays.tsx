@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { Agenda } from 'react-native-calendars';
 import { observer } from 'mobx-react-lite';
 
+import sendForm from '../../common/sendForm'
 import WorkDaysEmptyDate from '../WorkDaysEmptyDate';
 import WorkDaysItem from '../WorkDaysItem';
 import WorkDayModal from '../WorkDaysModal';
@@ -12,10 +13,10 @@ import styles from './WorkDays.styles';
 import workDaysStore from '../../../stores/workDaysStore';
 
 type WorkDayProps = {
-
+  setSpinner: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const WorkDays: React.FC<WorkDayProps> = () => {
+const WorkDays: React.FC<WorkDayProps> = ({ setSpinner }) => {
   const { days } = workDaysStore.data;
 
   const [items, setItems] = useState({});
@@ -39,6 +40,8 @@ const WorkDays: React.FC<WorkDayProps> = () => {
 
     return [d.getFullYear(), monthFormat, dayFormat].join('-');
   }
+
+  const submitForm = () => sendForm('workdays', setSpinner, itemActive)
 
   useEffect(() => {
     for (let i = minDateFromNow; i <= maxDateFromNow; i += 1) {
@@ -95,6 +98,7 @@ const WorkDays: React.FC<WorkDayProps> = () => {
         && (
           <View style={{ height: 0 }}>
             <WorkDayModal
+              submitForm={submitForm}
               modalVisible={modalVisible}
               setModalVisible={setModalVisible}
               addHours={(hours) => addHours(hours)}

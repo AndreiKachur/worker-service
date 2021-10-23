@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Alert } from 'react-native';
-import axios from 'axios';
 
-import baseApiUrl from '../../../ipconfig';
+import sendForm from '../../common/sendForm'
 import VacationCalendar from '../VacationCalendar';
 import VacationFormText from '../VacationFormText';
 import Day from '../models/day';
@@ -25,7 +24,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
     setVacationDaysAmount(daysDifference);
   };
 
-  const sendForm = async () => {
+  const submitForm = async () => {
     if (vacationDaysAmount <= 0) {
       Alert.alert(
         `Выбранное количество дней: ${vacationDaysAmount}`,
@@ -39,16 +38,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
       duration: vacationDaysAmount,
     };
 
-    setSpinner(true);
-
-    const res: any = await axios.post(`${baseApiUrl}/vacation`, { data });
-
-    setTimeout(() => {
-      Alert.alert(res.data.answer);
-      setSpinner(false);
-    }, 1500);
-
-    console.log(res.data);
+    sendForm('vacation', setSpinner, data)
   };
 
   useEffect(() => {
@@ -73,7 +63,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
         endDate={endDate}
         vacationDaysAmount={vacationDaysAmount}
         holidaysInPeriod={holidaysInPeriod}
-        sendForm={sendForm}
+        submitForm={submitForm}
       />
 
     </View>

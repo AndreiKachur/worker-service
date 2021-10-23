@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import {
-  View, ScrollView, Text,
-} from 'react-native';
+import { ScrollView } from 'react-native';
 
-import colors from '../../../themes';
 import Spinner from '../../common/Spinner';
-import styles from './VacationFormScreen.styles';
 import VacationForm from '../../componentName/VacationForm';
 
 type ServiceVacationProps = {};

@@ -13,7 +13,7 @@ type VacationFormTextProps = {
   endDate: Day | undefined,
   vacationDaysAmount: number,
   holidaysInPeriod: number,
-  sendForm: () => Promise<void>
+  submitForm: () => Promise<void>
 };
 
 const monthsNames = ['янв.', 'фев.', 'мрт.', 'апр.', 'мая', 'июня',
@@ -24,7 +24,7 @@ const VacationFormText: React.FC<VacationFormTextProps> = ({
   holidaysInPeriod,
   startDate,
   endDate,
-  sendForm,
+  submitForm,
 }) => {
   const { restDaysAmount } = vacationStore.data;
 
@@ -65,7 +65,7 @@ const VacationFormText: React.FC<VacationFormTextProps> = ({
 
         <Button
           backgroundColor={getButtonColor}
-          onClick={sendForm}
+          onClick={submitForm}
           marginVertical={18}
         >
           ОТПРАВИТЬ
