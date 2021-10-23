@@ -30,6 +30,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
         `Выбранное количество дней: ${vacationDaysAmount}`,
         'Пожалуйста выберите корректные даты отпуска.',
       );
+      return;
     }
 
     const data = {

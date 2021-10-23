@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Alert } from 'react-native';
 import { observer } from 'mobx-react-lite';
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
@@ -53,7 +53,17 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
 
   const [spinner, setSpinner] = useState(false);
 
-  const submitForm = () => sendForm('vacation', setSpinner, { info: 'VacationInfo' });
+  const submitForm = () => {
+    Alert.alert(
+      'Внимание!',
+      'Вы уверены, что хотите отменить?',
+      [{
+        text: 'Да',
+        onPress: () => sendForm('vacation', setSpinner, { info: 'VacationInfo' }),
+      },
+      { text: 'Нет', onPress: () => { } }],
+    );
+  };
 
   if (spinner) return <Spinner />;
 

@@ -26,18 +26,18 @@ const WorkDaysItemText: React.FC<WorkDaysItemTextProps> = ({
     );
   }
 
-  if (!item.hours) {
-    return (
-      <Text style={[styles.text, { color: colors.fourth }]}>
-        Количество рабочих часов: НЕ УКАЗАНО
-      </Text>
-    );
-  }
-
   if (item.hours === 0) {
     return (
       <Text style={styles.text}>
         Выходной день
+      </Text>
+    );
+  }
+
+  if (!item.hours) {
+    return (
+      <Text style={[styles.text, { color: colors.fourth }]}>
+        Количество рабочих часов: НЕ УКАЗАНО
       </Text>
     );
   }

@@ -5,7 +5,6 @@ import { observer } from 'mobx-react-lite';
 import Separator from '../../common/Separator';
 import ButtonCancel from '../ButtonCancel';
 import styles from './VacationInfoBlock.styles';
-import colors from '../../../themes';
 
 type VacationInfoBlockProps = {
   submitForm: () => Promise<void>,
@@ -18,31 +17,31 @@ const VacationInfoBlock: React.FC<VacationInfoBlockProps> = ({
   <View>
     <Text style={styles.header}>{data.title} </Text>
     {
-        data.items.map((item: any) => {
-          const { status } = item;
+      data.items.map((item: any) => {
+        const { status } = item;
 
-          return (
-            <View key={status}>
-              <View style={styles.vacationCard}>
-                <Text style={styles.textBold}>
-                  с {item.start} по {item.end}
-                </Text>
-                {
-                  status === 'исполнено'
-                    ? null
-                    : <ButtonCancel submitForm={submitForm} />
-                }
-              </View>
+        return (
+          <View key={status}>
+            <View style={styles.vacationCard}>
+              <Text style={styles.textBold}>
+                с {item.start} по {item.end}
+              </Text>
               {
-                status === 'оформлено' || status === 'исполнено'
+                status === 'исполнено'
                   ? null
-                  : <Text style={styles.text}>Статус: {item.status} </Text>
+                  : <ButtonCancel submitForm={submitForm} />
               }
-              <Separator />
             </View>
-          );
-        })
-      }
+            {
+              status === 'оформлено' || status === 'исполнено'
+                ? null
+                : <Text style={styles.text}>Статус: {item.status} </Text>
+            }
+            <Separator />
+          </View>
+        );
+      })
+    }
   </View>
 
 );
