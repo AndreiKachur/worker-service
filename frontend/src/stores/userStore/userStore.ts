@@ -8,7 +8,6 @@ import service from './userStore.service';
 import User from '../models/user';
 
 class UserStore {
-
   userData: User = {
     id: '',
     userName: '',
@@ -22,12 +21,12 @@ class UserStore {
     makeAutoObservable(this, {
       userData: observable,
       setUserData: action.bound,
-      setOpenProfileScreen: action.bound
+      setOpenProfileScreen: action.bound,
     });
   }
 
   async setOpenProfileScreen() {
-    const userId = await AsyncStorage.getItem('userId'); 
+    const userId = await AsyncStorage.getItem('userId');
     await service.getUser(userId)
       .then((data) => {
         this.setUserData(data);

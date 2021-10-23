@@ -24,7 +24,6 @@ type Body = {
 };
 
 class AuthStore {
-
   auth = false;
 
   loader = false;
@@ -74,7 +73,6 @@ class AuthStore {
   async setDeleteToken() {
     await AsyncStorage.setItem('token', '');
     await AsyncStorage.setItem('userId', '');
-    
   }
 
   async setAutoLogin() {

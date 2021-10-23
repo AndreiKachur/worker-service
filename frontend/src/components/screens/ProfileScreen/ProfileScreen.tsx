@@ -22,7 +22,6 @@ type UserInfo = {
 };
 
 const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
-
   // const getUserInfo = useCallback(async () => {
   //   const name = 'Артем';
   //   const response = await fetch('http://192.168.0.4:5000/getInfo', {
@@ -37,7 +36,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
   //   setUser(json);
   // }, [user, setUser]);
 
-  useEffect(() => { userStore.setOpenProfileScreen() }, []);
+  useEffect(() => { userStore.setOpenProfileScreen(); }, []);
   useLayoutEffect(() => {
     navigation.setOptions({
       headerTitle: 'Профиль',
@@ -58,7 +57,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
     <View style={styles.component}>
       <View style={styles.profileBox}>
         <View style={styles.avatarBox}>
-          <Avatar.Image size={200} source={{ uri: userStore.userData.avatar}} />
+          <Avatar.Image size={200} source={{ uri: userStore.userData.avatar }} />
           <View style={styles.userNameBox}>
             <Text style={styles.userNameText}>{userStore.userData.userName}</Text>
           </View>
@@ -86,7 +85,7 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
             </View>
           </View>
           <View style={styles.buttonBox}>
-            <Button title="Выйти" width={windowWidth < 600 ? 70 : 40} onClick={() => { authStore.setLogout() }} />
+            <Button title="Выйти" width={windowWidth < 600 ? 70 : 40} onClick={() => { authStore.setLogout(); }} />
           </View>
 
         </View>
@@ -96,4 +95,4 @@ const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
   );
 };
 
-export default observer(ProfileScreen) ;
+export default observer(ProfileScreen);

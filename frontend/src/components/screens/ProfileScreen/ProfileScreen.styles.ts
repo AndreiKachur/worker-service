@@ -14,9 +14,9 @@ export default StyleSheet.create({
   },
   profileBox: {
     display: 'flex',
-    //borderWidth: 1,
+    // borderWidth: 1,
     width: windowWidth < 600 ? windowWidth * 0.7 : windowWidth * 0.3,
-    height: '90%', //windowHeight < 600 ? windowHeight * 0.9 : windowHeight * 0.2,
+    height: '90%', // windowHeight < 600 ? windowHeight * 0.9 : windowHeight * 0.2,
   },
   avatarBox: {
     marginTop: '10%',
@@ -25,30 +25,30 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: '40%',
-    //borderWidth: 1,
+    // borderWidth: 1,
   },
   avatar: {
-    //borderWidth: 1,
+    // borderWidth: 1,
     width: 100,
     height: '70%',
-    borderRadius: 50
+    borderRadius: 50,
   },
   userNameBox: {
-    //borderWidth: 1,
+    // borderWidth: 1,
     width: '100%',
     height: '30%',
   },
   userNameText: {
     color: `${colors.primary}`,
     fontSize: 24,
-    textAlign: 'center'
+    textAlign: 'center',
   },
   infoBox: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'column',
     height: '60%',
-    //borderWidth: 1,
+    // borderWidth: 1,
   },
   itemBox: {
     display: 'flex',
@@ -75,7 +75,7 @@ export default StyleSheet.create({
   },
   buttonBox: {
     marginTop: '5%',
-    width: '100%'
+    width: '100%',
 
   },
   editButton: {
