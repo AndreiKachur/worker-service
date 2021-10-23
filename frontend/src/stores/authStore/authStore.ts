@@ -1,5 +1,5 @@
 import {
-  action, makeAutoObservable, makeObservable, observable, runInAction,
+  action, makeAutoObservable, observable, runInAction,
 } from 'mobx';
 import { Alert } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -24,7 +24,7 @@ type Body = {
 };
 
 class authStore {
-  
+
   auth = false;
 
   loader = false;
