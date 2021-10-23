@@ -6,17 +6,15 @@ import { VacationData, Holidays } from './vacationStore.models';
 type GetVacationType = {
   vacation: VacationData,
   holidays: Holidays
-}
+};
 
 const service = {
   getVacation(): Promise<GetVacationType> {
     return axios.get(`${baseApiUrl}/api`)
-      .then(((res: any) => {
-        return {
-          vacation: res.data.vacation[0],
-          holidays: res.data.holidays
-        }
-      }));
+      .then(((res: any) => ({
+        vacation: res.data.vacation[0],
+        holidays: res.data.holidays,
+      })));
   },
 };
 

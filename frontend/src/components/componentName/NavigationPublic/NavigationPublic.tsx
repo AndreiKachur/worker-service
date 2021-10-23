@@ -6,12 +6,6 @@ import AuthScreen from '../../screens/AuthScreen';
 import PieceOfNewsScreen from '../../screens/PieceOfNewsScreen';
 import color from '../../../themes';
 
-const headerStyle = {
-  headerStyle: { backgroundColor: color.third },
-  headerTintColor: color.primary,
-  headerTitleStyle: { fontWeight: 'bold' },
-};
-
 const Stack = createStackNavigator();
 
 const stackItems = [
@@ -22,7 +16,12 @@ const stackItems = [
 
 function NavigationPublic() {
   return (
-    <Stack.Navigator screenOptions={headerStyle}>
+    <Stack.Navigator screenOptions={{
+      headerStyle: { backgroundColor: color.third },
+      headerTintColor: color.primary,
+      headerTitleStyle: { fontWeight: 'bold' },
+    }}
+    >
       {stackItems.map((item) => (
         <Stack.Screen
           key={item.name}

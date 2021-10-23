@@ -9,7 +9,7 @@ class VacationStore {
     user: {
       id: '',
       name: '',
-      avatar: ''
+      avatar: '',
     },
     region: '',
     daysAmount: 0,
@@ -17,16 +17,17 @@ class VacationStore {
     planned: [{
       start: '',
       end: '',
-      duration: 0
+      duration: 0,
     }],
   };
+
   holidaysData: Holidays = {
     years: [''],
     common: {
-      2021: ['',],
-      2022: ['',],
-    }
-  }
+      2021: [''],
+      2022: [''],
+    },
+  };
 
   constructor() {
     makeObservable(this, {
@@ -38,14 +39,15 @@ class VacationStore {
 
     service.getVacation()
       .then((d) => {
-        this.setVacation(d.vacation)
-        this.setHolidays(d.holidays)
+        this.setVacation(d.vacation);
+        this.setHolidays(d.holidays);
       });
   }
 
   setVacation(vacationData: VacationData) {
     this.data = vacationData;
   }
+
   setHolidays(holidaysData: Holidays) {
     this.holidaysData = holidaysData;
   }

@@ -5,19 +5,32 @@ import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 
 import colors from '../../../themes';
 
-const headerStyle = {
-  headerStyle: { backgroundColor: colors.third },
-  headerTintColor: colors.primary,
-  headerTitleStyle: { fontWeight: 'bold' },
-};
-
 const BottomTab = createBottomTabNavigator();
 
-const BottomTabs = ({ items, showHeader = true }) => (
+type BottomTabsProps = {
+  items: Item[],
+  showHeader: boolean
+};
+type Item = {
+  name: string,
+  component: React.FC<any>,
+  headerTitle: string,
+  tabBarLabel: string,
+  tabBarBadge?: string,
+  iconLib: string,
+  iconName: string,
+};
 
-  <BottomTab.Navigator screenOptions={headerStyle}>
+const BottomTabs: React.FC<BottomTabsProps> = ({ items, showHeader = true }) => (
+
+  <BottomTab.Navigator screenOptions={{
+    headerStyle: { backgroundColor: colors.third },
+    headerTintColor: colors.primary,
+    headerTitleStyle: { fontWeight: 'bold' },
+  }}
+  >
     {
-      items.map(item => (
+      items.map((item) => (
         <BottomTab.Screen
           key={item.name}
           name={item.name}
@@ -30,10 +43,10 @@ const BottomTabs = ({ items, showHeader = true }) => (
             tabBarIcon: ({ color, size }) => {
               switch (item.iconLib) {
                 case 'FontAwesome': return (
-                  <FontAwesomeIcon name={item.iconName} color={color} size={size} />)
+                  <FontAwesomeIcon name={item.iconName} color={color} size={size} />);
                 case 'AntDesign': return (
-                  <AntDesignIcon name={item.iconName} color={color} size={size} />)
-                default: return
+                  <AntDesignIcon name={item.iconName} color={color} size={size} />);
+                default:
               }
             },
           }}

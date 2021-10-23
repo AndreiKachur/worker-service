@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Calendar, LocaleConfig } from 'react-native-calendars';
 import { observer } from 'mobx-react-lite';
 
-import buildPeriod, { period } from './buildPeriod';
 import { getHolidays, holidaysList } from './getHolidays';
 import localeData from './localeData';
 import Day from '../models/day';
 import vacationStore from '../../../stores/vacationStore';
 import colors from '../../../themes';
+import getPeriod from './buildPeriod';
 
 type VacationCalendarProps = {
   setHolidaysInPeriod: React.Dispatch<React.SetStateAction<number>>,
@@ -31,26 +31,19 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
     setEndDate,
   },
 ) => {
-
   const [isEndDay, setIsEndDay] = useState(false);
   const [daysInterval, setDaysInterval] = useState<any>({});
   const [holidays, setHolidays] = useState<any>(holidaysList);
 
   useEffect(() => {
-    getHolidays(vacationStore.holidaysData)
-    setHolidays(holidaysList)
-  }, [vacationStore.holidaysData])// eslint-disable-this-line
+    getHolidays(vacationStore.holidaysData);
+    setHolidays(holidaysList);
+  }, [vacationStore.holidaysData]);// eslint-disable-this-line
 
   useEffect(() => {
-    buildPeriod(startDate, endDate, isEndDay);
-    setDaysInterval(period);
-
-    let counter = 0
-    for (const key in period) {
-      if (holidaysList[key]) counter++
-    }
-    setHolidaysInPeriod(counter)
-
+    const result = getPeriod(startDate, endDate, isEndDay, holidaysList);
+    setDaysInterval(result.period);
+    setHolidaysInPeriod(result.holidaysInPeriod);
   }, [isEndDay]);// eslint-disable-this-line
 
   const setDate = (day: Day) => {
@@ -75,7 +68,7 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
       firstDay={1}
       enableSwipeMonths
       onDayPress={(day) => setDate(day)}
-      markedDates={Object.assign({}, holidays, daysInterval)}
+      markedDates={({ ...holidays, ...daysInterval })}
     />
   );
 };

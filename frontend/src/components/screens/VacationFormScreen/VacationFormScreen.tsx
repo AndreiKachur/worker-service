@@ -6,7 +6,7 @@ import {
 import colors from '../../../themes';
 import Spinner from '../../common/Spinner';
 import styles from './VacationFormScreen.styles';
-import VacationForm from '../../componentName/VacationForm'
+import VacationForm from '../../componentName/VacationForm';
 
 type ServiceVacationProps = {};
 

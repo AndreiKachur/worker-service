@@ -49,7 +49,7 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
           <Text style={styles.header}>Архив отпусков: </Text>
           <Text style={styles.text}>
             С {planned[0].start} по {planned[0].end} ({planned[0].duration} дней)
-        </Text>
+          </Text>
           <Separator />
         </View>
       </View>
