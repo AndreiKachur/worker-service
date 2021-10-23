@@ -2,6 +2,7 @@ import {
   action, makeAutoObservable, observable,
 } from 'mobx';
 import { Alert } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import service from './userStore.service';
 import User from '../models/user';
@@ -26,7 +27,8 @@ class UserStore {
   }
 
   async setOpenProfileScreen() {
-    await service.getUser()
+    const userId = await AsyncStorage.getItem('userId'); 
+    await service.getUser(userId)
       .then((data) => {
         this.setUserData(data);
       })
