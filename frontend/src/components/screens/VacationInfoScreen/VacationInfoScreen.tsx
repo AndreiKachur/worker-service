@@ -1,56 +1,77 @@
-import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, ScrollView, Alert } from 'react-native';
 import { observer } from 'mobx-react-lite';
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
-import Button from '../../common/Button';
-import Separator from '../../common/Separator';
-import ButtonCancel from '../../componentName/ButtonCancel';
+import VacationInfoBlock from '../../componentName/VacationInfoBlock';
+import sendForm from '../../common/sendForm';
+import Spinner from '../../common/Spinner';
 import styles from './VacationInfoScreen.styles';
-import colors from '../../../themes';
 
 type VacactionInfoProps = {};
 
 const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
   const { planned } = vacationStore.data;
 
+  const data = [
+    {
+      title: 'Запросы на рассмотрении:',
+      items: [
+        {
+          start: planned[0].start,
+          end: planned[0].end,
+          status: 'передано',
+        },
+        {
+          start: planned[0].start,
+          end: planned[0].end,
+          status: 'оформление',
+        },
+      ],
+    },
+    {
+      title: 'Оформленные отпуска:',
+      items: [
+        {
+          start: planned[0].start,
+          end: planned[0].end,
+          status: 'оформлено',
+        },
+      ],
+    },
+    {
+      title: 'Архив отпусков:',
+      items: [
+        {
+          start: planned[0].start,
+          end: planned[0].end,
+          status: 'исполнено',
+        },
+      ],
+    },
+  ];
+
+  const [spinner, setSpinner] = useState(false);
+
+  const submitForm = () => {
+    Alert.alert(
+      'Внимание!',
+      'Вы уверены, что хотите отменить?',
+      [{
+        text: 'Да',
+        onPress: () => sendForm('vacation', setSpinner, { info: 'VacationInfo' }),
+      },
+      { text: 'Нет', onPress: () => { } }],
+    );
+  };
+
+  if (spinner) return <Spinner />;
+
   return (
     <ScrollView>
       <View style={styles.mainWrapper}>
         <View>
-          <Text style={styles.header}>Запросы на рассмотрении: </Text>
-          <View style={styles.vacationCard}>
-            <Text style={styles.text}>
-              с {planned[0].start} по {planned[0].end}
-            </Text>
-            <ButtonCancel />
-          </View>
-          <Text style={styles.text}>Статус: передано </Text>
-          <Separator />
-
-          <View style={styles.vacationCard}>
-            <Text style={styles.text}>
-              с {planned[0].start} по {planned[0].end}
-            </Text>
-            <ButtonCancel />
-          </View>
-          <Text style={styles.text}>Статус: оформление </Text>
-          <Separator />
-
-          <Text style={styles.header}>Оформленные отпуска: </Text>
-          <View style={styles.vacationCard}>
-            <Text style={styles.text}>
-              С {planned[0].start} по {planned[0].end}
-            </Text>
-            <ButtonCancel />
-          </View>
-          <Separator />
-
-          <Text style={styles.header}>Архив отпусков: </Text>
-          <Text style={styles.text}>
-            С {planned[0].start} по {planned[0].end} ({planned[0].duration} дней)
-        </Text>
-          <Separator />
+          {data.map((item) => <VacationInfoBlock key={item.title} data={item} submitForm={submitForm} />)}
         </View>
       </View>
     </ScrollView>

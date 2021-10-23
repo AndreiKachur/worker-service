@@ -23,7 +23,7 @@ type Body = {
   returnSecureToken: boolean;
 };
 
-class authStore {
+class AuthStore {
 
   auth = false;
 
@@ -112,4 +112,4 @@ class authStore {
   }
 }
 
-export default new authStore();
+export default new AuthStore();

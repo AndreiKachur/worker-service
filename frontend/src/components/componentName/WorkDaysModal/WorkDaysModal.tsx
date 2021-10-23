@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  Alert, Modal, Text, TextInput, Pressable, View,
+  Modal, Text, TextInput, Pressable, View,
 } from 'react-native';
 
-import colors from '../../../themes';
 import Button from '../../common/Button';
-import styles from './WorkDayModal.styles';
+import styles from './WorkDaysModal.styles';
 
 type WorkDayModalProps = {
-  title: string;
   modalVisible: boolean;
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
   addHours: (hours: string) => void;
+  submitForm: () => Promise<void>;
 };
 
-const WorkDayModal: React.FC<WorkDayModalProps> = ({
-  title, modalVisible, setModalVisible, addHours,
+const WorkDaysModal: React.FC<WorkDayModalProps> = ({
+  modalVisible, setModalVisible, addHours, submitForm,
 }) => {
-  // const [modalVisible, setModalVisible] = useState(true);
   const [hoursAmount, onChangeHoursAmount] = React.useState<string>('');
 
   return (
@@ -59,27 +57,18 @@ const WorkDayModal: React.FC<WorkDayModalProps> = ({
               onClick={() => {
                 setModalVisible(!modalVisible);
                 addHours(hoursAmount);
+                submitForm();
               }}
             >
-              {title === 'ИЗМЕНИТЬ'
-                ? 'ИЗМЕНИТЬ ДАННЫЕ'
-                : 'ОТПРАВИТЬ ДАННЫЕ'}
+              ОТПРАВИТЬ
             </Button>
 
           </View>
         </View>
       </Modal>
 
-      {/* <Button
-        width={27}
-        paddingVertical={10}
-        marginVertical={1}
-        onClick={() => setModalVisible(true)}>
-        {title}
-      </Button> */}
-
     </View>
   );
 };
 
-export default WorkDayModal;
+export default WorkDaysModal;

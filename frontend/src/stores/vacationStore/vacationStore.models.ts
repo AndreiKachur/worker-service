@@ -22,4 +22,4 @@ export type Holidays = {
     2021: string[],
     2022: string[],
   }
-}
+};

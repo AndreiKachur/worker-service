@@ -1,1 +1,1 @@
-export { default } from './NavigationPublic.js';
+export { default } from './NavigationPublic';

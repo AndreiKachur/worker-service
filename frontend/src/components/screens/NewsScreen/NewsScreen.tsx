@@ -66,10 +66,10 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
       <ScrollView style={styles.scroll}>
         <View style={styles.posts}>
           {
-          FilterNews.map((post) => (
-            <NewsCard key={post.id} post={post} navigation={navigation} />
-          ))
-        }
+            FilterNews.map((post) => (
+              <NewsCard key={post.id} post={post} navigation={navigation} />
+            ))
+          }
         </View>
       </ScrollView>
     </View>

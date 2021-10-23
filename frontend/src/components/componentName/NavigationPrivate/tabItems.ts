@@ -4,8 +4,9 @@ import ProfileScreen from '../../screens/ProfileScreen';
 import VacationFormScreen from '../../screens/VacationFormScreen';
 import VacationInfoScreen from '../../screens/VacationInfoScreen';
 import VacationRulesScreen from '../../screens/VacationRulesScreen';
+import { Item } from '../../common/BottomTabs';
 
-export const headerTabs = [
+export const headerTabs: Item[] = [
   {
     name: 'News',
     component: NewsScreen,
@@ -32,7 +33,7 @@ export const headerTabs = [
     iconName: 'user',
   },
 ];
-export const vacationTabs = [
+export const vacationTabs: Item[] = [
   {
     name: 'Form',
     component: VacationFormScreen,

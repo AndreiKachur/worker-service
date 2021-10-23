@@ -3,30 +3,33 @@ import { StyleSheet, Dimensions } from 'react-native';
 import color from '../../../themes';
 
 export default StyleSheet.create({
-  calendar: {
-    width: Dimensions.get('window').width * 1,
-  },
-  headerWrapper: {
-    alignItems: 'center',
-    width: Dimensions.get('window').width * 0.9,
-  },
   mainWrapper: {
     alignItems: 'center',
     justifyContent: 'flex-start',
     paddingVertical: 20,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
+  },
+  vacationCard: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: Dimensions.get('window').width * 0.9,
   },
   header: {
     color: color.primary,
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 15,
+    marginBottom: 10,
   },
-  textWrapper: {
-    marginBottom: 20,
+  textBold: {
+    marginVertical: 6,
+    color: color.seventh,
+    fontWeight: 'bold',
+    fontSize: 15,
+    maxWidth: Dimensions.get('window').width * 0.9,
   },
   text: {
     marginVertical: 3,
-    color: color.secondary,
+    color: color.sixth,
     fontSize: 15,
     maxWidth: Dimensions.get('window').width * 0.9,
   },
