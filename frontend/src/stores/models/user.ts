@@ -1,7 +1,10 @@
 type User = {
   id: string,
-  name: string,
-  avatar: string
+  userName: string,
+  fullName: string,
+  avatar: string,
+  mail: string,
+  telephoneNumber: string,
 };
 
 export default User;
