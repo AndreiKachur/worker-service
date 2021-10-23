@@ -4,7 +4,6 @@ import {
 } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import AsyncStorage from '@react-native-community/async-storage';
 
 import newsStore from '../../../stores/newsStore/newsStore';
 import styles from './NewsScreen.styles';
@@ -70,10 +69,10 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
       <ScrollView style={styles.scroll}>
         <View style={styles.posts}>
           {
-          FilterNews.map((post) => (
-            <NewsCard key={post.id} post={post} navigation={navigation} />
-          ))
-        }
+            FilterNews.map((post) => (
+              <NewsCard key={post.id} post={post} navigation={navigation} />
+            ))
+          }
         </View>
       </ScrollView>
     </View>

@@ -9,14 +9,14 @@ const BottomTab = createBottomTabNavigator();
 
 type BottomTabsProps = {
   items: Item[],
-  showHeader: boolean
+  showHeader?: boolean
 };
-type Item = {
+export type Item = {
   name: string,
   component: React.FC<any>,
   headerTitle: string,
   tabBarLabel: string,
-  tabBarBadge?: string,
+  tabBarBadge?: number,
   iconLib: string,
   iconName: string,
 };
@@ -46,7 +46,8 @@ const BottomTabs: React.FC<BottomTabsProps> = ({ items, showHeader = true }) => 
                   <FontAwesomeIcon name={item.iconName} color={color} size={size} />);
                 case 'AntDesign': return (
                   <AntDesignIcon name={item.iconName} color={color} size={size} />);
-                default:
+                default: return (
+                  <AntDesignIcon name={item.iconName} color={color} size={size} />);
               }
             },
           }}
