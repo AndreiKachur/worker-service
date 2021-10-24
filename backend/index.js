@@ -1,33 +1,47 @@
 const express = require('express');
-const data = require('./data/data.ts');
+const data = require('./data/data.js');
 const http = require('http');
 const workdays = require('./routes/workdays');
 const vacation = require('./routes/vacation');
 const _ = require('lodash');
+const { graphqlHTTP } = require('express-graphql');
+const cors = require('cors');
+const schema = require('./schema');
+const usersData = require('./data/usersData.js');
 
 // const fs = require('fs')
 //const https = require('https')
-
-
-
-const app = express()
-
-const PORTHTTP = process.env.PORT || 5000
 // const PORTHTTPS = process.env.PORT || 5001
 
+const PORTHTTP = process.env.PORT || 5000
+const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+app.use(cors())
+
+const root = {
+  getAllUsers: () => {
+    return data.usersData
+  },
+  getUser: ({ id }) => {
+    return data.usersData.find(user => user.id == id)
+  },
+}
+
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  qraphiql: true,
+  rootValue: root
+}))
 
 app.use('/workdays', workdays)
 app.use('/vacation', vacation)
 
-         
-            
-
-app.get('/api', async (req: any, res: any) => {
+app.get('/api', async (req, res) => {
   res.json(data)
 })
-app.get('/api/user/:id', async (req: any, res: any) => {
+app.get('/api/user/:id', async (req, res) => {
   const id = req.params.id;
   const userData = _.filter(data.usersData, ['id', id]);
   res.json(...userData)
