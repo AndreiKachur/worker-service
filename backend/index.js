@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const data = require('./data/data.js');
 const http = require('http');
@@ -8,7 +9,7 @@ const { graphqlHTTP } = require('express-graphql');
 const cors = require('cors');
 const schema = require('./schema');
 const sequelize = require('./db')
-require('dotenv').config()
+const models = require('./models/models')
 
 // const fs = require('fs')
 //const https = require('https')
