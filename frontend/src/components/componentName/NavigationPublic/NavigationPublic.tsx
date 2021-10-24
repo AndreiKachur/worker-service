@@ -2,6 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import StartScreen from '../../screens/StartScreen';
+import NewsScreen from '../../screens/NewsScreen';
 import AuthScreen from '../../screens/AuthScreen';
 import PieceOfNewsScreen from '../../screens/PieceOfNewsScreen';
 import color from '../../../themes';
@@ -9,7 +10,7 @@ import color from '../../../themes';
 const Stack = createStackNavigator();
 
 const stackItems = [
-  { name: 'Start', component: StartScreen, headerTitle: '' },
+  { name: 'Start', component: NewsScreen, headerTitle: '' },
   { name: 'Auth', component: AuthScreen, headerTitle: 'Авторизация' },
   { name: 'PieceOfNews', component: PieceOfNewsScreen, headerTitle: '' },
 ];

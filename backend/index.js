@@ -43,7 +43,7 @@ app.get('/api', async (req, res) => {
 })
 app.get('/api/user/:id', async (req, res) => {
   const id = req.params.id;
-  const userData = _.filter(data.usersData, ['id', id]);
+  const userData = _.filter(usersData, ['id', id]);
   res.json(...userData)
 })
 

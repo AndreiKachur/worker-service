@@ -4,11 +4,14 @@ import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import newsStore from '../../../stores/newsStore/newsStore';
+import authStore from '../../../stores/authStore/authStore';
 import styles from './NewsScreen.styles';
 import DropDown from '../../common/DropDown';
 import NewsCard from '../../componentName/NewsCard';
 
-type NewsScreenProps = any;
+type NewsScreenProps = {
+  navigation: any
+};
 
 export type Filter = {
   id: number;
@@ -17,17 +20,21 @@ export type Filter = {
 };
 
 const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
-  const [newsFilter, setNewsFilter] = useState('private');
+  const [newsFilter, setNewsFilter] = useState(authStore.auth ? 'private' : 'public');
   const [activeDropDown, setActiveDropDown] = useState(false);
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: 'Новости',
+      headerTitle: authStore.auth ? 'Новости' : 'Публичные новости',
       headerRight: () => (
         <View style={styles.filerButton}>
           <Icon.Button
-            onPress={() => setActiveDropDown(!activeDropDown)}
-            name="filter"
+            onPress={
+              () => authStore.auth 
+              ? setActiveDropDown(!activeDropDown) 
+              : navigation.navigate('Auth')
+            }
+            name= {authStore.auth ? 'filter' : 'sign-in-alt'}
             backgroundColor="#fff"
             iconStyle={styles.iconStyle}
           />
