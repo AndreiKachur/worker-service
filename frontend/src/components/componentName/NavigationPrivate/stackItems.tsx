@@ -30,7 +30,7 @@ const stackItems = [
   {
     name: 'Edit',
     component: () => (<EditProfileScreen />),
-    options: { headerTitle: 'Edit' },
+    options: { headerTitle: 'Редактировать профиль' },
   },
 ];
 
