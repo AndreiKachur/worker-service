@@ -2,25 +2,32 @@ require('dotenv').config()
 const express = require('express');
 const data = require('./data/data.js');
 const http = require('http');
-const workdays = require('./routes/workdays');
-const vacation = require('./routes/vacation');
+const workdays = require('./routes/workdaysRouter');
+const vacation = require('./routes/vacationRouter');
 const _ = require('lodash');
 const { graphqlHTTP } = require('express-graphql');
 const cors = require('cors');
 const schema = require('./schema');
-const sequelize = require('./db')
-const models = require('./models/models')
+const sequelize = require('./db');
+const models = require('./models/models');
+const router = require('./routes/index')
 
 // const fs = require('fs')
 //const https = require('https')
 // const PORTHTTPS = process.env.PORT || 5001
 
 const PORTHTTP = process.env.PORT || 5000
+
 const app = express()
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
 
 app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use('/api', router)
+
+app.get('/api/test', (req, res) => {
+  res.status(200).json({ message: 'Test is done.' })
+})
 
 const root = {
   getAllUsers: () => {

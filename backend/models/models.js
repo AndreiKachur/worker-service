@@ -25,11 +25,16 @@ const News = sequelize.define('news', {
     private: { type: DataTypes.BOOLEAN, allowNull: false },
     title: { type: DataTypes.STRING, allowNull: false },
     content: { type: DataTypes.STRING },
-    publicDate: { type: DataTypes.STRING },
+    createdAt: { type: DataTypes.STRING },
     image: { type: DataTypes.STRING },
-    views: { type: DataTypes.INTEGER, defaultValue: 0 },
-    likes: { type: DataTypes.INTEGER, defaultValue: 0 },
-    author: { type: DataTypes.STRING, allowNull: true },
+})
+
+const View = sequelize.define('view', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+})
+
+const Like = sequelize.define('like', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 })
 
 const Vacation = sequelize.define('vacation', {
@@ -45,6 +50,15 @@ const VacationDate = sequelize.define('vacationdate', {
     duration: { type: DataTypes.INTEGER, allowNull: false },
 })
 
+const Holidays = sequelize.define('holiday', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+})
+
+const Holiday = sequelize.define('holiday', {
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+    date: { type: DataTypes.STRING, allowNull: false },
+})
+
 const WorkDays = sequelize.define('workdays', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
 })
@@ -56,15 +70,26 @@ const WorkDay = sequelize.define('workday', {
     hours: { type: DataTypes.INTEGER },
 })
 
-
 User.hasMany(News)
 News.belongsTo(User)
 
 User.hasMany(Commentary)
 Commentary.belongsTo(User)
 
+User.hasMany(View)
+View.belongsTo(User)
+
+User.hasMany(Like)
+Like.belongsTo(User)
+
 News.hasMany(Commentary)
 Commentary.belongsTo(News)
+
+News.hasMany(View)
+View.belongsTo(News)
+
+News.hasMany(Like)
+Like.belongsTo(News)
 
 User.hasOne(Vacation)
 Vacation.belongsTo(User)
@@ -72,8 +97,23 @@ Vacation.belongsTo(User)
 Vacation.hasMany(VacationDate)
 VacationDate.belongsTo(Vacation)
 
-User.hasOne(WorkDays)
-WorkDays.belongsTo(User)
+Vacation.belongsToMany(Holiday, { through: Holidays })
+Holiday.belongsToMany(Vacation, { through: Holidays })
 
 WorkDays.hasMany(WorkDay)
 WorkDay.belongsTo(WorkDays)
+
+User.hasOne(WorkDays)
+WorkDays.belongsTo(User)
+
+module.exports = {
+    User,
+    Commentary,
+    News,
+    View,
+    Like,
+    Vacation,
+    VacationDate,
+    Holiday,
+    WorkDay
+}

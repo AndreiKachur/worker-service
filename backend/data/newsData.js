@@ -12,8 +12,8 @@ module.exports = [
             avatar: 'Надо будет придумать первоначальный аватар пустышку'
         },
         publicDate: '06/10/2021',
-        views: 0,
-        likes: 0,
+        views: [],
+        likes: [],
         comments: [],
 
     },
@@ -30,8 +30,8 @@ module.exports = [
             avatar: 'Надо будет придумать первоначальный аватар пустышку'
         },
         publicDate: '06/10/2021',
-        views: 0,
-        likes: 0,
+        views: [],
+        likes: [],
         comments: [],
     },
     {
@@ -47,8 +47,8 @@ module.exports = [
             avatar: 'Надо будет придумать первоначальный аватар пустышку'
         },
         publicDate: '06/10/2021',
-        views: 0,
-        likes: 0,
+        views: [],
+        likes: [],
         comments: [],
     },
     {
@@ -64,8 +64,8 @@ module.exports = [
             avatar: 'Надо будет придумать первоначальный аватар пустышку'
         },
         publicDate: '06/10/2021',
-        views: 0,
-        likes: 0,
+        views: [],
+        likes: [],
         comments: [],
     },
     //--------------private
@@ -82,8 +82,8 @@ module.exports = [
             avatar: 'Надо будет придумать первоначальный аватар пустышку'
         },
         publicDate: '06/10/2021',
-        views: 0,
-        likes: 0,
+        views: [],
+        likes: [],
         comments: [],
 
     },
@@ -100,8 +100,8 @@ module.exports = [
             avatar: 'Надо будет придумать первоначальный аватар пустышку'
         },
         publicDate: '06/10/2021',
-        views: 0,
-        likes: 0,
+        views: [],
+        likes: [],
         comments: [],
     },
     {
@@ -117,8 +117,8 @@ module.exports = [
             avatar: 'Ссылка на аватар' //Надо будет добавить аватар пустышку
         },
         publicDate: '06/10/2021',
-        views: 0,
-        likes: 0,
+        views: [],
+        likes: [],
         comments: [],
     }
 ]

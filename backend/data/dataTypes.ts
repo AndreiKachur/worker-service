@@ -19,13 +19,12 @@ export type News = {
     private: boolean,
     title: string,
     content: string,
-    createdAt: User, //depend one
-    publicDate: string,
+    createdAt: string, //depend one
     image: string,
-    views: number,
-    likes: number,
+    views: User[],
+    likes: User[],
     comments: Array<Commentary>, //depend many
-    author?: string
+    author: User
 }
 
 export type Vacation = {

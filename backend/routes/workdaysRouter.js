@@ -1,6 +1,8 @@
 const { Router } = require('express')
 const router = Router()
 
+router.get('/',)
+
 router.post('/', async (req, res) => {
     try {
         console.log(req.body);
@@ -12,5 +14,7 @@ router.post('/', async (req, res) => {
         res.status(400).json({ message: "Form error" })
     }
 })
+
+router.put('/',)
 
 module.exports = router
