@@ -1,4 +1,4 @@
-export default [{
+module.exports = [{
     id: 123,
     user: {
         id: 456,

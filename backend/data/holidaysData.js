@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     years: ['2021', '2022'],
     common: {
         2021: [
