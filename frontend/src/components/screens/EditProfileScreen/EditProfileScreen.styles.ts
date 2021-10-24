@@ -3,7 +3,6 @@ import { StyleSheet, Dimensions } from 'react-native';
 import colors from '../../../themes';
 
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   component: {
@@ -15,9 +14,8 @@ export default StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    //borderWidth: 1,
     width: windowWidth < 600 ? windowWidth * 0.8 : windowWidth * 0.3,
-    height: '90%', // windowHeight < 600 ? windowHeight * 0.9 : windowHeight * 0.2,
+    height: '90%', 
   },
   buttonBox: {
     display: 'flex',
@@ -36,7 +34,6 @@ export default StyleSheet.create({
     marginBottom: windowWidth < 600 ? '5%' : '1%',
     height: 40,
     borderRadius: 10,
-    
   },
   fullNameInputBox: {
     display: 'flex',
@@ -100,12 +97,10 @@ export default StyleSheet.create({
     color: '#fff',
   },
   searchText: {
-    
     color: '#fff'
   },
   avatarText: {
     width: '50%',
-    //marginLeft: '5%',
     color: 'black',
     paddingLeft: '1%',
     paddingRight: '1%'

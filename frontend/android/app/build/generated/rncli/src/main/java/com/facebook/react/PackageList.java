@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 // @react-native-masked-view/masked-view
 import org.reactnative.maskedview.RNCMaskedViewPackage;
+// react-native-document-picker
+import com.reactnativedocumentpicker.DocumentPickerPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-network-info
@@ -74,6 +76,7 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new AsyncStoragePackage(),
       new RNCMaskedViewPackage(),
+      new DocumentPickerPackage(),
       new RNGestureHandlerPackage(),
       new RNNetworkInfoPackage(),
       new PagerViewPackage(),
