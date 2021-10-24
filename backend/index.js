@@ -7,7 +7,8 @@ const _ = require('lodash');
 const { graphqlHTTP } = require('express-graphql');
 const cors = require('cors');
 const schema = require('./schema');
-const usersData = require('./data/usersData.js');
+const sequelize = require('./db')
+require('dotenv').config()
 
 // const fs = require('fs')
 //const https = require('https')
@@ -57,10 +58,16 @@ app.get('/api/user/:id', async (req, res) => {
 // }
 
 async function start() {
-  http.createServer(app)
-  app.listen(PORTHTTP, () => {
-    console.log(`(HTTP) Server is running on port ${PORTHTTP}`)
-  })
+  try {
+    await sequelize.authenticate()
+    await sequelize.sync()
+    http.createServer(app)
+    app.listen(PORTHTTP, () => {
+      console.log(`(HTTP) Server is running on port ${PORTHTTP}`)
+    })
+  } catch (e) {
+    console.log(e);
+  }
   // https.createServer(httpsOptions, app)
   // app.listen(PORTHTTPS, () => {
   //   console.log(`(HTTPS) Server is running on port ${PORTHTTPS}`)
