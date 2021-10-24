@@ -4,7 +4,7 @@ import BottomTabs from '../../common/BottomTabs';
 import { headerTabs, vacationTabs } from './tabItems';
 import ServiceWorkDaysScreen from '../../screens/ServiceWorkDaysScreen';
 import EditProfileScreen from '../../screens/EditProfileScreen';
-import PieceOfNewsScreen from '../../screens/PieceOfNewsScreen';
+// import PieceOfNewsScreen from '../../screens/PieceOfNewsScreen';
 
 const stackItems = [
   {
@@ -12,11 +12,11 @@ const stackItems = [
     component: () => (<BottomTabs items={headerTabs} />),
     options: { headerShown: false, headerTitle: '' },
   },
-  {
-    name: 'PieceOfNews',
-    component: () => (<PieceOfNewsScreen />),
-    options: { headerTitle: '' },
-  },
+  // {
+  //   name: 'PieceOfNews',
+  //   component: () => (<PieceOfNewsScreen />),
+  //   options: { headerTitle: '' },
+  // },
   {
     name: 'Мой Отпуск',
     component: () => (<BottomTabs items={vacationTabs} showHeader={false} />),

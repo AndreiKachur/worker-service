@@ -15,7 +15,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: windowWidth < 600 ? windowWidth * 0.8 : windowWidth * 0.3,
-    height: '90%', 
+    height: '90%',
   },
   buttonBox: {
     display: 'flex',
@@ -97,12 +97,12 @@ export default StyleSheet.create({
     color: '#fff',
   },
   searchText: {
-    color: '#fff'
+    color: '#fff',
   },
   avatarText: {
     width: '50%',
     color: 'black',
     paddingLeft: '1%',
-    paddingRight: '1%'
-  }
+    paddingRight: '1%',
+  },
 });

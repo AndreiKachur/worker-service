@@ -30,11 +30,11 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
         <View style={styles.filerButton}>
           <Icon.Button
             onPress={
-              () => authStore.auth 
-              ? setActiveDropDown(!activeDropDown) 
-              : navigation.navigate('Auth')
+              () => (authStore.auth
+                ? setActiveDropDown(!activeDropDown)
+                : navigation.navigate('Auth'))
             }
-            name= {authStore.auth ? 'filter' : 'sign-in-alt'}
+            name={authStore.auth ? 'filter' : 'sign-in-alt'}
             backgroundColor="#fff"
             iconStyle={styles.iconStyle}
           />

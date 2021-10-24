@@ -5,7 +5,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import styles from './NewsCard.styles';
-import User from '../../../stores/models/user'
+import User from '../../../stores/models/user';
 
 type NewsCardProps = {
   navigation: any;
@@ -26,7 +26,6 @@ type Post = {
   author?: string
 };
 
-
 type Commentary = {
   id: string,
   content: string,
@@ -34,19 +33,22 @@ type Commentary = {
   author: User
 };
 
-const NewsCard: React.FC<NewsCardProps> = (props) => (
-  <Pressable key={props.post.id} onPress={() => { props.navigation.navigate('PieceOfNews', props.post); }}>
+const NewsCard: React.FC<NewsCardProps> = ({ post, navigation }) => (
+  <Pressable onPress={() => {
+    navigation.navigate('PieceOfNews', post);
+  }}
+  >
     <View style={styles.post}>
-      <Image resizeMethod="scale" source={{ uri: props.post.image }} style={styles.image} />
+      <Image resizeMethod="scale" source={{ uri: post.image }} style={styles.image} />
       <View style={styles.headerBox}>
-        <Text style={styles.date}>{props.post.publicDate}</Text>
+        <Text style={styles.date}>{post.publicDate}</Text>
         <View style={styles.iconBox}>
-          <Icon style={styles.views} name="eye"> {props.post.views}</Icon>
-          <Icon style={styles.likes} name="heart"> {props.post.likes}</Icon>
+          <Icon style={styles.views} name="eye"> {post.views}</Icon>
+          <Icon style={styles.likes} name="heart"> {post.likes}</Icon>
         </View>
       </View>
       <View style={styles.titleBox}>
-        <Text style={styles.titleText}>{props.post.title}</Text>
+        <Text style={styles.titleText}>{post.title}</Text>
       </View>
     </View>
   </Pressable>

@@ -4,11 +4,14 @@ import {
 } from 'react-native';
 
 import styles from './PieceOfNewsScreen.styles';
+import { News } from '../../../stores/newsStore/newsStore.model';
 
-type PostScreenProps = any;
+type PieceOfNewsScreen = {
+  route: any
+};
 
-const PostScreen: React.FC<PostScreenProps> = (props) => {
-  const post = props.route.params;
+const PieceOfNewsScreen: React.FC<PieceOfNewsScreen> = ({ route }) => {
+  const { post } = route.params;
 
   return (
     <View style={styles.component}>
@@ -23,9 +26,8 @@ const PostScreen: React.FC<PostScreenProps> = (props) => {
           </View>
         </View>
       </ScrollView>
-
     </View>
   );
 };
 
-export default PostScreen;
+export default PieceOfNewsScreen;

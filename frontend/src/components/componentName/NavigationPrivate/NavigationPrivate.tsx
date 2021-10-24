@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import stackItems from './stackItems';
 import color from '../../../themes';
+import PieceOfNewsScreen from '../../screens/PieceOfNewsScreen/PieceOfNewsScreen';// Временно
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ function NavigationPrivate() {
           </Stack.Screen>
         ))
       }
+      <Stack.Screen name="PieceOfNews" component={PieceOfNewsScreen} options={{ headerTitle: '' }} />
     </Stack.Navigator>
   );
 }
