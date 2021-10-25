@@ -5,7 +5,7 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 import styles from './NewsCard.styles';
-import User from '../../../stores/models/user'
+import User from '../../../stores/models/user';
 
 type NewsCardProps = {
   navigation: any;
@@ -25,7 +25,6 @@ type Post = {
   comments?: Array<Commentary>,
   author?: string
 };
-
 
 type Commentary = {
   id: string,

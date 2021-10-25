@@ -2,7 +2,7 @@ import colors from '../../../themes';
 
 export const holidaysList: any = {};
 
-export function getHolidays(holidays: any) {
+export function getHolidays(holidays: any): void {
   const { common } = holidays;
   holidays.years.forEach((year: string) => {
     common[year].forEach((item: string) => {
