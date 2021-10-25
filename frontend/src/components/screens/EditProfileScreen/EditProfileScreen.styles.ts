@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 import colors from '../../../themes';
 
-const windowWidth = Dimensions.get('window').width;
+const windowWidth: number = Dimensions.get('window').width;
 
 export default StyleSheet.create({
   component: {

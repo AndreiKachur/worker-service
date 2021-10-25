@@ -18,9 +18,9 @@ interface Body {
 }
 
 const service = {
-  getAuthData(body: any): Promise<AuthData> {
+  getAuthData(body: Body): Promise<AuthData> {
     return axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCkeOQ9KwFegK2pR6-EwzH9aDvDoAUYAyY', body)
-      .then((response) => response.data);
+      .then((response: any) => response.data);
   },
 };
 

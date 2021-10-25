@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  View, TextInput, Dimensions, Pressable, Text, Alert, Platform,
+  View, TextInput, Dimensions, Pressable, Text, Alert,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import DocumentPicker from 'react-native-document-picker';
@@ -10,7 +10,6 @@ import styles from './EditProfileScreen.styles';
 import userStore from '../../../stores/userStore';
 
 const windowWidth = Dimensions.get('window').width;
-
 
 const EditProfileScreen: React.FC = () => {
   const [avatarFile, setAvatarFile] = useState({ uri: '', name: '' });

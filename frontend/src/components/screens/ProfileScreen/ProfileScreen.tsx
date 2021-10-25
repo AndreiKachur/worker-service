@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react-lite';
 import React, {
-  useLayoutEffect, useState, useCallback, useEffect,
+  useLayoutEffect, useEffect,
 } from 'react';
 import { View, Text, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -12,30 +12,8 @@ import userStore from '../../../stores/userStore';
 import styles from './ProfileScreen.styles';
 
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
-type ProfileScreenProps = any;
-type UserInfo = {
-  id: string;
-  name: string,
-  avatar: string
-};
-
-const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
-  // const getUserInfo = useCallback(async () => {
-  //   const name = 'Артем';
-  //   const response = await fetch('http://192.168.0.4:5000/getInfo', {
-  //     mode: 'no-cors',
-  //     method: 'POST',
-  //     body: JSON.stringify({ name }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   });
-  //   const json = await response.json();
-  //   setUser(json);
-  // }, [user, setUser]);
-
+const ProfileScreen: React.FC<any> = ({ navigation }) => {
   useEffect(() => { userStore.setOpenProfileScreen(); }, []);
   useLayoutEffect(() => {
     navigation.setOptions({

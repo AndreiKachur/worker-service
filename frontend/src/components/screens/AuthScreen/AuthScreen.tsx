@@ -11,11 +11,7 @@ import authStore from '../../../stores/authStore';
 
 const windowWidth = Dimensions.get('window').width;
 
-type AuthScreenProps = {
-  navigation: any
-};
-
-const AuthScreen: React.FC<AuthScreenProps> = ({ navigation }) => {
+const AuthScreen: React.FC = () => {
   const [emailValue, setEmailValue] = useState(''); // test@mail.ru
   const [passwordValue, setPasswordValue] = useState(''); // 123456
   const [privatePassword, setPrivatePassword] = useState(true);

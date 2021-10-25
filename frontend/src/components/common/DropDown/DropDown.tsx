@@ -7,25 +7,14 @@ import styles from './DropDown.styles';
 import { Filter } from '../../screens/NewsScreen';
 import colors from '../../../themes';
 
-type DropDownProps = any;
+type DropDownProps = {
+  setActiveDropDown: (a: boolean) => void,
+  filters: Filter[],
+  newsFilter: string,
+  setNewsFilter: (a: string) => void,
+};
 
 const DropDown: React.FC<DropDownProps> = (props) => {
-  // const fadeAnim = useRef(new Animated.Value(1)).current;
-
-  // const fadeIn = () => {
-  //     Animated.timing(fadeAnim, {
-  //         toValue: 1,
-  //         duration: 300
-  //     }).start();
-  // };
-
-  // const fadeOut = () => {
-  //     Animated.timing(fadeAnim, {
-  //         toValue: 0,
-  //         duration: 300
-  //     }).start();
-  // };
-
   const dropDownOut = () => {
     props.setActiveDropDown(false);
   };
