@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-#Sun Oct 24 17:10:33 YEKT 2021
-path.4=14/classes.dex
-path.3=11/classes.dex
-path.2=0/classes.dex
-path.1=0/classes.dex
-=======
-#Sun Oct 24 10:14:23 MSK 2021
+#Mon Oct 25 13:28:17 MSK 2021
 path.4=2/classes.dex
 path.3=1/classes.dex
 path.2=11/classes.dex
@@ -18,7 +11,6 @@ path.6=6/classes.dex
 path.5=5/classes.dex
 renamed.11=classes12.dex
 renamed.10=classes11.dex
->>>>>>> develop
 path.0=classes.dex
 base.4=C\:\\Users\\Andrei\\Desktop\\IT\\hackaton\\react-marathon-2-team-2\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\2\\classes.dex
 base.3=C\:\\Users\\Andrei\\Desktop\\IT\\hackaton\\react-marathon-2-team-2\\frontend\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\1\\classes.dex

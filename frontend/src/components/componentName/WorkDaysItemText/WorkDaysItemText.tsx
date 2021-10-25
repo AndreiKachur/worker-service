@@ -15,11 +15,16 @@ const WorkDaysItemText: React.FC<WorkDaysItemTextProps> = ({
   pastDate = false,
 }) => {
   if (pastDate) {
+
+    const title = item.hours > 0
+      ? `Количество учтенных часов: ${item.hours}`
+      : 'Выходной дней'
+
     return (
       <View style={styles.item}>
         <View style={styles.inActiveDate}>
           <Text style={styles.text}>
-            Количество учтенных часов: {item.hours}
+            {title}
           </Text>
         </View>
       </View>

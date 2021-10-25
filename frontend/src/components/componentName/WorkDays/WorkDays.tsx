@@ -23,9 +23,9 @@ const WorkDays: React.FC<WorkDayProps> = ({ setSpinner }) => {
   const [itemActive, setItemActive] = useState({});
   const [modalVisible, setModalVisible] = useState(false);
 
-  const changeableDaysAmount = -10;
-  const minDateFromNow = -20;
-  const maxDateFromNow = 5;
+  const changeableDaysAmount = -7;
+  const minDateFromNow = -14;
+  const maxDateFromNow = 4;
 
   function getDateFromNow(daysNumber: number) {
     return new Date(+new Date() + 1000 * 60 * 60 * 24 * daysNumber);
