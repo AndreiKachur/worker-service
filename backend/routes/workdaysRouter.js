@@ -1,19 +1,11 @@
 const { Router } = require('express')
 const router = Router()
 
-router.get('/',)
+const workdaysController = require('../controllers/workdaysController')
 
-router.post('/', async (req, res) => {
-    try {
-        console.log(req.body);
+router.get('/', workdaysController.getWorkdays)
 
-        res.json({ answer: 'Ваша заявка принята к рассмотрению' })
-
-    } catch (e) {
-        console.log(e);
-        res.status(400).json({ message: "Form error" })
-    }
-})
+router.post('/', workdaysController.addForm)
 
 router.put('/',)
 

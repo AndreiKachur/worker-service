@@ -114,6 +114,8 @@ module.exports = {
     Like,
     Vacation,
     VacationDate,
+    Holidays,
     Holiday,
+    WorkDays,
     WorkDay
 }

@@ -1,21 +1,12 @@
 const { Router } = require('express')
 const router = Router()
 
-router.get('/',)
+const newsController = require('../controllers/newsController')
 
-router.post('/', async (req, res) => {
-    try {
-        console.log(req.body);
+router.get('/', newsController.getNews)
 
-        res.json({ answer: 'Ваша заявка принята к рассмотрению' })
 
-    } catch (e) {
-        console.log(e);
-        res.status(400).json({ message: "Form error" })
-    }
-})
-
-router.put('/',)
-router.delete('/',)
+// router.put('/',)
+// router.delete('/',)
 
 module.exports = router

@@ -1,8 +1,10 @@
 const { Router } = require('express')
 const router = Router()
 
-router.get('/',)
+const userController = require('../controllers/userController')
 
-router.put('/',)
+router.get('/', userController.getUser)
+
+router.put('/', userController.change)
 
 module.exports = router

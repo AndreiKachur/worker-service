@@ -12,10 +12,6 @@ const sequelize = require('./db');
 const models = require('./models/models');
 const router = require('./routes/index')
 
-// const fs = require('fs')
-//const https = require('https')
-// const PORTHTTPS = process.env.PORT || 5001
-
 const PORTHTTP = process.env.PORT || 5000
 
 const app = express()
@@ -56,15 +52,6 @@ app.get('/api/user/:id', async (req, res) => {
   res.json(...userData)
 })
 
-// app.get('/', (req: any, res: any) => {
-//   res.send("IT'S WORKING!!!!")
-// })
-
-// const httpsOptions = {
-//   key: fs.readFileSync('./security/cert.key'),
-//   cert: fs.readFileSync('./security/cert.pem')
-// }
-
 async function start() {
   try {
     await sequelize.authenticate()
@@ -76,9 +63,30 @@ async function start() {
   } catch (e) {
     console.log(e);
   }
-  // https.createServer(httpsOptions, app)
+}
+start()
+
+
+
+
+// const fs = require('fs')
+//const https = require('https')
+// const PORTHTTPS = process.env.PORT || 5001
+
+
+
+// app.get('/', (req: any, res: any) => {
+//   res.send("IT'S WORKING!!!!")
+// })
+
+// const httpsOptions = {
+//   key: fs.readFileSync('./security/cert.key'),
+//   cert: fs.readFileSync('./security/cert.pem')
+// }
+
+
+
+// https.createServer(httpsOptions, app)
   // app.listen(PORTHTTPS, () => {
   //   console.log(`(HTTPS) Server is running on port ${PORTHTTPS}`)
   // })
-}
-start()
