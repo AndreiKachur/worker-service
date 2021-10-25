@@ -3,7 +3,9 @@ const router = Router()
 
 const newsController = require('../controllers/newsController')
 
-router.get('/', newsController.getNews)
+router.get('/', newsController.getAll)
+
+router.post('/', newsController.create)
 
 
 // router.put('/',)

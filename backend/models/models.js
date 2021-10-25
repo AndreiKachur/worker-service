@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize')
 
 const User = sequelize.define('user', {
 
-    id: { type: DataTypes.STRING, primaryKey: true },
+    id: { type: DataTypes.STRING, primaryKey: true, unique: true },
     mail: { type: DataTypes.STRING, unique: true, allowNull: false },
     password: { type: DataTypes.STRING, allowNull: false },
     role: { type: DataTypes.STRING, defaultValue: "USER" },
@@ -22,7 +22,7 @@ const Commentary = sequelize.define('commentary', {
 
 const News = sequelize.define('news', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    private: { type: DataTypes.BOOLEAN, allowNull: false },
+    privateNews: { type: DataTypes.BOOLEAN, allowNull: false },
     title: { type: DataTypes.STRING, allowNull: false },
     content: { type: DataTypes.STRING },
     createdAt: { type: DataTypes.STRING },
