@@ -41,7 +41,6 @@ const EditProfileScreen: React.FC = () => {
   };
 
   const saveNewUserData = () => {
-<<<<<<< HEAD
     if ((fullNameValue || telephoneNumberValue) && !avatarFile.uri) {
       userStore.setChangeUserData(fullNameValue, telephoneNumberValue);
       Alert.alert('Успешно!');
@@ -50,15 +49,6 @@ const EditProfileScreen: React.FC = () => {
       Alert.alert('Успешно!');
     } else {
       Alert.alert('Поля "ФИО" и "Номер телефона" не могут быть пустыми!');
-=======
-    if (fullNameValue || telephoneNumberValue && !avatarFile.uri) {
-      userStore.setChangeUserData(fullNameValue, telephoneNumberValue);
-      Alert.alert('Успешно!');
-    } if (fullNameValue || telephoneNumberValue && avatarFile.uri) {
-      userStore.setChangeUserData(fullNameValue, telephoneNumberValue, avatarFile.uri);
-    } else {
-      Alert.alert('Поля ФИО и Номер телефона не могут быть пустыми!');
->>>>>>> develop
     }
   };
 
