@@ -1,11 +1,17 @@
+import { RouteProp } from '@react-navigation/native';
 import React from 'react';
 import {
   View, Text, ScrollView, Image,
 } from 'react-native';
 
 import styles from './PieceOfNewsScreen.styles';
+import { Post } from '../../componentName/NewsCard/NewsCard';
 
-const PieceOfNewsScreen: React.FC<any> = ({ route }) => (
+type PieceOfNewsProps = {
+  route: RouteProp<{ params: Post }>
+};
+
+const PieceOfNewsScreen: React.FC<PieceOfNewsProps> = ({ route }) => (
   <View style={styles.component}>
     <ScrollView>
       <View style={styles.post}>

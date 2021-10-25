@@ -2,6 +2,7 @@ import React, { useState, useLayoutEffect } from 'react';
 import { View, ScrollView } from 'react-native';
 import { observer } from 'mobx-react-lite';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 import newsStore from '../../../stores/newsStore/newsStore';
 import authStore from '../../../stores/authStore/authStore';
@@ -10,7 +11,7 @@ import DropDown from '../../common/DropDown';
 import NewsCard from '../../componentName/NewsCard';
 
 type NewsScreenProps = {
-  navigation: any
+  navigation: NavigationProp<ParamListBase>;
 };
 
 export type Filter = {

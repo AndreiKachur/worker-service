@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-interface AuthData {
+type AuthData = {
   displayName: string;
   email: string;
   expiresIn: string;
@@ -9,13 +9,13 @@ interface AuthData {
   localId: string;
   refreshToken: string;
   registered: boolean;
-}
+};
 
-interface Body {
+type Body = {
   email: string;
   password: string;
   returnSecureToken: boolean;
-}
+};
 
 const service = {
   getAuthData(body: Body): Promise<AuthData> {

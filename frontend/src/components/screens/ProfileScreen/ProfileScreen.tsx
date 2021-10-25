@@ -5,6 +5,7 @@ import React, {
 import { View, Text, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { Avatar } from 'react-native-paper';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 import Button from '../../common/Button';
 import authStore from '../../../stores/authStore';
@@ -13,7 +14,11 @@ import styles from './ProfileScreen.styles';
 
 const windowWidth = Dimensions.get('window').width;
 
-const ProfileScreen: React.FC<any> = ({ navigation }) => {
+type ProfileScreenProps = {
+  navigation: NavigationProp<ParamListBase>;
+};
+
+const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
   useEffect(() => { userStore.setOpenProfileScreen(); }, []);
   useLayoutEffect(() => {
     navigation.setOptions({

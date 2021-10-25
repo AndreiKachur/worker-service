@@ -3,16 +3,17 @@ import {
   View, Text, Pressable, Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 import styles from './NewsCard.styles';
 import User from '../../../stores/models/user';
 
 type NewsCardProps = {
-  navigation: any;
+  navigation: NavigationProp<ParamListBase>;
   post: Post
 };
 
-type Post = {
+export type Post = {
   id: string,
   private: boolean,
   title: string,

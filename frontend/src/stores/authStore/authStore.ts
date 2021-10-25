@@ -54,7 +54,7 @@ class AuthStore {
 
   async setPushAuthButton(body: Body) {
     await service.getAuthData(body)
-      .then((data) => {
+      .then((data: AuthData) => {
         this.setAuthTrue();
         this.setAuthData(data);
         this.setSaveToken(data);

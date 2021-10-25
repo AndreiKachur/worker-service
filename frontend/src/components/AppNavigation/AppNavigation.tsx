@@ -10,7 +10,7 @@ const MyStack = observer(() => (!authStore.auth ? <NavigationPublic /> : <Naviga
 
 authStore.setAutoLogin();
 
-const AppNavigation = () => (
+const AppNavigation: React.FC = () => (
   <NavigationContainer>
     <MyStack />
   </NavigationContainer>
