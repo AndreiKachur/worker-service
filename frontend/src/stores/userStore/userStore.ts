@@ -45,6 +45,12 @@ class UserStore {
     this.userData.mail = userData.mail;
     this.userData.telephoneNumber = userData.telephoneNumber;
   }
+
+  setChangeUserData(fullName: string, telephoneNumber: string, avatarUri?: string) {
+    if (avatarUri) {this.userData.avatar = avatarUri};
+    this.userData.fullName = fullName;
+    this.userData.telephoneNumber = telephoneNumber;
+  }
 }
 
 export default new UserStore();
