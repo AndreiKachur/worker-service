@@ -45,6 +45,7 @@ const EditProfileScreen: React.FC = () => {
       Alert.alert('Успешно!');
     } if ((fullNameValue || telephoneNumberValue) && avatarFile.uri) {
       userStore.setChangeUserData(fullNameValue, telephoneNumberValue, avatarFile.uri);
+      Alert.alert('Успешно!');
     } else {
       Alert.alert('Поля "ФИО" и "Номер телефона" не могут быть пустыми!');
     }
