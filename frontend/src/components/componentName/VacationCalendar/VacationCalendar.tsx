@@ -6,7 +6,6 @@ import { getHolidays, holidaysList } from './getHolidays';
 import localeData from './localeData';
 import Day from '../models/day';
 import vacationStore from '../../../stores/vacationStore';
-import colors from '../../../themes';
 import getPeriod from './buildPeriod';
 
 type VacationCalendarProps = {

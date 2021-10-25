@@ -11,7 +11,7 @@ export type Commentary = {
     id: string,
     content: string,
     createdAt: string,
-    author: User
+    author: User //depend one
 }
 
 export type News = {
@@ -19,37 +19,38 @@ export type News = {
     private: boolean,
     title: string,
     content: string,
-    createdAt: User,
-    publicDate: string,
+    createdAt: string, //depend one
     image: string,
-    views: number,
-    likes: number,
-    comments: Array<Commentary>,
-    author?: string
+    views: User[],
+    likes: User[],
+    comments: Array<Commentary>, //depend many
+    author: User
 }
 
 export type Vacation = {
-    id: string,
-    user: User,
-    thisYear: VacationTime,
-    nextYear?: VacationTime
-}
-
-export type VacationTime = {
-    daysAmount: number,
+    id: number,
+    user: User,//one to one
+    region: 'common',
     restDaysAmount: number,
-    planned: VacationDate[],
-    inquire?: VacationDate[]
+    planned: VacationDate[],//one to many
 }
 
 export type VacationDate = {
+    id: number,
     start: string,
     end: string,
     duration: number
 }
 
-export type WorkDaysData = {
+export type WorkDays = {
     id: number,
-    user: User,
-    days: any,
+    user: User, //one to one
+    days: WorkDay[],//one to many
+}
+
+export type WorkDay = {
+    id: number,
+    name: string,
+    date: string,
+    hours: number,
 }

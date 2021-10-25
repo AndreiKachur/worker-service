@@ -11,6 +11,7 @@ import userStore from '../../../stores/userStore';
 
 const windowWidth = Dimensions.get('window').width;
 
+
 const EditProfileScreen: React.FC = () => {
   const [avatarFile, setAvatarFile] = useState({ uri: '', name: '' });
   const [fullNameValue, setFullNameValue] = useState(userStore.userData.fullName);
@@ -40,6 +41,7 @@ const EditProfileScreen: React.FC = () => {
   };
 
   const saveNewUserData = () => {
+<<<<<<< HEAD
     if ((fullNameValue || telephoneNumberValue) && !avatarFile.uri) {
       userStore.setChangeUserData(fullNameValue, telephoneNumberValue);
       Alert.alert('Успешно!');
@@ -48,6 +50,15 @@ const EditProfileScreen: React.FC = () => {
       Alert.alert('Успешно!');
     } else {
       Alert.alert('Поля "ФИО" и "Номер телефона" не могут быть пустыми!');
+=======
+    if (fullNameValue || telephoneNumberValue && !avatarFile.uri) {
+      userStore.setChangeUserData(fullNameValue, telephoneNumberValue);
+      Alert.alert('Успешно!');
+    } if (fullNameValue || telephoneNumberValue && avatarFile.uri) {
+      userStore.setChangeUserData(fullNameValue, telephoneNumberValue, avatarFile.uri);
+    } else {
+      Alert.alert('Поля ФИО и Номер телефона не могут быть пустыми!');
+>>>>>>> develop
     }
   };
 

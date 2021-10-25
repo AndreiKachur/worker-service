@@ -24,7 +24,7 @@ const WorkDaysItem: React.FC<WorkDaysItemProps> = ({
     return new Date(+new Date() + 1000 * 60 * 60 * 24 * daysNumber);
   }
 
-  if (new Date(item.date) <= getDateFromNow(changeableDaysAmount - 1)) {
+  if (new Date(item.date) <= getDateFromNow(changeableDaysAmount)) {
     return (
       <WorkDaysItemText item={item} pastDate />
     );

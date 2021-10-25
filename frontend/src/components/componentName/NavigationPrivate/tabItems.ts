@@ -47,7 +47,7 @@ export const vacationTabs: Item[] = [
     component: VacationInfoScreen,
     headerTitle: 'Инфо',
     tabBarLabel: 'Инфо',
-    tabBarBadge: 3,
+    // tabBarBadge: 3,
     iconLib: 'AntDesign',
     iconName: 'infocirlce',
   },
