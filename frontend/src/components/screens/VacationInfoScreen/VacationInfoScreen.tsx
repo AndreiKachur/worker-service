@@ -12,19 +12,22 @@ type VacactionInfoProps = {};
 
 const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
   const { planned } = vacationStore.data;
+  const dates = vacationStore.data_.dates;
+  console.log(dates);
+
 
   const data = [
     {
       title: 'Запросы на рассмотрении:',
       items: [
         {
-          start: planned[0].start,
-          end: planned[0].end,
+          start: dates[0].start,
+          end: dates[0].end,
           status: 'передано',
         },
         {
-          start: planned[0].start,
-          end: planned[0].end,
+          start: dates[0].start,
+          end: dates[0].end,
           status: 'оформление',
         },
       ],
@@ -33,8 +36,8 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
       title: 'Оформленные отпуска:',
       items: [
         {
-          start: planned[0].start,
-          end: planned[0].end,
+          start: dates[0].start,
+          end: dates[0].end,
           status: 'оформлено',
         },
       ],
@@ -43,8 +46,8 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
       title: 'Архив отпусков:',
       items: [
         {
-          start: planned[0].start,
-          end: planned[0].end,
+          start: dates[0].start,
+          end: dates[0].end,
           status: 'исполнено',
         },
       ],

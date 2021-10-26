@@ -16,6 +16,9 @@ const service = {
         holidays: res.data.holidays,
       })));
   },
+  getVacation_(): Promise<GetVacationType> {
+    return axios.get(`${baseApiUrl}/api/vacation?id=ZM3F7zvqKJWdciJU1U7b4UHism53`)
+  },
 };
 
 export default service;

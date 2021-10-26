@@ -29,6 +29,8 @@ class VacationStore {
     },
   };
 
+  data_: any = {}
+
   constructor() {
     makeObservable(this, {
       data: observable,
@@ -42,10 +44,18 @@ class VacationStore {
         this.setVacation(d.vacation);
         this.setHolidays(d.holidays);
       });
+    service.getVacation_()
+      .then((d) => {
+        this.setVacation_(d.data)
+
+      });
   }
 
   setVacation(vacationData: VacationData) {
     this.data = vacationData;
+  }
+  setVacation_(d: any) {
+    this.data_ = d;
   }
 
   setHolidays(holidaysData: Holidays) {

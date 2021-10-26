@@ -3,9 +3,9 @@ const router = Router()
 
 const vacationController = require('../controllers/vacationController')
 
-router.get('/', vacationController.getVacation)
+router.get('/', vacationController.getAll)
 
-router.post('/', vacationController.addForm)
+router.post('/', vacationController.add)
 
 router.put('/cancel',)
 
