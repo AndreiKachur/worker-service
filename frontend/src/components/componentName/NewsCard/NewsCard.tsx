@@ -24,7 +24,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ pieceOfNews, navigation }) => (
         <Text style={styles.date}>{pieceOfNews.createdAt}</Text>
         <View style={styles.iconBox}>
           <Icon style={styles.views} name="eye"> {pieceOfNews.views.length}</Icon>
-          <Icon style={styles.comments} name="comments"> {pieceOfNews.comments.length}</Icon>
+          <Icon style={styles.comments} name="comment"> {pieceOfNews.comments.length}</Icon>
           <Icon style={styles.likes} name="heart"> {pieceOfNews.likes.length}</Icon>
         </View>
       </View>
