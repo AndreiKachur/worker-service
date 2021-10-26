@@ -1,17 +1,17 @@
-import axios from 'axios';
-import { Alert } from 'react-native';
+import axios, { AxiosResponse } from 'axios';
+// import { Alert } from 'react-native';
 
 import baseApiUrl from '../../ipconfig';
 import { News } from './newsStore.models';
 
 const service = {
-  getNews(): Promise<News[]> {
-    return axios.get(`${baseApiUrl}/api`)
-      .then(((res: any) => res.data.newsData))
-      .catch((error) => {
-        Alert.alert('Network error');
-        console.log(`Api call error: ${error}`);
-      });
+  async getNews(): Promise<News[]> {
+    return axios.get(`${baseApiUrl}/news`)
+      .then((res: AxiosResponse<News[]>) => (res.data));
+    // .catch((error) => {
+    //   Alert.alert('Network error');
+    //   console.log(`Api call error: ${error}`);
+    // });
   },
 };
 

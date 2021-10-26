@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const data = require('./data/data.js');
 const usersData = require('./data/usersData.js');
+const newsData = require('./data/newsData.js');
 const http = require('http');
 const workdays = require('./routes/workdaysRouter');
 const vacation = require('./routes/vacationRouter');
@@ -50,6 +51,9 @@ app.use('/vacation', vacation)
 
 app.get('/api', async (req, res) => {
   res.json(data)
+})
+app.get('/news', async (req, res) => {
+  res.json(newsData)
 })
 app.get('/api/user/:id', async (req, res) => {
   const id = req.params.id;

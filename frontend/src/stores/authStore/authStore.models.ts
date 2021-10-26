@@ -1,12 +1,12 @@
 export type AuthData = {
-  displayName: string;
-  email: string;
-  expiresIn: string;
+  displayName?: string;
+  email?: string;
+  expiresIn?: string;
   idToken: string;
-  kind: string;
+  kind?: string;
   localId: string;
-  refreshToken: string;
-  registered: boolean;
+  refreshToken?: string;
+  registered?: boolean;
 };
 
 export type Body = {

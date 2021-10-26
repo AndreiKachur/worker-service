@@ -4,9 +4,7 @@ import service from './newsStore.service';
 import { News } from './newsStore.models';
 
 class NewsStore {
-  news: News[] = [{
-    id: '', private: false, title: '', content: '',
-  }];
+  news: News[] | [] = [];
 
   constructor() {
     makeAutoObservable(this);
@@ -15,8 +13,8 @@ class NewsStore {
       .then((d) => this.setNews(d));
   }
 
-  setNews(news: News[]) {
-    this.news = news;
+  setNews(data: News[]) {
+    this.news = data;
   }
 }
 
