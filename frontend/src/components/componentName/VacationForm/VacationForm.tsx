@@ -19,7 +19,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
   const [endDate, setEndDate] = useState<Day>();
   const [isEndDay, setIsEndDay] = useState(false);
   const [daysInterval, setDaysInterval] = useState<any>({});
-  const { submitVacation } = vacationStore
+  const { submitVacation } = vacationStore;
 
   const computeDaysAmount = () => {
     if (!startDate || !endDate) return;
@@ -43,7 +43,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
   };
 
   const submitForm = async () => {
-    setSpinner(true)
+    setSpinner(true);
     if (vacationDaysAmount <= 0) {
       Alert.alert(
         `Выбранное количество дней: ${vacationDaysAmount}`,
@@ -53,8 +53,8 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
     }
 
     if (startDate && endDate) {
-      submitVacation(startDate.dateString, endDate.dateString, vacationDaysAmount)
-      setDate(undefined)
+      submitVacation(startDate.dateString, endDate.dateString, vacationDaysAmount);
+      setDate(undefined);
       setTimeout(() => {
         Alert.alert('Ваша заявка принята к рассмотрению.');
         setSpinner(false);

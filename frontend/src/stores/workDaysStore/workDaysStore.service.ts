@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { Alert } from 'react-native';
 
 import baseApiUrl from '../../ipconfig';
 import { WorkDaysData } from './workDaysStore.models';

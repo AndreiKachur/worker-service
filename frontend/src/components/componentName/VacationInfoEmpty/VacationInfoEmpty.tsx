@@ -13,7 +13,6 @@ const VacationInfoEmpty: React.FC<VacationInfoBlockProps> = () => (
     <Text style={styles.textBold}>Данные отсутствуют</Text>
     <Separator />
   </View>
-)
-
+);
 
 export default VacationInfoEmpty;

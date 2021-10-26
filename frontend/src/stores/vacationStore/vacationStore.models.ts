@@ -1,4 +1,3 @@
-
 export type VacationData = {
   region: string,
   restDaysAmount: number,

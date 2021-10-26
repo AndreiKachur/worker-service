@@ -29,7 +29,7 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
     setDate,
     isEndDay,
     daysInterval,
-    setDaysInterval
+    setDaysInterval,
   },
 ) => {
   const [holidays, setHolidays] = useState<any>(holidaysList);

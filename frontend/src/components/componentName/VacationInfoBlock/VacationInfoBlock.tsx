@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 
 import Separator from '../../common/Separator';
 import ButtonCancel from '../ButtonCancel';
-import VacationInfoEmpty from '../VacationInfoEmpty'
+import VacationInfoEmpty from '../VacationInfoEmpty';
 import styles from './VacationInfoBlock.styles';
 
 type VacationInfoBlockProps = {
@@ -14,16 +14,13 @@ type VacationInfoBlockProps = {
 
 const VacationInfoBlock: React.FC<VacationInfoBlockProps> = ({
   data, submitForm,
-}) => {
-
-
-  return (
-    <View>
-      <Text style={styles.header}>{data.title} </Text>
-      {
+}) => (
+  <View>
+    <Text style={styles.header}>{data.title} </Text>
+    {
         !data.items.length && <VacationInfoEmpty />
       }
-      {
+    {
         data.items.map((item: any) => {
           const { status } = item;
 
@@ -40,16 +37,14 @@ const VacationInfoBlock: React.FC<VacationInfoBlockProps> = ({
               {
                 (status === 'На рассмотрении'
                   || status === 'Отмена - на рассмотрении')
-                &&
-                <Text style={styles.text}>Статус: {item.status} </Text>
+                && <Text style={styles.text}>Статус: {item.status} </Text>
               }
               <Separator />
             </View>
           );
         })
       }
-    </View>
-  )
-};
+  </View>
+);
 
 export default observer(VacationInfoBlock);

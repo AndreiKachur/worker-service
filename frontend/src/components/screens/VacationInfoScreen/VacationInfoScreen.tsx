@@ -14,18 +14,17 @@ type Item = {
   end: string,
   duration: number,
   status: string,
-}
+};
 
 type Data = {
   title: string,
   items: Item[]
-}
+};
 
 const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
-
   const { dates } = vacationStore.data;
   const { cancelVacation } = vacationStore;
-  const dateNow = + Date.now();
+  const dateNow = +Date.now();
 
   const data: Data[] = [
     {
@@ -40,26 +39,21 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
       title: 'Архив отпусков:',
       items: [],
     },
-  ]
+  ];
 
   dates.forEach((item: Item) => {
-
     if (+new Date(item.start) < dateNow) {
-      data[2].items.push(item)
+      data[2].items.push(item);
+    } else if (item.status === 'Оформлено') {
+      data[1].items.push(item);
     } else {
-      if (item.status === 'Оформлено') {
-        data[1].items.push(item)
-      } else {
-        data[0].items.push(item)
-      }
+      data[0].items.push(item);
     }
-  })
+  });
 
   data.forEach((d, i) => {
-    data[i].items = d.items.sort((a, b) => {
-      return +new Date(a.start) - (+new Date(b.start))
-    })
-  })
+    data[i].items = d.items.sort((a, b) => +new Date(a.start) - (+new Date(b.start)));
+  });
 
   const [spinner, setSpinner] = useState(false);
 
@@ -70,8 +64,8 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
       [{
         text: 'Да',
         onPress: () => {
-          setSpinner(true)
-          cancelVacation(id)
+          setSpinner(true);
+          cancelVacation(id);
           setTimeout(() => {
             Alert.alert('Ваша заявка принята к рассмотрению.');
             setSpinner(false);
@@ -88,14 +82,13 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
     <ScrollView>
       <View style={styles.mainWrapper}>
         <View>
-          {data.map((item: Data) => {
-            return (
-              <VacationInfoBlock
-                key={item.title}
-                data={item}
-                submitForm={submitForm} />
-            )
-          })}
+          {data.map((item: Data) => (
+            <VacationInfoBlock
+              key={item.title}
+              data={item}
+              submitForm={submitForm}
+            />
+          ))}
         </View>
       </View>
     </ScrollView>
