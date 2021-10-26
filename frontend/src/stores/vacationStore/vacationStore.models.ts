@@ -10,6 +10,7 @@ export type VacationInfo = {
   restDaysAmount: number,
 };
 export type VacationDates = {
+  id: number,
   start: string,
   end: string,
   duration: number,

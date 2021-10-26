@@ -3,9 +3,7 @@ import { View, ScrollView, Alert } from 'react-native';
 import { observer } from 'mobx-react-lite';
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
-import userStore from '../../../stores/userStore/userStore';
 import VacationInfoBlock from '../../componentName/VacationInfoBlock';
-import sendForm from '../../common/sendForm';
 import Spinner from '../../common/Spinner';
 import styles from './VacationInfoScreen.styles';
 
@@ -26,6 +24,7 @@ type Data = {
 const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
 
   const { dates } = vacationStore.data;
+  const { cancelVacation } = vacationStore;
   const dateNow = + Date.now();
 
   const data: Data[] = [
@@ -56,15 +55,21 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
     }
   })
 
+  data.forEach((d, i) => {
+    data[i].items = d.items.sort((a, b) => {
+      return +new Date(a.start) - (+new Date(b.start))
+    })
+  })
+
   const [spinner, setSpinner] = useState(false);
 
-  const submitForm = () => {
+  const submitForm = (id: number) => {
     Alert.alert(
       'Внимание!',
       'Вы уверены, что хотите отменить?',
       [{
         text: 'Да',
-        onPress: () => sendForm('vacation', setSpinner, { info: 'VacationInfo' }),
+        onPress: () => cancelVacation(id),
       },
       { text: 'Нет', onPress: () => { } }],
     );
@@ -76,7 +81,14 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
     <ScrollView>
       <View style={styles.mainWrapper}>
         <View>
-          {data.map((item: Data) => <VacationInfoBlock key={item.title} data={item} submitForm={submitForm} />)}
+          {data.map((item: Data) => {
+            return (
+              <VacationInfoBlock
+                key={item.title}
+                data={item}
+                submitForm={submitForm} />
+            )
+          })}
         </View>
       </View>
     </ScrollView>

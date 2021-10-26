@@ -11,6 +11,7 @@ class VacationStore {
     region: '',
     restDaysAmount: 0,
     dates: [{
+      id: 0,
       start: '',
       end: '',
       duration: 0,
@@ -35,6 +36,8 @@ class VacationStore {
       holidaysData: observable,
       setVacation: action.bound,
       setHolidays: action.bound,
+      submitVacation: action.bound,
+      cancelVacation: action.bound
     });
 
     service.getHolidays()
@@ -50,6 +53,15 @@ class VacationStore {
 
   setHolidays(holidaysData: Holidays) {
     this.holidaysData = holidaysData;
+  }
+
+  submitVacation(start: string, end: string, duration: number) {
+    service.sendVacation(start, end, duration)
+      .then(d => this.setVacation(d))
+  }
+  cancelVacation(id: number) {
+    service.updateVacation(id)
+      .then(d => this.setVacation(d))
   }
 }
 

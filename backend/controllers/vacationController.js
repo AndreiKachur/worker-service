@@ -2,31 +2,38 @@ const { Vacation } = require('../models/models')
 const { VacationDate } = require('../models/models')
 const ApiError = require('../error/ApiError')
 
+async function vacationFormat(id) {
+    const vacationDate = await VacationDate.findAll({ where: { userId: id } })
+    const vacation = await Vacation.findAll({ where: { userId: id } })
+    const vacationDateFormat = vacationDate.map(item => {
+        return (
+            {
+                id: item.id,
+                start: item.start,
+                end: item.end,
+                duration: item.duration,
+                status: item.status
+            }
+        )
+    })
+
+    return {
+        region: vacation[0].region,
+        restDaysAmount: vacation[0].restDaysAmount,
+        dates: vacationDateFormat
+    }
+}
+
 class VacationController {
 
     async getAll(req, res) {
         const { id } = req.query
+
         if (!id) {
             return next(ApiError.badRequest('Не задан ID'))
         }
-        const vacationDate = await VacationDate.findAll({ where: { userId: id } })
-        const vacation = await Vacation.findAll({ where: { userId: id } })
-        const vacationDateFormat = vacationDate.map(item => {
-            return (
-                {
-                    start: item.start,
-                    end: item.end,
-                    duration: item.duration,
-                    status: item.status
-                }
-            )
-        })
-
-        res.json({
-            region: vacation[0].region,
-            restDaysAmount: vacation[0].restDaysAmount,
-            dates: vacationDateFormat
-        })
+        const data = await vacationFormat(id)
+        res.json(data)
     }
 
     async add(req, res, next) {
@@ -36,11 +43,12 @@ class VacationController {
             if (!userId) {
                 return next(ApiError.badRequest('Не задан ID'))
             }
-            const vacationDate = await VacationDate.create({
+            await VacationDate.create({
                 start, end, duration, status, userId
             })
 
-            return res.json(vacationDate)
+            const data = await vacationFormat(userId)
+            res.json(data)
 
         } catch (e) {
 
@@ -49,26 +57,27 @@ class VacationController {
         }
     }
 
-    // async update(req, res, next) {
-    //     try {
+    async update(req, res, next) {
+        try {
 
-    //         const { start, end, duration, status, id } = req.body
-    //         if (!userId) {
-    //             return next(ApiError.badRequest('Не задан ID'))
-    //         }
-    //         const vacationDate = await VacationDate.update({
-    //             start, end, duration, status, userId
-    //         })
+            const { id, userId } = req.body
+            if (!id) {
+                return next(ApiError.badRequest('Не задан ID'))
+            }
+            await VacationDate.update(
+                { status: 'Отмена - на рассмотрении' },
+                { where: { id: id } }
+            )
+            const data = await vacationFormat(userId)
+            res.json(data)
 
-    //         return res.json(vacationDate)
+        } catch (e) {
 
-    //     } catch (e) {
+            next(ApiError.badRequest(e.message))
 
-    //         next(ApiError.badRequest(e.message))
+        }
 
-    //     }
-
-    // }
+    }
 
 }
 

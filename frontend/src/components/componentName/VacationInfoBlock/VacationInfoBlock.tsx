@@ -8,7 +8,7 @@ import VacationInfoEmpty from '../VacationInfoEmpty'
 import styles from './VacationInfoBlock.styles';
 
 type VacationInfoBlockProps = {
-  submitForm: () => void,
+  submitForm: (id: number) => void,
   data: any
 };
 
@@ -28,15 +28,19 @@ const VacationInfoBlock: React.FC<VacationInfoBlockProps> = ({
           const { status } = item;
 
           return (
-            <View key={status}>
+            <View key={item.start + Math.random()}>
               <View style={styles.vacationCard}>
                 <Text style={styles.textBold}>
                   с {item.start} по {item.end}
                 </Text>
-                {status !== 'Исполнено' && <ButtonCancel submitForm={submitForm} />}
+                {(status !== 'Исполнено'
+                  && status !== 'Отмена - на рассмотрении')
+                  && <ButtonCancel submitForm={() => submitForm(item.id)} />}
               </View>
               {
-                status === 'На рассмотрении' &&
+                (status === 'На рассмотрении'
+                  || status === 'Отмена - на рассмотрении')
+                &&
                 <Text style={styles.text}>Статус: {item.status} </Text>
               }
               <Separator />

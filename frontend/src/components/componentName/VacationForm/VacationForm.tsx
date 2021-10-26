@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Alert } from 'react-native';
+import { observer } from 'mobx-react-lite';
 
-import sendForm from '../../common/sendForm';
 import VacationCalendar from '../VacationCalendar';
 import VacationFormText from '../VacationFormText';
 import Day from '../models/day';
 import styles from './VacationForm.styles';
+import vacationStore from '../../../stores/vacationStore';
 
 type VacationFormProps = {
   setSpinner: React.Dispatch<React.SetStateAction<boolean>>;
@@ -16,6 +17,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
   const [holidaysInPeriod, setHolidaysInPeriod] = useState(0);
   const [startDate, setStartDate] = useState<Day>();
   const [endDate, setEndDate] = useState<Day>();
+  const { submitVacation } = vacationStore
 
   const computeDaysAmount = () => {
     if (!startDate || !endDate) return;
@@ -38,8 +40,10 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
       endDate,
       duration: vacationDaysAmount,
     };
-
-    sendForm('vacation', setSpinner, data);
+    if (startDate && endDate) {
+      submitVacation(startDate.dateString, endDate.dateString, vacationDaysAmount)
+    }
+    setSpinner(false)
   };
 
   useEffect(() => {
@@ -71,4 +75,4 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
   );
 };
 
-export default VacationForm;
+export default observer(VacationForm);
