@@ -7,6 +7,6 @@ router.get('/', vacationController.getAll)
 
 router.post('/', vacationController.add)
 
-router.put('/cancel',)
+// router.put('/cancel', vacationController.update)
 
 module.exports = router

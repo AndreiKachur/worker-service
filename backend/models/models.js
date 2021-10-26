@@ -48,6 +48,7 @@ const VacationDate = sequelize.define('vacationdate', {
     start: { type: DataTypes.STRING, allowNull: false },
     end: { type: DataTypes.STRING, allowNull: false },
     duration: { type: DataTypes.INTEGER, allowNull: false },
+    status: { type: DataTypes.STRING, defaultValue: 'На рассмотрении' },
 })
 
 const Holidays = sequelize.define('holiday', {

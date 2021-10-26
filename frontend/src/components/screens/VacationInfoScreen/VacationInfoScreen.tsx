@@ -3,6 +3,7 @@ import { View, ScrollView, Alert } from 'react-native';
 import { observer } from 'mobx-react-lite';
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
+import userStore from '../../../stores/userStore/userStore';
 import VacationInfoBlock from '../../componentName/VacationInfoBlock';
 import sendForm from '../../common/sendForm';
 import Spinner from '../../common/Spinner';
@@ -10,49 +11,50 @@ import styles from './VacationInfoScreen.styles';
 
 type VacactionInfoProps = {};
 
+type Item = {
+  start: string,
+  end: string,
+  duration: number,
+  status: string,
+}
+
+type Data = {
+  title: string,
+  items: Item[]
+}
+
 const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
-  const { planned } = vacationStore.data;
-  const dates = vacationStore.data_.dates;
-  console.log(dates);
 
+  const { dates } = vacationStore.data;
+  const dateNow = + Date.now();
 
-  const data = [
+  const data: Data[] = [
     {
       title: 'Запросы на рассмотрении:',
-      items: [
-        {
-          start: dates[0].start,
-          end: dates[0].end,
-          status: 'передано',
-        },
-        {
-          start: dates[0].start,
-          end: dates[0].end,
-          status: 'оформление',
-        },
-      ],
+      items: [],
     },
     {
       title: 'Оформленные отпуска:',
-      items: [
-        {
-          start: dates[0].start,
-          end: dates[0].end,
-          status: 'оформлено',
-        },
-      ],
+      items: [],
     },
     {
       title: 'Архив отпусков:',
-      items: [
-        {
-          start: dates[0].start,
-          end: dates[0].end,
-          status: 'исполнено',
-        },
-      ],
+      items: [],
     },
-  ];
+  ]
+
+  dates.forEach((item: Item) => {
+
+    if (+new Date(item.start) < dateNow) {
+      data[2].items.push(item)
+    } else {
+      if (item.status === 'Оформлено') {
+        data[1].items.push(item)
+      } else {
+        data[0].items.push(item)
+      }
+    }
+  })
 
   const [spinner, setSpinner] = useState(false);
 
@@ -74,7 +76,7 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
     <ScrollView>
       <View style={styles.mainWrapper}>
         <View>
-          {data.map((item) => <VacationInfoBlock key={item.title} data={item} submitForm={submitForm} />)}
+          {data.map((item: Data) => <VacationInfoBlock key={item.title} data={item} submitForm={submitForm} />)}
         </View>
       </View>
     </ScrollView>

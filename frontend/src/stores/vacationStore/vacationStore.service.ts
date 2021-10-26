@@ -1,23 +1,18 @@
 import axios from 'axios';
+import AsyncStorage from '@react-native-community/async-storage';
 
 import baseApiUrl from '../../ipconfig';
 import { VacationData, Holidays } from './vacationStore.models';
 
-type GetVacationType = {
-  vacation: VacationData,
-  holidays: Holidays
-};
-
 const service = {
-  getVacation(): Promise<GetVacationType> {
+  getHolidays(): Promise<Holidays> {
     return axios.get(`${baseApiUrl}/api`)
-      .then(((res: any) => ({
-        vacation: res.data.vacation[0],
-        holidays: res.data.holidays,
-      })));
+      .then(((res: any) => res.data.holidays))
   },
-  getVacation_(): Promise<GetVacationType> {
-    return axios.get(`${baseApiUrl}/api/vacation?id=ZM3F7zvqKJWdciJU1U7b4UHism53`)
+  async getVacation(): Promise<VacationData> {
+    const userId = await AsyncStorage.getItem('userId');
+    return axios.get(`${baseApiUrl}/api/vacation?id=${userId}`)
+      .then((res: any) => res.data)
   },
 };
 
