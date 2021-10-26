@@ -31,8 +31,8 @@ class UserStore {
       .then((data) => {
         this.setUserData(data);
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((error) => {
+        console.log(error);
         Alert.alert('Ошибка загрузки данных пользователя');
       });
   }

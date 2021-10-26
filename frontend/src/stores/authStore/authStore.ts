@@ -43,8 +43,8 @@ class AuthStore {
         this.setAuthData(data);
         this.setSaveToken(data);
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((error) => {
+        console.log(error);
         Alert.alert('Неверный Email или пароль');
       });
   }
