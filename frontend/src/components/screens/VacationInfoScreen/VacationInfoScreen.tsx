@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 
 import vacationStore from '../../../stores/vacationStore/vacationStore';
 import VacationInfoBlock from '../../componentName/VacationInfoBlock';
+import getVacationInfoData from './getVacationInfoData';
 import Spinner from '../../common/Spinner';
 import styles from './VacationInfoScreen.styles';
 
@@ -24,38 +25,9 @@ type Data = {
 const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
   const { dates } = vacationStore.data;
   const { cancelVacation } = vacationStore;
-  const dateNow = +Date.now();
-
-  const data: Data[] = [
-    {
-      title: 'Запросы на рассмотрении:',
-      items: [],
-    },
-    {
-      title: 'Оформленные отпуска:',
-      items: [],
-    },
-    {
-      title: 'Архив отпусков:',
-      items: [],
-    },
-  ];
-
-  dates.forEach((item: Item) => {
-    if (+new Date(item.start) < dateNow) {
-      data[2].items.push(item);
-    } else if (item.status === 'Оформлено') {
-      data[1].items.push(item);
-    } else {
-      data[0].items.push(item);
-    }
-  });
-
-  data.forEach((d, i) => {
-    data[i].items = d.items.sort((a, b) => +new Date(a.start) - (+new Date(b.start)));
-  });
-
   const [spinner, setSpinner] = useState(false);
+
+  const data = getVacationInfoData(dates);
 
   const submitForm = (id: number) => {
     Alert.alert(
