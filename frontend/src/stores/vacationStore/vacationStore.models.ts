@@ -1,4 +1,4 @@
-import User from '../models/user';
+import User from '../userStore/userStore.models';
 
 export type VacationData = {
   id: number,

@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
 import service from './newsStore.service';
-import { News } from './newsStore.model';
+import { News } from './newsStore.models';
 
 class NewsStore {
   news: News[] = [{

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Alert } from 'react-native';
 
 import baseApiUrl from '../../ipconfig';
-import { News } from './newsStore.model';
+import { News } from './newsStore.models';
 
 const service = {
   getNews(): Promise<News[]> {

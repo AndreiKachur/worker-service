@@ -51,6 +51,7 @@ export default StyleSheet.create({
     backgroundColor: `${colors.primaryOpacity}`,
   },
   date: {
+    fontSize: 15,
     color: 'rgb(255, 255, 255)',
   },
   iconBox: {
@@ -60,11 +61,15 @@ export default StyleSheet.create({
 
   },
   comments: {
-
+    fontSize: 15,
+    marginLeft: 5,
+    marginRight: 15,
   },
   likes: {
+    fontSize: 15,
   },
   views: {
+    fontSize: 15,
     marginLeft: 5,
     marginRight: 10,
   },

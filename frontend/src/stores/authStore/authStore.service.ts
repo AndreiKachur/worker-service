@@ -1,21 +1,6 @@
 import axios from 'axios';
 
-type AuthData = {
-  displayName: string;
-  email: string;
-  expiresIn: string;
-  idToken: string;
-  kind: string;
-  localId: string;
-  refreshToken: string;
-  registered: boolean;
-};
-
-type Body = {
-  email: string;
-  password: string;
-  returnSecureToken: boolean;
-};
+import { AuthData, Body } from './authStore.models';
 
 const service = {
   getAuthData(body: Body): Promise<AuthData> {

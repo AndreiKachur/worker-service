@@ -5,10 +5,10 @@ import {
 } from 'react-native';
 
 import styles from './PieceOfNewsScreen.styles';
-import { Post } from '../../componentName/NewsCard/NewsCard';
+import { News } from '../../../stores/newsStore/newsStore.models';
 
 type PieceOfNewsProps = {
-  route: RouteProp<{ params: Post }>
+  route: RouteProp<{ params: News }>
 };
 
 const PieceOfNewsScreen: React.FC<PieceOfNewsProps> = ({ route }) => (

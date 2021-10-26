@@ -6,50 +6,30 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 import styles from './NewsCard.styles';
-import User from '../../../stores/models/user';
+import { News } from '../../../stores/newsStore/newsStore.models';
 
 type NewsCardProps = {
   navigation: NavigationProp<ParamListBase>;
-  post: Post
+  pieceOfNews: News
 };
 
-export type Post = {
-  id: string,
-  private: boolean,
-  title: string,
-  content: string,
-  createdAt?: User,
-  publicDate?: string,
-  image?: string,
-  views?: number,
-  likes?: number,
-  comments?: Array<Commentary>,
-  author?: string
-};
-
-type Commentary = {
-  id: string,
-  content: string,
-  createdAt: string,
-  author: User
-};
-
-const NewsCard: React.FC<NewsCardProps> = ({ post, navigation }) => (
+const NewsCard: React.FC<NewsCardProps> = ({ pieceOfNews, navigation }) => (
   <Pressable onPress={() => {
-    navigation.navigate('PieceOfNews', post);
+    navigation.navigate('PieceOfNews', pieceOfNews);
   }}
   >
     <View style={styles.post}>
-      <Image resizeMethod="scale" source={{ uri: post.image }} style={styles.image} />
+      <Image resizeMethod="scale" source={{ uri: pieceOfNews.image }} style={styles.image} />
       <View style={styles.headerBox}>
-        <Text style={styles.date}>{post.publicDate}</Text>
+        <Text style={styles.date}>{pieceOfNews.createdAt}</Text>
         <View style={styles.iconBox}>
-          <Icon style={styles.views} name="eye"> {post.views}</Icon>
-          <Icon style={styles.likes} name="heart"> {post.likes}</Icon>
+          <Icon style={styles.views} name="eye"> {pieceOfNews.views.length}</Icon>
+          <Icon style={styles.comments} name="comments"> {pieceOfNews.comments.length}</Icon>
+          <Icon style={styles.likes} name="heart"> {pieceOfNews.likes.length}</Icon>
         </View>
       </View>
       <View style={styles.titleBox}>
-        <Text style={styles.titleText}>{post.title}</Text>
+        <Text style={styles.titleText}>{pieceOfNews.title}</Text>
       </View>
     </View>
   </Pressable>

@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express');
 const data = require('./data/data.js');
+const usersData = require('./data/usersData.js');
 const http = require('http');
 const workdays = require('./routes/workdaysRouter');
 const vacation = require('./routes/vacationRouter');

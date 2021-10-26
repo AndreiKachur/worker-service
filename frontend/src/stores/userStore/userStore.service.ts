@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import User from '../models/user';
+import User from './userStore.models';
 import baseApiUrl from '../../ipconfig';
 
 const service = {

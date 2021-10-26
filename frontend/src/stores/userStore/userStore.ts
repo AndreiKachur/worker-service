@@ -5,7 +5,7 @@ import { Alert } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import service from './userStore.service';
-import User from '../models/user';
+import User from './userStore.models';
 
 class UserStore {
   userData: User = {
@@ -33,7 +33,7 @@ class UserStore {
       })
       .catch((e) => {
         console.log(e);
-        Alert.alert('Ошибка загрузки данный пользователя');
+        Alert.alert('Ошибка загрузки данных пользователя');
       });
   }
 

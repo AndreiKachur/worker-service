@@ -4,24 +4,8 @@ import {
 import { Alert } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 
+import { AuthData, Body } from './authStore.models';
 import service from './authStore.service';
-
-type AuthData = {
-  displayName: string;
-  email: string;
-  expiresIn: string;
-  idToken: string;
-  kind: string;
-  localId: string;
-  refreshToken: string;
-  registered: boolean;
-};
-
-type Body = {
-  email: string;
-  password: string;
-  returnSecureToken: boolean;
-};
 
 class AuthStore {
   auth = false;
