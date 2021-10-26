@@ -39,7 +39,7 @@ const Like = sequelize.define('like', {
 
 const Vacation = sequelize.define('vacation', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    region: { type: DataTypes.STRING },
+    region: { type: DataTypes.STRING, defaultValue: 'Common' },
     restDaysAmount: { type: DataTypes.INTEGER },
 })
 
@@ -94,8 +94,8 @@ Like.belongsTo(News)
 User.hasOne(Vacation)
 Vacation.belongsTo(User)
 
-Vacation.hasMany(VacationDate)
-VacationDate.belongsTo(Vacation)
+User.hasMany(VacationDate)
+VacationDate.belongsTo(User)
 
 Vacation.belongsToMany(Holiday, { through: Holidays })
 Holiday.belongsToMany(Vacation, { through: Holidays })
