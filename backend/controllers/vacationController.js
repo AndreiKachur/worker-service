@@ -46,6 +46,16 @@ class VacationController {
             await VacationDate.create({
                 start, end, duration, status, userId
             })
+            const vacation = await Vacation.findOne({ where: { userId: userId } })
+
+            const { restDaysAmount } = vacation
+            const newRestDaysAmount = restDaysAmount - duration
+            console.log(newRestDaysAmount);
+
+            await Vacation.update(
+                { restDaysAmount: newRestDaysAmount },
+                { where: { userId: userId } }
+            )
 
             const data = await vacationFormat(userId)
             res.json(data)
