@@ -10,11 +10,12 @@ import getPeriod from './buildPeriod';
 
 type VacationCalendarProps = {
   setHolidaysInPeriod: React.Dispatch<React.SetStateAction<number>>,
-  setVacationDaysAmount: (days: number) => void;
   startDate?: Day;
-  setStartDate: React.Dispatch<React.SetStateAction<Day | undefined>>;
   endDate?: Day;
-  setEndDate: React.Dispatch<React.SetStateAction<Day | undefined>>;
+  setDate: (day: Day) => void;
+  isEndDay: boolean;
+  daysInterval: any;
+  setDaysInterval: React.Dispatch<any>
 };
 
 LocaleConfig.locales.ru = localeData;
@@ -23,15 +24,14 @@ LocaleConfig.defaultLocale = 'ru';
 const VacationCalendar: React.FC<VacationCalendarProps> = (
   {
     setHolidaysInPeriod,
-    setVacationDaysAmount,
     startDate,
     endDate,
-    setStartDate,
-    setEndDate,
+    setDate,
+    isEndDay,
+    daysInterval,
+    setDaysInterval
   },
 ) => {
-  const [isEndDay, setIsEndDay] = useState(false);
-  const [daysInterval, setDaysInterval] = useState<any>({});
   const [holidays, setHolidays] = useState<any>(holidaysList);
 
   useEffect(() => {
@@ -44,20 +44,6 @@ const VacationCalendar: React.FC<VacationCalendarProps> = (
     setDaysInterval(result.period);
     setHolidaysInPeriod(result.holidaysInPeriod);
   }, [isEndDay]);// eslint-disable-this-line
-
-  const setDate = (day: Day) => {
-    setIsEndDay(!isEndDay);
-
-    const makeSets = (startDay: Day) => {
-      setStartDate(startDay);
-      setEndDate(undefined);
-      setDaysInterval({});
-      setVacationDaysAmount(0);
-      setHolidaysInPeriod(0);
-    };
-
-    return isEndDay ? setEndDate(day) : makeSets(day);
-  };
 
   return (
     <Calendar

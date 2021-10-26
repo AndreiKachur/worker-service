@@ -69,7 +69,14 @@ const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
       'Вы уверены, что хотите отменить?',
       [{
         text: 'Да',
-        onPress: () => cancelVacation(id),
+        onPress: () => {
+          setSpinner(true)
+          cancelVacation(id)
+          setTimeout(() => {
+            Alert.alert('Ваша заявка принята к рассмотрению.');
+            setSpinner(false);
+          }, 500);
+        },
       },
       { text: 'Нет', onPress: () => { } }],
     );

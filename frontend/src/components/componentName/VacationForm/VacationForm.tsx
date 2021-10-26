@@ -17,6 +17,8 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
   const [holidaysInPeriod, setHolidaysInPeriod] = useState(0);
   const [startDate, setStartDate] = useState<Day>();
   const [endDate, setEndDate] = useState<Day>();
+  const [isEndDay, setIsEndDay] = useState(false);
+  const [daysInterval, setDaysInterval] = useState<any>({});
   const { submitVacation } = vacationStore
 
   const computeDaysAmount = () => {
@@ -26,7 +28,22 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
     setVacationDaysAmount(daysDifference);
   };
 
+  const setDate = (day: Day | undefined) => {
+    setIsEndDay(!isEndDay);
+
+    const makeSets = (startDay: Day | undefined) => {
+      setStartDate(startDay);
+      setEndDate(undefined);
+      setDaysInterval({});
+      setVacationDaysAmount(0);
+      setHolidaysInPeriod(0);
+    };
+
+    return isEndDay ? setEndDate(day) : makeSets(day);
+  };
+
   const submitForm = async () => {
+    setSpinner(true)
     if (vacationDaysAmount <= 0) {
       Alert.alert(
         `Выбранное количество дней: ${vacationDaysAmount}`,
@@ -35,15 +52,14 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
       return;
     }
 
-    const data = {
-      startDate,
-      endDate,
-      duration: vacationDaysAmount,
-    };
     if (startDate && endDate) {
       submitVacation(startDate.dateString, endDate.dateString, vacationDaysAmount)
+      setDate(undefined)
+      setTimeout(() => {
+        Alert.alert('Ваша заявка принята к рассмотрению.');
+        setSpinner(false);
+      }, 500);
     }
-    setSpinner(false)
   };
 
   useEffect(() => {
@@ -55,11 +71,12 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
       <View style={styles.calendar}>
         <VacationCalendar
           setHolidaysInPeriod={setHolidaysInPeriod}
-          setVacationDaysAmount={setVacationDaysAmount}
           startDate={startDate}
-          setStartDate={setStartDate}
           endDate={endDate}
-          setEndDate={setEndDate}
+          setDate={setDate}
+          isEndDay={isEndDay}
+          daysInterval={daysInterval}
+          setDaysInterval={setDaysInterval}
         />
       </View>
 

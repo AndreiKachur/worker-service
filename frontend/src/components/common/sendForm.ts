@@ -17,7 +17,7 @@ const sendForm: SendForm = async (url, setSpinner, data) => {
   setTimeout(() => {
     Alert.alert(res.data.answer);
     setSpinner(false);
-  }, 1500);
+  }, 800);
 
   console.log(res.data);
 };
