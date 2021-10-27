@@ -14,6 +14,7 @@ export default StyleSheet.create({
     height: 300,
   },
   image: {
+    
     borderRadius: 20,
     width: '100%',
     height: '100%',
@@ -28,11 +29,13 @@ export default StyleSheet.create({
     marginTop: 'auto',
     marginBottom: 0,
     padding: 20,
-    height: '20%',
+    heightMin: '20%',
     backgroundColor: `${colors.primaryOpacity}`,
   },
   titleText: {
+    fontSize: 20,
     color: 'rgb(255, 255, 255)',
+    fontWeight: 'bold',
   },
   headerBox: {
     display: 'flex',

@@ -20,17 +20,15 @@ export default StyleSheet.create({
     margin: '5%',
   },
   titleText: {
-    margin: '5%',
     color: '#000',
     fontSize: 20,
     fontWeight: 'bold',
   },
   image: {
-    // marginLeft: 10,
-    // marginRight: 10,
+    resizeMode: 'contain',
     width: '100%',
-    height: 300,
-    // borderRadius: 20
+    height: 200,
+    borderRadius: 5,
   },
   textBox: {
     padding: 20,

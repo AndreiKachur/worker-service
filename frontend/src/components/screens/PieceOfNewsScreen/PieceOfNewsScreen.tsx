@@ -20,7 +20,7 @@ const PieceOfNewsScreen: React.FC<PieceOfNewsProps> = ({ route }) => (
         </View>
         <Image style={styles.image} source={{ uri: route.params.image }} />
         <View style={styles.textBox}>
-          <Text style={styles.text}>{route.params.title.repeat(200)}</Text>
+          <Text style={styles.text}>{route.params.content}</Text>
         </View>
       </View>
     </ScrollView>
