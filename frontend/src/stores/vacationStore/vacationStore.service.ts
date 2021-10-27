@@ -4,6 +4,14 @@ import AsyncStorage from '@react-native-community/async-storage';
 import baseApiUrl from '../../ipconfig';
 import { VacationData, Holidays } from './vacationStore.models';
 
+type ResponseVacationType = {
+  data: {
+    region: string,
+    restDaysAmount: number,
+    dates: any
+  }
+};
+
 const service = {
   getHolidays(): Promise<Holidays> {
     return axios.get(`${baseApiUrl}/api`)
@@ -12,7 +20,7 @@ const service = {
   async getVacation(): Promise<VacationData> {
     const userId = await AsyncStorage.getItem('userId');
     return axios.get(`${baseApiUrl}/api/vacation?id=${userId}`)
-      .then((res: any) => res.data);
+      .then((res: ResponseVacationType) => res.data);
   },
   async sendVacation(start: string, end: string, duration: number): Promise<VacationData> {
     const userId = await AsyncStorage.getItem('userId');
@@ -26,7 +34,7 @@ const service = {
         userId,
       },
     })
-      .then((res: any) => res.data);
+      .then((res: ResponseVacationType) => res.data);
   },
   async updateVacation(id: number): Promise<VacationData> {
     const userId = await AsyncStorage.getItem('userId');
@@ -38,7 +46,7 @@ const service = {
         userId,
       },
     })
-      .then((res: any) => res.data);
+      .then((res: ResponseVacationType) => res.data);
   },
 };
 

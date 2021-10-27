@@ -18,7 +18,7 @@ type Dates = {
   status: string;
 }[];
 
-function getVacationInfoData(dates: Dates) {
+function getVacationInfoData(dates: Dates): Data[] {
   const dateNow = +Date.now();
 
   const data: Data[] = [

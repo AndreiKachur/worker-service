@@ -11,7 +11,8 @@ class WorkDayStore {
       '': [],
     },
   };
-  message = ''
+
+  message = '';
 
   constructor() {
     makeAutoObservable(this);
@@ -26,7 +27,9 @@ class WorkDayStore {
 
   submitWorkDays(data: any) {
     service.sendWorkDays(data)
-      .then((d: any) => this.message = d.answer)
+      .then((d: any) => {
+        this.message = d.answer;
+      });
   }
 }
 

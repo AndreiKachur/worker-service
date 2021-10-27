@@ -4,9 +4,7 @@ import { ScrollView } from 'react-native';
 import Spinner from '../../common/Spinner';
 import VacationForm from '../../componentName/VacationForm';
 
-type ServiceVacationProps = {};
-
-const VacationFormScreen: React.FC<ServiceVacationProps> = () => {
+const VacationFormScreen: React.FC<unknown> = () => {
   const [spinner, setSpinner] = useState(false);
 
   if (spinner) return <Spinner />;

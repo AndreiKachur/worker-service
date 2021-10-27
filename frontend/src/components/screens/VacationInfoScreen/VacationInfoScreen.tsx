@@ -8,8 +8,6 @@ import getVacationInfoData from './getVacationInfoData';
 import Spinner from '../../common/Spinner';
 import styles from './VacationInfoScreen.styles';
 
-type VacactionInfoProps = {};
-
 type Item = {
   start: string,
   end: string,
@@ -22,7 +20,7 @@ type Data = {
   items: Item[]
 };
 
-const VacationInfoScreen: React.FC<VacactionInfoProps> = () => {
+const VacationInfoScreen: React.FC<unknown> = () => {
   const { dates } = vacationStore.data;
   const { cancelVacation } = vacationStore;
   const [spinner, setSpinner] = useState(false);
