@@ -36,6 +36,30 @@ export default StyleSheet.create({
   text: {
     color: '#000',
     textAlign: 'justify',
-
+  },
+  iconsBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderColor: 'gray',
+    width: '100%',
+    height: 50,
+  },
+  comments: {
+    color: '#000',
+    fontSize: 15,
+    marginLeft: 5,
+    marginRight: 15,
+  },
+  likes: {
+    color: '#000',
+    fontSize: 15,
+  },
+  views: {
+    color: '#000',
+    fontSize: 15,
+    marginRight: 10,
   },
 });

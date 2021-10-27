@@ -9,6 +9,7 @@ import authStore from '../../../stores/authStore/authStore';
 import styles from './NewsScreen.styles';
 import DropDown from '../../common/DropDown';
 import NewsCard from '../../componentName/NewsCard';
+import { News } from '../../../stores/newsStore/newsStore.models';
 
 type NewsScreenProps = {
   navigation: NavigationProp<ParamListBase>;
@@ -16,7 +17,7 @@ type NewsScreenProps = {
 
 export type Filter = {
   id: number;
-  name: 'private' | 'public' | 'all';
+  name: 'private' | 'public';
   title: string;
 };
 
@@ -26,7 +27,7 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
 
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerTitle: authStore.auth ? 'Новости' : 'Публичные новости',
+      headerTitle: newsFilter === 'private' ? 'Корпоративные новости' : 'Публичные новости',
       headerRight: () => (
         <View style={styles.filerButton}>
           <Icon.Button
@@ -37,7 +38,7 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
             }
             name={authStore.auth ? 'filter' : 'sign-in-alt'}
             backgroundColor="#fff"
-            iconStyle={styles.iconStyle}
+            iconStyle={activeDropDown ? styles.iconStyleActive : styles.iconStyle}
           />
         </View>
       ),
@@ -55,18 +56,11 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
       name: 'public',
       title: 'Публичные',
     },
-    {
-      id: 3,
-      name: 'all',
-      title: 'Все',
-    },
   ];
 
-  const FilterNews = newsFilter === 'private'
+  const FilterNews: News[] = newsFilter === 'private'
     ? newsStore.news.filter((post) => post.private)
-    : newsFilter === 'public'
-      ? newsStore.news.filter((post) => !post.private)
-      : newsStore.news;
+    : newsStore.news.filter((post) => !post.private);
 
   return (
     <View style={styles.component}>
