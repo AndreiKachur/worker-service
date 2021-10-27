@@ -11,7 +11,7 @@ type WorkDaysItemProps = {
   item: Item,
   changeableDaysAmount: number,
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
-  setItemActive: React.Dispatch<React.SetStateAction<{}>>
+  setItemActive: React.Dispatch<React.SetStateAction<unknown>>
 };
 
 const WorkDaysItem: React.FC<WorkDaysItemProps> = ({

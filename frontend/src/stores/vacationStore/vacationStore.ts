@@ -4,20 +4,17 @@ import service from './vacationStore.service';
 import { VacationData, Holidays } from './vacationStore.models';
 
 class VacationStore {
-  data: VacationData = {
-    id: 0,
-    user: {
-      id: '',
-      name: '',
-      avatar: '',
-    },
+  userId = '';
+
+  data = {
     region: '',
-    daysAmount: 0,
     restDaysAmount: 0,
-    planned: [{
+    dates: [{
+      id: 0,
       start: '',
       end: '',
       duration: 0,
+      status: '',
     }],
   };
 
@@ -29,19 +26,23 @@ class VacationStore {
     },
   };
 
+  data_: any = {};
+
   constructor() {
     makeObservable(this, {
       data: observable,
       holidaysData: observable,
       setVacation: action.bound,
       setHolidays: action.bound,
+      submitVacation: action.bound,
+      cancelVacation: action.bound,
     });
 
+    service.getHolidays()
+      .then((d) => this.setHolidays(d));
+
     service.getVacation()
-      .then((d) => {
-        this.setVacation(d.vacation);
-        this.setHolidays(d.holidays);
-      });
+      .then((d) => { this.setVacation(d); });
   }
 
   setVacation(vacationData: VacationData) {
@@ -50,6 +51,16 @@ class VacationStore {
 
   setHolidays(holidaysData: Holidays) {
     this.holidaysData = holidaysData;
+  }
+
+  submitVacation(start: string, end: string, duration: number) {
+    service.sendVacation(start, end, duration)
+      .then((d) => this.setVacation(d));
+  }
+
+  cancelVacation(id: number) {
+    service.updateVacation(id)
+      .then((d) => this.setVacation(d));
   }
 }
 

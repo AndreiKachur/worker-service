@@ -3,7 +3,7 @@ import React from 'react';
 import Button from '../../common/Button';
 
 type ButtonCancelProps = {
-  submitForm: () => Promise<void>
+  submitForm: () => void
 };
 
 const ButtonCancel: React.FC<ButtonCancelProps> = ({ submitForm }) => (

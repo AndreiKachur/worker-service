@@ -1,19 +1,19 @@
-import User from '../userStore/userStore.models';
-
 export type VacationData = {
-  id: number,
-  user: User,
   region: string,
-  daysAmount: number,
   restDaysAmount: number,
-  planned: VacationDate[],
-  inquire?: VacationDate[]
+  dates: VacationDates[]
 };
 
-export type VacationDate = {
+export type VacationInfo = {
+  region: string,
+  restDaysAmount: number,
+};
+export type VacationDates = {
+  id: number,
   start: string,
   end: string,
-  duration: number
+  duration: number,
+  status: string,
 };
 
 export type Holidays = {

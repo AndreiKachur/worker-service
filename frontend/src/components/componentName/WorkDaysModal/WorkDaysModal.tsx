@@ -10,7 +10,7 @@ type WorkDayModalProps = {
   modalVisible: boolean;
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>;
   addHours: (hours: string) => void;
-  submitForm: () => Promise<void>;
+  submitForm: () => void;
 };
 
 const WorkDaysModal: React.FC<WorkDayModalProps> = ({

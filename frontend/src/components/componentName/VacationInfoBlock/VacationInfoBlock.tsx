@@ -4,10 +4,11 @@ import { observer } from 'mobx-react-lite';
 
 import Separator from '../../common/Separator';
 import ButtonCancel from '../ButtonCancel';
+import VacationInfoEmpty from '../VacationInfoEmpty';
 import styles from './VacationInfoBlock.styles';
 
 type VacationInfoBlockProps = {
-  submitForm: () => Promise<void>,
+  submitForm: (id: number) => void,
   data: any
 };
 
@@ -17,33 +18,33 @@ const VacationInfoBlock: React.FC<VacationInfoBlockProps> = ({
   <View>
     <Text style={styles.header}>{data.title} </Text>
     {
-      data.items.map((item: any) => {
-        const { status } = item;
+        !data.items.length && <VacationInfoEmpty />
+      }
+    {
+        data.items.map((item: any) => {
+          const { status } = item;
 
-        return (
-          <View key={status}>
-            <View style={styles.vacationCard}>
-              <Text style={styles.textBold}>
-                с {item.start} по {item.end}
-              </Text>
+          return (
+            <View key={item.start + Math.random()}>
+              <View style={styles.vacationCard}>
+                <Text style={styles.textBold}>
+                  с {item.start} по {item.end}
+                </Text>
+                {(status !== 'Исполнено'
+                  && status !== 'Отмена - на рассмотрении')
+                  && <ButtonCancel submitForm={() => submitForm(item.id)} />}
+              </View>
               {
-                status === 'исполнено'
-                  ? null
-                  : <ButtonCancel submitForm={submitForm} />
+                (status === 'На рассмотрении'
+                  || status === 'Отмена - на рассмотрении')
+                && <Text style={styles.text}>Статус: {item.status} </Text>
               }
+              <Separator />
             </View>
-            {
-              status === 'оформлено' || status === 'исполнено'
-                ? null
-                : <Text style={styles.text}>Статус: {item.status} </Text>
-            }
-            <Separator />
-          </View>
-        );
-      })
-    }
+          );
+        })
+      }
   </View>
-
 );
 
 export default observer(VacationInfoBlock);
