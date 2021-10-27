@@ -13,7 +13,7 @@ export default StyleSheet.create({
     zIndex: 1,
   },
   dropDown: {
-    flex: width > 500 ? 0.6 : 0.3,
+    flex: width > 500 ? 0.5 : 0.2,
     alignItems: 'center',
     justifyContent: 'center',
     width: 200,

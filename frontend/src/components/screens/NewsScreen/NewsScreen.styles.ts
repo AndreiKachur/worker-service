@@ -26,4 +26,9 @@ export default StyleSheet.create({
     marginLeft: 10,
     color: `${colors.primary}`,
   },
+  iconStyleActive: {
+    marginRight: 10,
+    marginLeft: 10,
+    color: `${colors.sixth}`,
+  },
 });

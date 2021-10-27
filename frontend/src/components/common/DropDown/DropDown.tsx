@@ -32,7 +32,7 @@ const DropDown: React.FC<DropDownProps> = (props) => {
               }
               onPress={() => {
                 props.setNewsFilter(filter.name);
-                dropDownOut()
+                dropDownOut();
               }}
               title={filter.title}
             />
