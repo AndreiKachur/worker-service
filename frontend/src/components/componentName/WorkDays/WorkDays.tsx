@@ -14,12 +14,19 @@ import workDaysStore from '../../../stores/workDaysStore';
 type WorkDayProps = {
   setSpinner: React.Dispatch<React.SetStateAction<boolean>>
 };
+export type ItemActiveType = {
+  date: string,
+  name: string,
+  hours: undefined | number
+};
 
 const WorkDays: React.FC<WorkDayProps> = ({ setSpinner }) => {
   const { days } = workDaysStore.data;
 
   const [items, setItems] = useState({});
-  const [itemActive, setItemActive] = useState();
+  const [itemActive, setItemActive] = useState<ItemActiveType>({
+    date: '', name: '', hours: undefined,
+  });
   const [modalVisible, setModalVisible] = useState(false);
 
   const changeableDaysAmount = -7;
@@ -42,11 +49,15 @@ const WorkDays: React.FC<WorkDayProps> = ({ setSpinner }) => {
 
   const submitForm = () => {
     setSpinner(true);
-    workDaysStore.submitWorkDays(itemActive);
-    setTimeout(() => {
-      Alert.alert(workDaysStore.message);
-      setSpinner(false);
-    }, 800);
+
+    if (itemActive.hours === undefined) {
+      Alert.alert('Пожалуйста введите количество часов');
+    } else {
+      workDaysStore.submitWorkDays(itemActive);
+      setTimeout(() => Alert.alert(workDaysStore.message), 800);
+      workDaysStore.setMessage('');
+    }
+    setSpinner(false);
   };
 
   useEffect(() => {

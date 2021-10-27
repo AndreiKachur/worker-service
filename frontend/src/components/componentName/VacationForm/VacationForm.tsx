@@ -43,7 +43,6 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
   };
 
   const submitForm = async () => {
-    setSpinner(true);
     if (vacationDaysAmount <= 0) {
       Alert.alert(
         `Выбранное количество дней: ${vacationDaysAmount}`,
@@ -53,6 +52,7 @@ const VacationForm: React.FC<VacationFormProps> = ({ setSpinner }) => {
     }
 
     if (startDate && endDate) {
+      setSpinner(true);
       submitVacation(startDate.dateString, endDate.dateString, vacationDaysAmount);
       setDate(undefined);
       setTimeout(() => {

@@ -25,11 +25,13 @@ class WorkDayStore {
     this.data = workDaysData;
   }
 
+  setMessage(message: string) {
+    this.message = message;
+  }
+
   submitWorkDays(data: any) {
     service.sendWorkDays(data)
-      .then((d: any) => {
-        this.message = d.answer;
-      });
+      .then((d: any) => this.setMessage(d.answer));
   }
 }
 

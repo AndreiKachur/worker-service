@@ -7,11 +7,17 @@ import Separator from '../../common/Separator';
 import styles from './WorkDaysItem.styles';
 import Button from '../../common/Button';
 
+type ItemActiveType = {
+  date: string,
+  name: string,
+  hours: undefined | number
+};
+
 type WorkDaysItemProps = {
   item: Item,
   changeableDaysAmount: number,
   setModalVisible: React.Dispatch<React.SetStateAction<boolean>>,
-  setItemActive: React.Dispatch<React.SetStateAction<unknown>>
+  setItemActive: React.Dispatch<React.SetStateAction<ItemActiveType>>
 };
 
 const WorkDaysItem: React.FC<WorkDaysItemProps> = ({

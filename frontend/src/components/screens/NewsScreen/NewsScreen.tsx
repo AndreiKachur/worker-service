@@ -64,10 +64,9 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
 
   const FilterNews = newsFilter === 'private'
     ? newsStore.news.filter((post) => post.private)
-    : newsFilter === 'public' 
-    ? newsStore.news.filter((post) => !post.private) 
-    : newsStore.news;
-
+    : newsFilter === 'public'
+      ? newsStore.news.filter((post) => !post.private)
+      : newsStore.news;
 
   return (
     <View style={styles.component}>
