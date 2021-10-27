@@ -3,7 +3,11 @@ import { View, StyleSheet, Dimensions } from 'react-native';
 
 import color from '../../../themes';
 
-const Separator = ({ width = 90 }) => (
+type SeparatorProps = {
+  width: number
+};
+
+const Separator: React.FC<SeparatorProps> = ({ width = 90 }) => (
   <View
     style={{
       marginVertical: 8,
