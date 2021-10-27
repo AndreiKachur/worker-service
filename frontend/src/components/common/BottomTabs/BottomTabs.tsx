@@ -7,7 +7,7 @@ import colors from '../../../themes';
 
 const BottomTab = createBottomTabNavigator();
 
-type BottomTabsProps = {
+export type BottomTabsProps = {
   items: Item[],
   showHeader?: boolean
 };
