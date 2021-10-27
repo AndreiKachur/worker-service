@@ -50,7 +50,6 @@ class VacationController {
 
             const { restDaysAmount } = vacation
             const newRestDaysAmount = restDaysAmount - duration
-            console.log(newRestDaysAmount);
 
             await Vacation.update(
                 { restDaysAmount: newRestDaysAmount },
