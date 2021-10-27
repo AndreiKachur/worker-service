@@ -6,15 +6,12 @@ import { WorkDaysData } from './workDaysStore.models';
 class WorkDayStore {
   data: WorkDaysData = {
     id: 0,
-    user: {
-      id: '',
-      name: '',
-      avatar: 'Ooops',
-    },
+    userId: '',
     days: {
       '': [],
     },
   };
+  message = ''
 
   constructor() {
     makeAutoObservable(this);
@@ -25,6 +22,11 @@ class WorkDayStore {
 
   setWorkDays(workDaysData: WorkDaysData) {
     this.data = workDaysData;
+  }
+
+  submitWorkDays(data: any) {
+    service.sendWorkDays(data)
+      .then((d: any) => this.message = d.answer)
   }
 }
 

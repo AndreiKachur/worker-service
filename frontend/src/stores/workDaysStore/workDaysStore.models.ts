@@ -2,6 +2,6 @@ import User from '../userStore/userStore.models';
 
 export type WorkDaysData = {
   id: number,
-  user: User,
+  userId: string,
   days: any,
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import { Agenda } from 'react-native-calendars';
 import { observer } from 'mobx-react-lite';
 
@@ -41,7 +41,14 @@ const WorkDays: React.FC<WorkDayProps> = ({ setSpinner }) => {
     return [d.getFullYear(), monthFormat, dayFormat].join('-');
   }
 
-  const submitForm = () => sendForm('workdays', setSpinner, itemActive);
+  const submitForm = () => {
+    setSpinner(true);
+    workDaysStore.submitWorkDays(itemActive)
+    setTimeout(() => {
+      Alert.alert(workDaysStore.message);
+      setSpinner(false);
+    }, 800);
+  }
 
   useEffect(() => {
     for (let i = minDateFromNow; i <= maxDateFromNow; i += 1) {
