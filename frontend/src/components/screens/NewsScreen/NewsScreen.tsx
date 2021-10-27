@@ -16,7 +16,7 @@ type NewsScreenProps = {
 
 export type Filter = {
   id: number;
-  name: 'private' | 'public';
+  name: 'private' | 'public' | 'all';
   title: string;
 };
 
@@ -55,11 +55,19 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
       name: 'public',
       title: 'Публичные',
     },
+    {
+      id: 3,
+      name: 'all',
+      title: 'Все',
+    },
   ];
 
   const FilterNews = newsFilter === 'private'
     ? newsStore.news.filter((post) => post.private)
-    : newsStore.news.filter((post) => !post.private);
+    : newsFilter === 'public' 
+    ? newsStore.news.filter((post) => !post.private) 
+    : newsStore.news;
+
 
   return (
     <View style={styles.component}>
