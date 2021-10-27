@@ -63,8 +63,8 @@ app.get('/api/user/:id', async (req, res) => {
 
 async function start() {
   try {
-    // await sequelize.authenticate()
-    // await sequelize.sync()
+    await sequelize.authenticate()
+    await sequelize.sync()
     http.createServer(app)
     app.listen(PORTHTTP, () => {
       console.log(`(HTTP) Server is running on port ${PORTHTTP}`)

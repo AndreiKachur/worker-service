@@ -7,15 +7,14 @@ import PieceOfNewsScreen from '../../screens/PieceOfNewsScreen/PieceOfNewsScreen
 
 const Stack = createStackNavigator();
 
-function NavigationPrivate() {
-  return (
-    <Stack.Navigator screenOptions={{
-      headerStyle: { backgroundColor: color.third },
-      headerTintColor: color.primary,
-      headerTitleStyle: { fontWeight: 'bold' },
-    }}
-    >
-      {
+const NavigationPrivate: React.FC = () => (
+  <Stack.Navigator screenOptions={{
+    headerStyle: { backgroundColor: color.third },
+    headerTintColor: color.primary,
+    headerTitleStyle: { fontWeight: 'bold' },
+  }}
+  >
+    {
         stackItems.map((item) => (
           <Stack.Screen
             key={Date.now()}
@@ -26,9 +25,8 @@ function NavigationPrivate() {
           </Stack.Screen>
         ))
       }
-      <Stack.Screen name="PieceOfNews" component={PieceOfNewsScreen} options={{ headerTitle: '' }} />
-    </Stack.Navigator>
-  );
-}
+    <Stack.Screen name="PieceOfNews" component={PieceOfNewsScreen} options={{ headerTitle: '' }} />
+  </Stack.Navigator>
+);
 
 export default NavigationPrivate;

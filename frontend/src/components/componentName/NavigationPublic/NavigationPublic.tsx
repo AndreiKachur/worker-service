@@ -14,24 +14,22 @@ const stackItems = [
   { name: 'PieceOfNews', component: PieceOfNewsScreen, headerTitle: '' },
 ];
 
-function NavigationPublic() {
-  return (
-    <Stack.Navigator screenOptions={{
-      headerStyle: { backgroundColor: color.third },
-      headerTintColor: color.primary,
-      headerTitleStyle: { fontWeight: 'bold' },
-    }}
-    >
-      {stackItems.map((item) => (
-        <Stack.Screen
-          key={item.name}
-          name={item.name}
-          component={item.component}
-          options={{ headerTitle: item.headerTitle }}
-        />
-      ))}
-    </Stack.Navigator>
-  );
-}
+const NavigationPublic: React.FC = () => (
+  <Stack.Navigator screenOptions={{
+    headerStyle: { backgroundColor: color.third },
+    headerTintColor: color.primary,
+    headerTitleStyle: { fontWeight: 'bold' },
+  }}
+  >
+    {stackItems.map((item) => (
+      <Stack.Screen
+        key={item.name}
+        name={item.name}
+        component={item.component}
+        options={{ headerTitle: item.headerTitle }}
+      />
+    ))}
+  </Stack.Navigator>
+);
 
 export default NavigationPublic;

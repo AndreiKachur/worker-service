@@ -13,7 +13,7 @@ export type BottomTabsProps = {
 };
 export type Item = {
   name: string,
-  component: React.FC<any>,
+  component: () => JSX.Element,
   headerTitle: string,
   tabBarLabel: string,
   tabBarBadge?: number,

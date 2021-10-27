@@ -6,7 +6,16 @@ import ServiceWorkDaysScreen from '../../screens/ServiceWorkDaysScreen';
 import EditProfileScreen from '../../screens/EditProfileScreen';
 // import PieceOfNewsScreen from '../../screens/PieceOfNewsScreen';
 
-const stackItems = [
+type StackItem = {
+  name: string,
+  component: () => JSX.Element
+  options: {
+    headerShown?: boolean,
+    headerTitle?: string
+  }
+};
+
+const stackItems: StackItem[] = [
   {
     name: 'Main',
     component: () => (<BottomTabs items={headerTabs} />),

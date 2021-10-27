@@ -40,9 +40,7 @@ const buildPeriod: BuildPeriod = (start, end, isEndDay) => {
 
   if (!end) return period;
 
-  const daysInMonth = (month: number, year: number) => {
-    return (32 - new Date(year, month - 1, 32).getDate())
-  }
+  const daysInMonth = (month: number, year: number) => (32 - new Date(year, month - 1, 32).getDate());
 
   // добавляем начало и окончание периода
   period[start.dateString] = intervalPatterns.start;

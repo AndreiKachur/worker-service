@@ -40,13 +40,13 @@ const EditProfileScreen: React.FC = () => {
   };
 
   const saveNewUserData = () => {
-    if ((fullNameValue || telephoneNumberValue) && !avatarFile.uri) {
+    if ((fullNameValue.length && telephoneNumberValue.length) && !avatarFile.uri.length) {
       userStore.setChangeUserData(fullNameValue, telephoneNumberValue);
       Alert.alert('Успешно!');
-    } if ((fullNameValue || telephoneNumberValue) && avatarFile.uri) {
+    } if ((fullNameValue.length && telephoneNumberValue.length) && avatarFile.uri) {
       userStore.setChangeUserData(fullNameValue, telephoneNumberValue, avatarFile.uri);
       Alert.alert('Успешно!');
-    } else {
+    } if (!fullNameValue.length || !telephoneNumberValue.length) {
       Alert.alert('Поля "ФИО" и "Номер телефона" не могут быть пустыми!');
     }
   };

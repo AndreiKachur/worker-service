@@ -2,11 +2,14 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import FonticstoIco from 'react-native-vector-icons/Fontisto';
 import MaterialIco from 'react-native-vector-icons/MaterialCommunityIcons';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 import styles from './ServicesScreen.styles';
 import colors from '../../../themes';
 
-type ServicesScreenProps = any;
+type ServicesScreenProps = {
+  navigation: NavigationProp<ParamListBase>
+};
 const services = [
   {
     id: 1,
