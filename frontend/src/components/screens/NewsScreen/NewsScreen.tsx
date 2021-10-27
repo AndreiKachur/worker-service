@@ -48,7 +48,7 @@ const NewsScreen: React.FC<NewsScreenProps> = ({ navigation }) => {
     {
       id: 1,
       name: 'private',
-      title: 'Приватные',
+      title: 'Корпоративные',
     },
     {
       id: 2,
