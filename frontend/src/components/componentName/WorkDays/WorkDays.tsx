@@ -52,12 +52,15 @@ const WorkDays: React.FC<WorkDayProps> = ({ setSpinner }) => {
 
     if (itemActive.hours === undefined) {
       Alert.alert('Пожалуйста введите количество часов');
+      setSpinner(false);
     } else {
       workDaysStore.submitWorkDays(itemActive);
-      setTimeout(() => Alert.alert(workDaysStore.message), 800);
-      workDaysStore.setMessage('');
+      setTimeout(() => {
+        Alert.alert(workDaysStore.message)
+        workDaysStore.setMessage('');
+        setSpinner(false);
+      }, 800)
     }
-    setSpinner(false);
   };
 
   useEffect(() => {
