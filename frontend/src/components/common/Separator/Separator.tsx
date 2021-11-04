@@ -4,7 +4,7 @@ import { View, StyleSheet, Dimensions } from 'react-native';
 import color from '../../../themes';
 
 type SeparatorProps = {
-  width: number
+  width?: number
 };
 
 const Separator: React.FC<SeparatorProps> = ({ width = 90 }) => (

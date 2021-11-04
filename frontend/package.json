@@ -1,5 +1,5 @@
 {
-  "name": "testapp4",
+  "name": "worker-service",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,10 +8,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "web": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "cd node_modules/@ff/e2e-testing && yarn test",
-    "lint": "ff-lint",
-    "generate": "ff-generate"
+    "build": "react-app-rewired build"
   },
   "dependencies": {
     "@mdi/font": "^6.2.95",
@@ -54,9 +51,6 @@
     "@babel/plugin-syntax-jsx": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
     "@babel/runtime": "7.15.4",
-    "@ff/e2e-testing": "^1.3.1",
-    "@ff/generator": "^1.5.1",
-    "@ff/linting": "^1.6.1",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.65.0",
@@ -91,11 +85,6 @@
       "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": {
-    "*": [
-      "ff-lint"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -108,5 +97,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.43.197:5000"
+  "proxy": "http://localhost:5000"
 }
