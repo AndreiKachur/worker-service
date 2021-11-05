@@ -22,8 +22,7 @@ export default StyleSheet.create({
   },
   textBold: {
     marginVertical: 6,
-    color: color.seventh,
-    fontWeight: 'bold',
+    color: color.secondary,
     fontSize: 15,
     maxWidth: Dimensions.get('window').width * 0.9,
   },

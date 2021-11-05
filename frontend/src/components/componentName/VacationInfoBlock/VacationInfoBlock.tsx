@@ -12,15 +12,38 @@ type VacationInfoBlockProps = {
   data: any
 };
 
+const monthNames: any = {
+  '01': 'янв.',
+  '02': 'фев.',
+  '03': 'мрт.',
+  '04': 'апр.',
+  '05': 'мая',
+  '06': 'июня',
+  '07': 'июля',
+  '08': 'авг.',
+  '09': 'сен.',
+  '10': 'окт.',
+  '11': 'ноя.',
+  '12': 'дек.',
+}
+
 const VacationInfoBlock: React.FC<VacationInfoBlockProps> = ({
   data, submitForm,
-}) => (
-  <View>
-    <Text style={styles.header}>{data.title} </Text>
-    {
+}) => {
+
+  const formatDate = (str: string) => {
+    const dateParts = str.split('-')
+    dateParts[1] = monthNames[dateParts[1]]
+    return dateParts.reverse().join(' ')
+  }
+
+  return (
+    <View>
+      <Text style={styles.header}>{data.title} </Text>
+      {
         !data.items.length && <VacationInfoEmpty />
       }
-    {
+      {
         data.items.map((item: any) => {
           const { status } = item;
 
@@ -28,11 +51,13 @@ const VacationInfoBlock: React.FC<VacationInfoBlockProps> = ({
             <View key={item.start + Math.random()}>
               <View style={styles.vacationCard}>
                 <Text style={styles.textBold}>
-                  с {item.start} по {item.end}
+                  с {formatDate(item.start)} по {formatDate(item.end)}
                 </Text>
-                {(status !== 'Исполнено'
-                  && status !== 'Отмена - на рассмотрении')
-                  && <ButtonCancel submitForm={() => submitForm(item.id)} />}
+                {
+                  (status !== 'Исполнено'
+                    && status !== 'Отмена - на рассмотрении')
+                  && <ButtonCancel submitForm={() => submitForm(item.id)} />
+                }
               </View>
               {
                 (status === 'На рассмотрении'
@@ -44,7 +69,8 @@ const VacationInfoBlock: React.FC<VacationInfoBlockProps> = ({
           );
         })
       }
-  </View>
-);
+    </View>
+  )
+};
 
 export default observer(VacationInfoBlock);
