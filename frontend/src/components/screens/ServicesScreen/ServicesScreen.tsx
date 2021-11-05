@@ -25,28 +25,10 @@ const services = [
     title: 'Мой Отпуск',
     ico: <FonticstoIco
       size={50}
-      style={[styles.ico, { backgroundColor: colors.fourth }]}
-      name="holiday-village"
-    />,
-  },
-  {
-    id: 3,
-    title: 'Мой Отпуск',
-    ico: <FonticstoIco
-      size={50}
       style={[styles.ico, { backgroundColor: colors.seventh }]}
       name="holiday-village"
     />,
-  },
-  {
-    id: 4,
-    title: 'Мой Отпуск',
-    ico: <FonticstoIco
-      size={50}
-      style={[styles.ico, { backgroundColor: colors.secondary }]}
-      name="holiday-village"
-    />,
-  },
+  }
 ];
 
 const ServicesScreen: React.FC<ServicesScreenProps> = ({ navigation }) => (
