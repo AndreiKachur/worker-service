@@ -8,14 +8,15 @@ import getVacationInfoData from './getVacationInfoData';
 import Spinner from '../../common/Spinner';
 import styles from './VacationInfoScreen.styles';
 
-type Item = {
+export type Item = {
+  id: number,
   start: string,
   end: string,
   duration: number,
   status: string,
 };
 
-type Data = {
+export type Data = {
   title: string,
   items: Item[]
 };

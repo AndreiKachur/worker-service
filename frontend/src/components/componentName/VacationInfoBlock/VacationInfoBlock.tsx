@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { observer } from 'mobx-react-lite';
 
+import { Data, Item } from '../../screens/VacationInfoScreen'
 import Separator from '../../common/Separator';
 import ButtonCancel from '../ButtonCancel';
 import VacationInfoEmpty from '../VacationInfoEmpty';
@@ -9,10 +10,14 @@ import styles from './VacationInfoBlock.styles';
 
 type VacationInfoBlockProps = {
   submitForm: (id: number) => void,
-  data: any
+  data: Data
 };
 
-const monthNames: any = {
+type monthNamesType = {
+  [key: string]: string
+}
+
+const monthNames: monthNamesType = {
   '01': 'янв.',
   '02': 'фев.',
   '03': 'мрт.',
@@ -44,7 +49,7 @@ const VacationInfoBlock: React.FC<VacationInfoBlockProps> = ({
         !data.items.length && <VacationInfoEmpty />
       }
       {
-        data.items.map((item: any) => {
+        data.items.map((item: Item) => {
           const { status } = item;
 
           return (
