@@ -56,10 +56,8 @@ const WorkDays: React.FC<WorkDayProps> = ({ setSpinner }) => {
     } else {
       workDaysStore.submitWorkDays(itemActive);
       setTimeout(() => {
-        Alert.alert(workDaysStore.message)
-        workDaysStore.setMessage('');
         setSpinner(false);
-      }, 800)
+      }, 400)
     }
   };
 
@@ -97,7 +95,7 @@ const WorkDays: React.FC<WorkDayProps> = ({ setSpinner }) => {
       <Agenda
         minDate={getDateFromNow(minDateFromNow)}
         maxDate={getDateFromNow(maxDateFromNow)}
-        selected={getDateFromNow(-1)}
+        selected={getDateFromNow(-2)}
         pastScrollRange={1}
         futureScrollRange={1}
         firstDay={1}

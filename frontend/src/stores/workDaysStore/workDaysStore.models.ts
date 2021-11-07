@@ -1,6 +1,4 @@
 export type WorkDaysData = {
-  id: number,
-  userId: string,
   days: any,
 };
 

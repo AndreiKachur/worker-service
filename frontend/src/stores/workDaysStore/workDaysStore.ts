@@ -5,8 +5,6 @@ import { WorkDaysData } from './workDaysStore.models';
 
 class WorkDayStore {
   data: WorkDaysData = {
-    id: 0,
-    userId: '',
     days: {
       '': [],
     },
@@ -22,7 +20,7 @@ class WorkDayStore {
   }
 
   setWorkDays(workDaysData: WorkDaysData) {
-    this.data = workDaysData;
+    this.data.days = workDaysData;
   }
 
   setMessage(message: string) {
@@ -31,7 +29,7 @@ class WorkDayStore {
 
   submitWorkDays(data: any) {
     service.sendWorkDays(data)
-      .then((d: any) => this.setMessage(d.answer));
+      .then((d: any) => this.setWorkDays(d));
   }
 }
 
