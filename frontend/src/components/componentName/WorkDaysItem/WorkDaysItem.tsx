@@ -27,7 +27,14 @@ const WorkDaysItem: React.FC<WorkDaysItemProps> = ({
   setItemActive,
 }) => {
   function getDateFromNow(daysNumber: number) {
-    return new Date(+new Date() + 1000 * 60 * 60 * 24 * daysNumber);
+    const now = new Date()
+    const today = [
+      now.getFullYear(),
+      ('0' + (now.getMonth() + 1)).slice(-2),
+      ('0' + now.getDate()).slice(-2)
+    ].join('-')
+
+    return new Date(+new Date(today) + 1000 * 60 * 60 * 24 * daysNumber);
   }
 
   if (new Date(item.date) <= getDateFromNow(changeableDaysAmount)) {

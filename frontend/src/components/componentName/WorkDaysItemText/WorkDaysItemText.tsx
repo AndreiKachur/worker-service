@@ -41,7 +41,7 @@ const WorkDaysItemText: React.FC<WorkDaysItemTextProps> = ({
   if (!item.hours) {
     return (
       <Text style={[styles.text, { color: colors.fourth }]}>
-        Количество рабочих часов: НЕ УКАЗАНО
+        Кол-во рабочих часов: НЕ УКАЗАНО
       </Text>
     );
   }
