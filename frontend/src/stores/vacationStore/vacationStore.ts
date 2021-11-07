@@ -4,7 +4,6 @@ import service from './vacationStore.service';
 import { VacationData, Holidays } from './vacationStore.models';
 
 class VacationStore {
-  userId = '';
 
   data = {
     region: '',

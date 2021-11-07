@@ -60,13 +60,9 @@ const Holiday = sequelize.define('holiday', {
     date: { type: DataTypes.STRING, allowNull: false },
 })
 
-const WorkDays = sequelize.define('workdays', {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-})
-
 const WorkDay = sequelize.define('workday', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    name: { type: DataTypes.STRING },
+    name: { type: DataTypes.STRING, defaultValue: 'ВАШ РАБОЧИЙ ДЕНЬ' },
     date: { type: DataTypes.STRING },
     hours: { type: DataTypes.INTEGER },
 })
@@ -101,11 +97,8 @@ VacationDate.belongsTo(User)
 Vacation.belongsToMany(Holiday, { through: Holidays })
 Holiday.belongsToMany(Vacation, { through: Holidays })
 
-WorkDays.hasMany(WorkDay)
-WorkDay.belongsTo(WorkDays)
-
-User.hasOne(WorkDays)
-WorkDays.belongsTo(User)
+User.hasMany(WorkDay)
+WorkDay.belongsTo(User)
 
 module.exports = {
     User,
@@ -117,6 +110,5 @@ module.exports = {
     VacationDate,
     Holidays,
     Holiday,
-    WorkDays,
     WorkDay
 }

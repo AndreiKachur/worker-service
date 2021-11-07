@@ -7,6 +7,4 @@ router.get('/', workdaysController.getWorkdays)
 
 router.post('/', workdaysController.addForm)
 
-router.put('/',)
-
 module.exports = router

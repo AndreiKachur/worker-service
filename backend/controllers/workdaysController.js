@@ -1,18 +1,53 @@
+const { WorkDay } = require('../models/models')
+const ApiError = require('../error/ApiError')
+
+async function workDaysFormat(id) {
+
+    const workdays = await WorkDay.findAll({ where: { userId: id } })
+
+    return workdays.reduce((acc, item) => {
+        acc[item.date] = [{
+            date: item.date,
+            hours: item.hours,
+            name: item.name,
+        }]
+        return acc
+    }, {})
+
+}
+
 class WorkDaysController {
 
     async getWorkdays(req, res) {
-        res.status(200).json({ message: 'Test is done on workdays.' })
+        const { id } = req.query
+
+        if (!id) {
+            return next(ApiError.badRequest('Не задан ID'))
+        }
+        const data = await workDaysFormat(id)
+        res.json(data)
+        // res.status(200).json({ message: 'Test is done on workdays.' })
     }
 
-    async addForm(req, res) {
+    async addForm(req, res, next) {
         try {
-            console.log(req.body);
+            const { date, hours, name, userId } = req.body
 
-            res.json({ answer: 'Ваша заявка принята к рассмотрению' })
+            if (!userId || !name || !date) {
+                return next(ApiError.badRequest('Не задан обязательный аргумент'))
+            }
+
+            await WorkDay.create({
+                date, hours, name, userId
+            })
+            const data = await workDaysFormat(userId)
+
+            res.json(data)
 
         } catch (e) {
-            console.log(e);
-            res.status(400).json({ message: "Form error" })
+
+            next(ApiError.badRequest(e.message))
+
         }
     }
 
